@@ -1,0 +1,285 @@
+Class.create("XMath.3Devils.Program",{
+	from : ["WithEvents"],
+	ctor : function(context) {
+		
+
+		
+		var types = ["ivec2","ivec3","ivec4","vec2","vec3","vec4","imat2","imat3","imat4","mat2","mat3","mat4"];
+		
+		
+		/* massive */
+		
+		vs_attribute_ivec2 : function() {
+		},
+		vs_attribute_ivec3 : function() {
+		},
+		vs_attribute_ivec4 : function() {
+		},
+		vs_attribute_vec2 : function() {
+		},
+		vs_attribute_vec3 : function() {
+		},
+		vs_attribute_vec4 : function() {
+		},
+		vs_attribute_imat2 : function() {
+		},
+		vs_attribute_imat3 : function() {
+		},
+		vs_attribute_imat4 : function() {
+		},
+		vs_attribute_mat2 : function() {
+		},
+		vs_attribute_mat3 : function() {
+		},
+		vs_attribute_mat4 : function() {
+		},
+		
+		
+		
+		
+		vs_uniform_bool : function() {
+		},
+		vs_uniform_float : function() {
+		},
+		vs_uniform_int : function() {
+		},
+		vs_uniform_ivec2 : function() {
+		},
+		vs_uniform_ivec3 : function() {
+		},
+		vs_uniform_ivec4 : function() {
+		},
+		vs_uniform_vec2 : function() {
+		},
+		vs_uniform_vec3 : function() {
+		},
+		vs_uniform_vec4 : function() {
+		},
+		vs_uniform_imat2 : function() {
+		},
+		vs_uniform_imat3 : function() {
+		},
+		vs_uniform_imat4 : function() {
+		},
+		vs_uniform_mat2 : function() {
+		},
+		vs_uniform_mat3 : function() {
+		},
+		vs_uniform_mat4 : function() {
+		},
+		vs_uniform_sampler2d : function() {
+		},
+		
+		
+		
+		vs_temporary_bool : function() {
+		},
+		vs_temporary_float : function() {
+		},
+		vs_temporary_int : function() {
+		},
+		vs_temporary_ivec2 : function() {
+		},
+		vs_temporary_ivec3 : function() {
+		},
+		vs_temporary_ivec4 : function() {
+		},
+		vs_temporary_vec2 : function() {
+		},
+		vs_temporary_vec3 : function() {
+		},
+		vs_temporary_vec4 : function() {
+		},
+		vs_temporary_imat2 : function() {
+		},
+		vs_temporary_imat3 : function() {
+		},
+		vs_temporary_imat4 : function() {
+		},
+		vs_temporary_mat2 : function() {
+		},
+		vs_temporary_mat3 : function() {
+		},
+		vs_temporary_mat4 : function() {
+		},
+		vs_temporary_sampler2d : function() {
+		},
+		
+		
+		
+		
+		
+		fs_attribute_ivec2 : function() {
+		},
+		fs_attribute_ivec3 : function() {
+		},
+		fs_attribute_ivec4 : function() {
+		},
+		fs_attribute_vec2 : function() {
+		},
+		fs_attribute_vec3 : function() {
+		},
+		fs_attribute_vec4 : function() {
+		},
+		fs_attribute_imat2 : function() {
+		},
+		fs_attribute_imat3 : function() {
+		},
+		fs_attribute_imat4 : function() {
+		},
+		fs_attribute_mat2 : function() {
+		},
+		fs_attribute_mat3 : function() {
+		},
+		fs_attribute_mat4 : function() {
+		},
+		
+		
+		fs_uniform_bool : function() {
+		},
+		fs_uniform_float : function() {
+		},
+		fs_uniform_int : function() {
+		},
+		fs_uniform_ivec2 : function() {
+		},
+		fs_uniform_ivec3 : function() {
+		},
+		fs_uniform_ivec4 : function() {
+		},
+		fs_uniform_vec2 : function() {
+		},
+		fs_uniform_vec3 : function() {
+		},
+		fs_uniform_vec4 : function() {
+		},
+		fs_uniform_imat2 : function() {
+		},
+		fs_uniform_imat3 : function() {
+		},
+		fs_uniform_imat4 : function() {
+		},
+		fs_uniform_mat2 : function() {
+		},
+		fs_uniform_mat3 : function() {
+		},
+		fs_uniform_mat4 : function() {
+		},
+		fs_uniform_sampler2d : function() {
+		},
+		
+		
+		fs_temporary_bool : function() {
+		},
+		fs_temporary_float : function() {
+		},
+		fs_temporary_int : function() {
+		},
+		fs_temporary_ivec2 : function() {
+		},
+		fs_temporary_ivec3 : function() {
+		},
+		fs_temporary_ivec4 : function() {
+		},
+		fs_temporary_vec2 : function() {
+		},
+		fs_temporary_vec3 : function() {
+		},
+		fs_temporary_vec4 : function() {
+		},
+		fs_temporary_imat2 : function() {
+		},
+		fs_temporary_imat3 : function() {
+		},
+		fs_temporary_imat4 : function() {
+		},
+		fs_temporary_mat2 : function() {
+		},
+		fs_temporary_mat3 : function() {
+		},
+		fs_temporary_mat4 : function() {
+		},
+		fs_temporary_sampler2d : function() {
+		},
+		
+		
+		varying_bool : function() {
+		},
+		varying_float : function() {
+		},
+		varying_int : function() {
+		},
+		varying_ivec2 : function() {
+		},
+		varying_ivec3 : function() {
+		},
+		varying_ivec4 : function() {
+		},
+		varying_vec2 : function() {
+		},
+		varying_vec3 : function() {
+		},
+		varying_vec4 : function() {
+		},
+		varying_imat2 : function() {
+		},
+		varying_imat3 : function() {
+		},
+		varying_imat4 : function() {
+		},
+		varying_mat2 : function() {
+		},
+		varying_mat3 : function() {
+		},
+		varying_mat4 : function() {
+		},
+		varying_sampler2d : function() {
+		},
+		
+		
+		
+	},
+	proto : {
+		precision : function() {
+		},
+		index : function() {
+		
+		},
+		
+		vertex : function() {
+		},
+		fragment : function() {
+		},
+		send : function(obj) {
+		
+		},
+		
+		
+		when : function() {
+		},
+		and : function() {
+		},
+		or : function() {
+		},
+		eq : function() {
+		},
+		neq : function() {
+		},
+		gt : function() {
+		},
+		gte : function() {
+		},
+		lt : function() {
+		},
+		lte : function() {
+		},
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+})

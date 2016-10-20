@@ -1,0 +1,66 @@
+{
+	"javascript" : [
+		"js/KeyCode.js",
+		"js/ContextManager.js",
+		"js/Type.js",
+		"js/Class.js",
+		"js/Interpreter.js",
+		"js/Languages.js",
+		"js/Languages.LOGICUNIT.js",
+		"js/StringTools.js",
+		"js/Browser.js",
+		"js/BrowserTools.js",
+		"fork/jszip/jszip.js",
+		"js/Import.js",
+		"js/Download.js",
+		"js/Buffer.js",
+		"js/Disk.js",
+		
+		"js/classes/WithEvents.js",
+		"js/classes/WithArray.js",
+		"js/classes/WithAlias.js",
+		"js/classes/XMath.js",
+		"js/classes/XMath.Clock.js",
+		"js/classes/XMath.UnitCounter.js",
+		"js/classes/XMath.V3.js",
+		"js/classes/XMath.M4.js",
+		"js/jsbn.js",
+		"js/classes/3Devils.js",
+		"js/classes/XMath.3Devils_alpha.js",
+		
+		
+		"client.js",
+		"main.pages.js",
+		
+		
+		"js/classes/Editor.js",
+		"main.editor.js",
+		
+		"main.proto.js",
+		
+		"main.documents.js",
+		"main.frame.js",
+		"main.tools.notes.js",
+		"main.tools.camera-calibration.js",
+		"main.tools.number_table.js",
+		"main.tools.tan_deg.js",
+		"main.tools.deg_tan.js",
+		"main.flags.js",
+		"main.tools-and-docs.index.js",
+		"main.current-tasks.lesson1.js",
+		"main.current-tasks.lesson2.js",
+		"main.current-tasks.lesson3.js",
+		"main.current-tasks.tracer.js",
+		"main.notes.js",
+		"main.notes2.js",
+		"main.notes-keyframe.js",
+		"main.home.js",
+		"main.format.js",
+		"main.js",
+		"notfound/fork/whammy/Whammy.js",
+		"notfound/fork/codemirror/CodeMirror.js"
+	],
+	"styles" : [ 
+		"notfound/fork/codemirror/CodeMirror.css" 
+	]
+}

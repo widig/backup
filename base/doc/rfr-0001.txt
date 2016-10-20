@@ -1,0 +1,46 @@
+=====================================================================================================
+Date: Jun 20, 20116
+Version: 1
+-----------------------------------------------------------------------------------------------------
+
+	Syntax:
+
+		there are two statements
+
+		add word QUOTED_STRING
+		add sentence WORD WORD WORD ...
+	
+		after add word, statement with QUOTED_STRING is accepted
+
+		WORD
+
+		after add sentence, statement with WORD WORD WORD ... is accepted
+	
+		WORD WORD
+
+-----------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+		which language is in use?
+		->raw
+
+		
+		add language QUOTE_STRING
+
+		use language QUOTE_STRING
+		-> clone current in another machine, push that machine in stack
+
+		drop language QUOTE_STRING
+		-> pop machine from stack if stack has more than one
+
+		
+

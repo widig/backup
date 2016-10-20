@@ -1,0 +1,155 @@
+/*
+	TODO:
+	
+		// make analisys with camera at (0,0,-1) looking to(-1,0,-1)
+		// create visible cube red
+		// make analisys with camera at (0,0,-1) looking to(1,0,-1)
+		// crete visible cube yellow
+		// make analisys with camera at (0,0,-1) looking to(0,0,-2)
+		// create visible cube green
+		// make analisys with camera at (0,0,-1) looking to(0,1,-1)
+		// create visible cube pink
+		// make analisys with camera at (0,0,-1) looking to(0,-1,-1)
+		// create visible cube white\
+		// analisys with camera at (0,0,-1) looking to (0,0,0)
+		// create visible cube blue
+		
+		// enable objects only if inside boxview
+*/
+
+
+
+uniform mat4 	Matrix0;
+
+
+
+
+uniform vec3 	ObjScale;
+uniform mat4 	ObjRotation;
+uniform vec3 	ObjTranslation;
+
+
+uniform vec3 	CamScale;
+uniform mat4 	CamRotationM4; // must pass mat4
+uniform vec3 	CamRotationV3;
+uniform vec3 	CamAt;
+uniform vec3 	CamPointer;
+
+
+attribute vec3 	n_pt; // normal of the face at point
+attribute vec3 	pt;
+varying vec4 	vPos;
+
+
+attribute vec4 	color;
+varying vec4 	vColor;
+
+attribute vec2 	tex_pt;
+varying vec2 	vTextureCoord;
+
+
+void main(void) {
+	vColor = color;
+	vTextureCoord = tex_pt;
+	
+	// geometry
+
+	
+	// calculate opositte face, skip rendering back
+	float _CamAngle = dot(-normalize(CamPointer - CamAt),normalize( n_pt ));
+	
+	float pi = 3.14159265358979323;
+	
+	
+	// object scale
+	vec4 fpt = vec4( 
+		pt[0] * ObjScale[0], 
+		pt[1] * ObjScale[1], 
+		pt[2] * ObjScale[2], 
+		1.0 
+	);
+	
+	// object rotation
+	fpt = ObjRotation * fpt;
+	
+	
+	// object translation
+	
+	
+	fpt[0] = fpt[0] + ObjTranslation[0];
+	fpt[1] = fpt[1] + ObjTranslation[1];
+	fpt[2] = fpt[2] + ObjTranslation[2];
+	
+	// camera scaling
+	
+	fpt[0] = fpt[0] * CamScale[0];
+	fpt[1] = fpt[1] * CamScale[1];
+	fpt[2] = fpt[2] * CamScale[2];
+	
+	// camera rotation
+	
+	fpt = CamRotationM4*fpt;
+	
+	
+	// camera translation
+	fpt[0] = fpt[0] - CamPointer[0];
+	fpt[1] = fpt[1] - CamPointer[1];
+	fpt[2] = fpt[2] - CamPointer[2];
+	
+	
+	float near = 1.0;
+	float far = 100.0;
+	float fov = pi/4.0;
+	float aspect = 1.0;
+	
+	// dynamic depth, oblique and camera perspective
+	/*
+		fov = near * Math.tan(fov * Math.PI / 360);
+		aspect = fov * aspect;
+		
+		// left right, bottom, top, near, far
+		frustum(-aspect, aspect, -fov, fov, near, far)
+		[
+			 near * 2 / (right - left),			 0,									 0,									 0,
+			 0,									 near * 2 / (top - bottom),			 0,									 0,
+			(right + left) / (right - left), 	(top + bottom) / (top - bottom),	-(far + near) / (far - near),		-1,
+			 0,									 0,									-(far * near * 2) / (far - near),	 0
+		]
+		
+		// usually static with 1/(far-near)
+		
+	*/
+	float depth = 1.0 + fpt[2];
+	float oblique = 0.0 * fpt[2];
+	
+	if(fpt[0] < 0.0 && fpt[1] >= 0.0) {
+		fpt = vec4(
+			(fpt[0] + oblique*cos(135.0*pi/180.0))/depth,
+			(fpt[1] + oblique*sin(135.0*pi/180.0))/depth,
+			0.0,1.0
+		);
+	} else if(fpt[0] < 0.0 && fpt[1] < 0.0) {
+		fpt = vec4(
+			(fpt[0] + oblique*cos(-135.0*pi/180.0))/depth,
+			(fpt[1] + oblique*sin(-135.0*pi/180.0))/depth,
+			0.0,1.0
+		);
+	} else if(fpt[0] >=0.0 && fpt[1] >=0.0 ) {
+		fpt = vec4(
+			(fpt[0] + oblique*cos(45.0*pi/180.0))/depth,
+			(fpt[1] + oblique*sin(45.0*pi/180.0))/depth,
+			0.0,1.0
+		);
+	} else {
+		fpt = vec4(
+			(fpt[0] + oblique*cos(-45.0*pi/180.0))/depth,
+			(fpt[1] + oblique*sin(-45.0*pi/180.0))/depth,
+			0.0,1.0
+		);
+	}
+	
+	
+	gl_Position = Matrix0*fpt;
+	
+	
+}

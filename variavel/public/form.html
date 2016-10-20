@@ -1,0 +1,237 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="js/Import.js"></script>
+		<script>
+			function $(id) {
+				return document.getElementById(id);
+			}
+			function refreshList() {
+				// ********************************************************* *
+				privateListDocs(window.credentials.username,window.credentials.password,function(data) {
+					if(data.result) {
+						var select = $("private__doc");
+						select.innerHTML = "";
+						for(var x = 0; x < data.data.length;x++) {
+							var opt = document.createElement("option");
+							opt.innerHTML = data.data[x];
+							select.appendChild(opt);
+						}
+						if(data.data.length>0) {
+							$("private__doc_remove").style.display = "";
+							window.target.document = data.data[0];
+							window.target.defined = true;
+							if(window.target.defined) {
+								// ********************************************************* *
+								privateGetDoc(window.credentials.username,window.credentials.password,window.target.document,	function(data) {
+									if(data.result) {
+										if(!window.target.loaded) {
+											window.target.loaded = true;
+											$("private__doc_view").style.display = "";
+										}
+										var vdata = $("private__doc_viewdata");
+										console.log(data.data);
+										vdata.value = data.data;
+									} else {
+										alert(JSON.stringify(data));
+									}
+								});
+								console.log(window.target.document);
+							}
+
+						}
+					} else {
+						$("private__username").removeAttribute("disabled");
+						$("private__password").removeAttribute("disabled");
+						$("private_credentials__set").style.display = "";
+						$("private__username").value = "";
+						$("private__password").value = "";
+						
+						$("private_credentials__set").removeAttribute("disabled");
+						$("private_credentials__change").style.display = "none";
+						$("row1").style.display = "none";
+						$("row2").style.display = "none";
+					
+						alert(data.message);
+					}
+				});
+			}
+			window.addEventListener("load",function() {
+				$("private_credentials__set").addEventListener("click",function() {
+					window.credentials.username = $("private__username").value;
+					window.credentials.password = $("private__password").value;
+					window.credentials.defined = true;
+					refreshList();
+					$("private__username").setAttribute("disabled","true");
+					$("private__password").setAttribute("disabled","true");
+					$("private_credentials__set").setAttribute("disabled","true");
+					$("private_credentials__set").style.display = "none";
+					$("private_credentials__change").style.display = "";
+					$("row1").style.display = "";
+					$("row2").style.display = "";
+				});
+				$("private_credentials__change").addEventListener("click",function() {
+					$("private__username").removeAttribute("disabled");
+					$("private__password").removeAttribute("disabled");
+					$("private_credentials__set").style.display = "";
+					$("private__username").value = "";
+					$("private__password").value = "";
+					
+					$("private_credentials__set").removeAttribute("disabled");
+					$("private_credentials__change").style.display = "none";
+					$("row1").style.display = "none";
+					$("row2").style.display = "none";
+				});
+				$("private__doc").addEventListener("change",function() {
+					if($("private__doc").value!= window.target.document) {
+						window.target.document = $("private__doc").value;
+						$("private__doc_viewdata").value = "";
+						window.target.loaded = false;
+						$("private__doc_view").style.display = "none";
+						if(window.target.defined) {
+							// ********************************************************* *
+							privateGetDoc(window.credentials.username,window.credentials.password,	window.target.document,function(data) {
+								if(data.result) {
+									if(!window.target.loaded) {
+										window.target.loaded = true;
+										$("private__doc_view").style.display = "";
+									}
+									var vdata = $("private__doc_viewdata");
+									console.log(data.data);
+									vdata.value = data.data;
+								} else {
+									alert(JSON.stringify(data));
+								}
+								
+							});
+							console.log(window.target.document);
+						}
+					}
+					window.target.defined = true;
+				});
+				$("private__doc_remove").addEventListener("click",function() {
+					if(window.target.defined) {
+						// ********************************************************* *
+						privateSubDoc(window.credentials.username,window.credentials.password,window.target.document,function(data) {
+							refreshList();
+						});
+					}
+				});
+				$("private__doc_set").addEventListener("click",function() {
+					if(window.target.defined) {
+						// ********************************************************* *
+						privateSetDoc(window.credentials.username,window.credentials.password,window.target.document,$("private__doc_viewdata").value,function(data) {
+							console.log(JSON.stringify(data));
+						});
+					}
+				});
+				
+				$("private_adddoc__newdoc").addEventListener("click",function() {
+					if(window.credentials.defined) {
+						$("private_adddoc__view").style.display = "";
+					} else {
+						alert("credentials not defined.");
+					}
+				});
+				$("private_adddoc__cancel").addEventListener("click",function() {
+					$("private_adddoc__doc").value = "",
+					$("private_adddoc__value").value = "";
+					$("private_adddoc__view").style.display = "none";
+				});
+				$("private_adddoc__add").addEventListener("click",function() {
+					if(window.credentials.defined) {
+						// ********************************************************* *
+						privateAddDoc(window.credentials.username,window.credentials.password,$("private_adddoc__doc").value,$("private_adddoc__value").value,function(data) {
+							console.log(JSON.stringify(data));
+							$("private_adddoc__doc").value = "",
+							$("private_adddoc__value").value = "";
+							$("private_adddoc__view").style.display = "none";
+							refreshList();
+						});
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<table>
+			<tr>
+				<td>
+					<div>
+						<div>
+							credentials
+						</div>
+						<table>
+							<tr>
+								<td>username</td>
+								<td>
+								<input id="private__username" type="text" value="root"/>
+								</td>
+							</tr>
+							<tr>
+								<td>password</td>
+								<td>
+								<input id="private__password" type="text" value="pass"></input>
+								</td>
+							</tr>
+							<tr>
+								<td></td>
+								<td>
+								<input id="private_credentials__set" type="button" value="set"></input>
+								<input id="private_credentials__change" style="display:none;" type="button" value="change"></input>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+			<tr id="row1" style="display:none;">
+				<td valign="top">
+					<hr/>
+					<div>
+						<div>
+							target
+						</div>
+						<table>
+							<tr>
+								<td>document</td>
+								<td>
+									<select id="private__doc">
+									</select>
+									<input id="private__doc_remove" type="button" value="remove" style="display:none;"/>
+								</td>
+							</tr>
+						</table>
+						
+						<div id="private__doc_view" style="display:none;">
+							<textarea id="private__doc_viewdata" style="width:400px;height:200px;"></textarea><br/>
+							<input id="private__doc_set" type="button" value="set"/>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr id="row2" style="display:none;">
+				<td valign="top">
+					<hr/>
+					<div>
+						<div>
+							<input id="private_adddoc__newdoc" type="button" value="new document"/>
+						</div>
+						<table id="private_adddoc__view" style="display:none;">
+							<tr>
+								<td>name <input id="private_adddoc__doc" type="text"></input></td>
+							</tr>
+							<tr>
+								<td>
+								<textarea id="private_adddoc__value" style="width:400px;height:200px;"></textarea><br/>
+								<input id="private_adddoc__add" type="button" value="add"/>
+								<input id="private_adddoc__cancel" type="button" value="cancel"/>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

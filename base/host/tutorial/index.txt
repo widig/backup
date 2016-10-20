@@ -1,0 +1,11 @@
+NumberCooler
+	options:
+		1)
+		request credentials at:
+		https://www.facebook.com/NumberCooler-127742840944252
+		anonymous not allowed.
+		2)
+		anonymous:
+		copy and paste on your localhost and deal with the code by yourself.
+		it's on github, if you don't know this, you are wasting time with this source.
+

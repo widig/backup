@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://support.microsoft.com/en-us/kb/121460 -->
+<html ng-app="SelfAssistWeb" ng-controller="PageController" lang="en-us" xml:lang="en-us" dir="ltr" class="ng-scope"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" charset="UTF-8" src="./Common Object File Format (COFF)_files/meCore.min.js.download"></script><script async="" charset="UTF-8" src="./Common Object File Format (COFF)_files/meBoot.min.js.download"></script><style type="text/css">[uib-typeahead-popup].dropdown-menu{display:block;}</style><style type="text/css">.uib-time input{width:50px;}</style><style type="text/css">[uib-tooltip-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-html-popup].tooltip.right-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.top-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-left > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.bottom-right > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.left-bottom > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-top > .tooltip-arrow,[uib-tooltip-template-popup].tooltip.right-bottom > .tooltip-arrow,[uib-popover-popup].popover.top-left > .arrow,[uib-popover-popup].popover.top-right > .arrow,[uib-popover-popup].popover.bottom-left > .arrow,[uib-popover-popup].popover.bottom-right > .arrow,[uib-popover-popup].popover.left-top > .arrow,[uib-popover-popup].popover.left-bottom > .arrow,[uib-popover-popup].popover.right-top > .arrow,[uib-popover-popup].popover.right-bottom > .arrow,[uib-popover-html-popup].popover.top-left > .arrow,[uib-popover-html-popup].popover.top-right > .arrow,[uib-popover-html-popup].popover.bottom-left > .arrow,[uib-popover-html-popup].popover.bottom-right > .arrow,[uib-popover-html-popup].popover.left-top > .arrow,[uib-popover-html-popup].popover.left-bottom > .arrow,[uib-popover-html-popup].popover.right-top > .arrow,[uib-popover-html-popup].popover.right-bottom > .arrow,[uib-popover-template-popup].popover.top-left > .arrow,[uib-popover-template-popup].popover.top-right > .arrow,[uib-popover-template-popup].popover.bottom-left > .arrow,[uib-popover-template-popup].popover.bottom-right > .arrow,[uib-popover-template-popup].popover.left-top > .arrow,[uib-popover-template-popup].popover.left-bottom > .arrow,[uib-popover-template-popup].popover.right-top > .arrow,[uib-popover-template-popup].popover.right-bottom > .arrow{top:auto;bottom:auto;left:auto;right:auto;margin:0;}[uib-popover-popup].popover,[uib-popover-html-popup].popover,[uib-popover-template-popup].popover{display:block !important;}</style><style type="text/css">.uib-datepicker-popup.dropdown-menu{display:block;float:none;margin:0;}.uib-button-bar{padding:10px 9px 2px;}</style><style type="text/css">.uib-position-measure{display:block !important;visibility:hidden !important;position:absolute !important;top:-9999px !important;left:-9999px !important;}.uib-position-scrollbar-measure{position:absolute !important;top:-9999px !important;width:50px !important;height:50px !important;overflow:scroll !important;}.uib-position-body-scrollbar-measure{overflow:scroll !important;}</style><style type="text/css">.uib-datepicker .uib-title{width:100%;}.uib-day button,.uib-month button,.uib-year button{min-width:100%;}.uib-left,.uib-right{width:100%}</style><style type="text/css">.ng-animate.item:not(.left):not(.right){-webkit-transition:0s ease-in-out left;transition:0s ease-in-out left}</style><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="ms.refView" content="https://support.microsoft.com/en-us/kb/121460">
+    <meta name="ms.pageType" content="https://support.microsoft.com/en-us/kb/121460">
+    <meta name="ms.Nav1" content="">
+    <meta name="ms.auth" content="0">
+    <meta name="ms.ssversion" content="200">
+    <meta name="ms.flightId" content="virtualagent-searchresults-1|mlc-1|commercial-incident-mgmt-1|ph2-1|ctrt-1|geo|pslc-1|vac-9|edad-1|shps-1|smc-ci-3">
+    <meta name="ms.cV" content="zabasp/Gm8hSqiSH.0">
+    <meta name="ms.muid" content="2CB0D95E152F606921CAD01F112F6391">
+    <meta name="msvalidate.01" content="B79672A77B167E030BC40D0D0A4D372A">
+    <!-- ngIf: noIndex --><meta name="robots" content="noindex, nofollow" ng-if="noIndex" class="ng-scope"><!-- end ngIf: noIndex -->
+    <!-- ngRepeat: metaTag in metaTags -->
+    <!--<base href="/">--><base href=".">
+    <title ng-bind="title" class="ng-binding">Common Object File Format (COFF)</title>    
+
+    <link href="https://www.microsoft.com/favicon.ico?v2" rel="shortcut icon">
+    <link rel="canonical" ng-href="https://support.microsoft.com/en-us/kb/121460" href="https://support.microsoft.com/en-us/kb/121460">
+    <!-- ngRepeat: lang in languages --><link rel="alternate" hreflang="ar-ae" ng-href="https://support.microsoft.com/ar-ae/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ar-ae/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="ar-eg" ng-href="https://support.microsoft.com/ar-eg/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ar-eg/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="ar-sa" ng-href="https://support.microsoft.com/ar-sa/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ar-sa/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="he-il" ng-href="https://support.microsoft.com/he-il/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/he-il/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="bg-bg" ng-href="https://support.microsoft.com/bg-bg/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/bg-bg/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="cs-cz" ng-href="https://support.microsoft.com/cs-cz/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/cs-cz/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="da-dk" ng-href="https://support.microsoft.com/da-dk/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/da-dk/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="de-de" ng-href="https://support.microsoft.com/de-de/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/de-de/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="de-at" ng-href="https://support.microsoft.com/de-at/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/de-at/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="de-ch" ng-href="https://support.microsoft.com/de-ch/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/de-ch/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="el-gr" ng-href="https://support.microsoft.com/el-gr/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/el-gr/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-au" ng-href="https://support.microsoft.com/en-au/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-au/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-ca" ng-href="https://support.microsoft.com/en-ca/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-ca/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-gb" ng-href="https://support.microsoft.com/en-gb/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-gb/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-hk" ng-href="https://support.microsoft.com/en-hk/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-hk/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-ie" ng-href="https://support.microsoft.com/en-ie/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-ie/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-in" ng-href="https://support.microsoft.com/en-in/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-in/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-my" ng-href="https://support.microsoft.com/en-my/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-my/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-nz" ng-href="https://support.microsoft.com/en-nz/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-nz/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-ph" ng-href="https://support.microsoft.com/en-ph/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-ph/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-sg" ng-href="https://support.microsoft.com/en-sg/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-sg/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-us" ng-href="https://support.microsoft.com/en-us/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-us/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="en-za" ng-href="https://support.microsoft.com/en-za/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/en-za/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-ar" ng-href="https://support.microsoft.com/es-ar/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-ar/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-bo" ng-href="https://support.microsoft.com/es-bo/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-bo/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-cl" ng-href="https://support.microsoft.com/es-cl/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-cl/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-co" ng-href="https://support.microsoft.com/es-co/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-co/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-cr" ng-href="https://support.microsoft.com/es-cr/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-cr/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-do" ng-href="https://support.microsoft.com/es-do/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-do/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-ec" ng-href="https://support.microsoft.com/es-ec/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-ec/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-es" ng-href="https://support.microsoft.com/es-es/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-es/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-gt" ng-href="https://support.microsoft.com/es-gt/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-gt/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-mx" ng-href="https://support.microsoft.com/es-mx/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-mx/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-pa" ng-href="https://support.microsoft.com/es-pa/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-pa/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-pe" ng-href="https://support.microsoft.com/es-pe/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-pe/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-pr" ng-href="https://support.microsoft.com/es-pr/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-pr/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-py" ng-href="https://support.microsoft.com/es-py/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-py/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-sv" ng-href="https://support.microsoft.com/es-sv/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-sv/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-us" ng-href="https://support.microsoft.com/es-us/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-us/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-uy" ng-href="https://support.microsoft.com/es-uy/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-uy/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="es-ve" ng-href="https://support.microsoft.com/es-ve/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/es-ve/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="et-ee" ng-href="https://support.microsoft.com/et-ee/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/et-ee/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fi-fi" ng-href="https://support.microsoft.com/fi-fi/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fi-fi/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-fr" ng-href="https://support.microsoft.com/fr-fr/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-fr/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-dz" ng-href="https://support.microsoft.com/fr-dz/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-dz/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-be" ng-href="https://support.microsoft.com/fr-be/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-be/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-ca" ng-href="https://support.microsoft.com/fr-ca/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-ca/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-ch" ng-href="https://support.microsoft.com/fr-ch/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-ch/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-lu" ng-href="https://support.microsoft.com/fr-lu/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-lu/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-ma" ng-href="https://support.microsoft.com/fr-ma/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-ma/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="fr-tn" ng-href="https://support.microsoft.com/fr-tn/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/fr-tn/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="hi-in" ng-href="https://support.microsoft.com/hi-in/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/hi-in/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="hr-hr" ng-href="https://support.microsoft.com/hr-hr/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/hr-hr/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="hr-ba" ng-href="https://support.microsoft.com/hr-ba/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/hr-ba/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="hu-hu" ng-href="https://support.microsoft.com/hu-hu/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/hu-hu/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="id-id" ng-href="https://support.microsoft.com/id-id/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/id-id/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="is-is" ng-href="https://support.microsoft.com/is-is/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/is-is/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="it-it" ng-href="https://support.microsoft.com/it-it/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/it-it/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="ja-jp" ng-href="https://support.microsoft.com/ja-jp/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ja-jp/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="ru-kz" ng-href="https://support.microsoft.com/ru-kz/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ru-kz/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="ko-kr" ng-href="https://support.microsoft.com/ko-kr/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ko-kr/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="lt-lt" ng-href="https://support.microsoft.com/lt-lt/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/lt-lt/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="lv-lv" ng-href="https://support.microsoft.com/lv-lv/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/lv-lv/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="nl-nl" ng-href="https://support.microsoft.com/nl-nl/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/nl-nl/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="nl-be" ng-href="https://support.microsoft.com/nl-be/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/nl-be/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="nb-no" ng-href="https://support.microsoft.com/nb-no/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/nb-no/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="pl-pl" ng-href="https://support.microsoft.com/pl-pl/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/pl-pl/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="pt-pt" ng-href="https://support.microsoft.com/pt-pt/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/pt-pt/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="pt-br" ng-href="https://support.microsoft.com/pt-br/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/pt-br/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="ro-ro" ng-href="https://support.microsoft.com/ro-ro/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ro-ro/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="ru-ru" ng-href="https://support.microsoft.com/ru-ru/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/ru-ru/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="sk-sk" ng-href="https://support.microsoft.com/sk-sk/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/sk-sk/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="sl-si" ng-href="https://support.microsoft.com/sl-si/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/sl-si/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="sr-latn-rs" ng-href="https://support.microsoft.com/sr-latn-rs/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/sr-latn-rs/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="sr-Latn-me" ng-href="https://support.microsoft.com/sr-Latn-me/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/sr-Latn-me/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="sv-se" ng-href="https://support.microsoft.com/sv-se/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/sv-se/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="th-th" ng-href="https://support.microsoft.com/th-th/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/th-th/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="tr-tr" ng-href="https://support.microsoft.com/tr-tr/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/tr-tr/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="uk-ua" ng-href="https://support.microsoft.com/uk-ua/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/uk-ua/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="vi-vn" ng-href="https://support.microsoft.com/vi-vn/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/vi-vn/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="zh-cn" ng-href="https://support.microsoft.com/zh-cn/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/zh-cn/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="zh-hk" ng-href="https://support.microsoft.com/zh-hk/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/zh-hk/kb/121460"><!-- end ngRepeat: lang in languages --><link rel="alternate" hreflang="zh-tw" ng-href="https://support.microsoft.com/zh-tw/kb/121460" ng-repeat="lang in languages" class="ng-scope" href="https://support.microsoft.com/zh-tw/kb/121460"><!-- end ngRepeat: lang in languages -->
+
+    <link rel="stylesheet" type="text/css" href="./Common Object File Format (COFF)_files/WebCore.4.14.0.ltr.light.min.css">
+    <link href="./Common Object File Format (COFF)_files/css" rel="stylesheet">
+
+
+
+    <link href="./Common Object File Format (COFF)_files/print" rel="stylesheet" type="text/css" media="print">
+
+ 
+
+<link href="./Common Object File Format (COFF)_files/shell.min.css" rel="stylesheet" type="text/css">
+
+<!--[if lte IE 8]>
+    <link href="https://assets.onestore.ms/cdnfiles/onestorerolling-1610-04000/shell/common/respond-proxy.html" id="respond-proxy" rel="respond-proxy"/>
+<![endif]-->
+    <!--[if lt IE 9]>
+         <link href="/bundles/ie8?v=NaqsDACovXQRo_hqR6iUPF_YiAg2YvoiDDL6mXfyslM1" rel="stylesheet"/>
+
+    <![endif]-->
+    <!-- assembly version 1.0.16285.9, built on 10/12/2016 2:47:47 PM -->
+<meta content="bcfe9023-ee92-4e56-8a57-d7572ced1efe" name="ms.dqid"><meta name="ms.dqp0" content="false"><link rel="stylesheet" type="text/css" href="./Common Object File Format (COFF)_files/blue.css"><meta name="description" content="Windows NT uses a special format for the executable (image) files and object files. The format used in these files are referred to as Portable Executable (PE) or Common Object File Format (COFF) files. The name Portable Executable refers to the..."><meta name="Search.Description" content="Windows NT uses a special format for the executable (image) files and object files. The format used in these files are referred to as Portable Executable (PE) or Common Object File Format (COFF) files. The name Portable Executable refers to the..."><meta name="Search.KBParents" content="5867 3183 6842 5878 3191 6843 5879 3192 5869 3186"><meta name="Search.DateModified" content="12/4/2015 10:35:49 AM"><meta name="Search.ContentType" content="kb"><meta name="Search.Products" content="36963 36974 36963 36975 36965"><meta name="keywords" content="kbnosurvey kbarchive KB121460"><meta name="Search.Keywords" content="kbnosurvey kbarchive KB121460"><style type="text/css">.msame_TxtTrunc{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;word-break:break-all}.msame_Header{display:inline-block;cursor:pointer;font-size:14px;border-width:1px;border-style:solid;border-bottom-style:none;border-color:transparent;width:100%}.msame_Header_name{padding-left:12px;max-width:160px;display:inline-block;line-height:64px;vertical-align:top;font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;font-size:86%;color:#505050}.msame_unauth .msame_Header_name{padding-right:12px}.msame_unauth .msame_Header_name:hover{color:#0078d7}.msame_Drop_AI_pic,.msame_Drop_active_pic,.msame_Header_pic{display:inline-block}.msame_Header_piccont{padding-top:14px;padding-bottom:14px;padding-right:12px;padding-left:8px}.msame_Mobile .msame_Header_piccont{padding-top:10px;padding-bottom:10px}.msame_Short .msame_Header_piccont{padding-left:12px}.msame_Header_picframe{width:36px;height:36px;border-radius:50%;overflow:hidden}.msame_Mobile .msame_Header_picframe{width:48px;height:48px}.msame_open .msame_Header_picframe{z-index:3000001;position:relative}.msame_Header_chev{display:none}.msame_Mobile .msame_Header_piccont{padding-right:8px;padding-left:10px}.msame_Mobile .msame_Header_name{line-height:3;font-size:114%;padding-left:10px;padding-right:10px;display:inline-block;vertical-align:top;padding-top:14px}.msame_Mobile.msame_3row .msame_Header_name{padding-top:6px}.msame_Mobile .msame_Header_chev{display:inline-block;line-height:64px;vertical-align:top;padding-right:16px;padding-left:8px;float:right}.msame_open .msame_Header_chev img{-moz-transform:scaleY(-1);-o-transform:scaleY(-1);-webkit-transform:scaleY(-1);transform:scaleY(-1);filter:FlipV;-ms-filter:"FlipV"}.msame_Drop_root .msame_Drop_AI:focus,.msame_Drop_root .msame_Drop_AI_remove:focus,.msame_Drop_root a:focus,.msame_Header:focus{outline-style:dotted;outline-color:#000;outline-width:1px}.msame_Header_piccont img{width:36px;height:36px;line-height:normal;vertical-align:baseline}.msame_Mobile .msame_Header_piccont img{width:48px;height:48px}.msame_Mobile .msame_Header_fullName{font-size:100%;color:#000;line-height:1.333}.msame_Drop_AI_email,.msame_Drop_AI_status,.msame_Mobile .msame_Header_email,.msame_Mobile .msame_Header_nickName{font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;font-size:86%;color:rgba(0,0,0,.54);line-height:1.333333}.msaie8 .msame_Drop_AI_pic,.msaie8 .msame_Drop_AI_right,.msaie8 .msame_Drop_active_pic,.msaie8 .msame_Drop_active_right,.msaie8 .msame_Header,.msaie8 .msame_Header_name,.msaie8 .msame_Header_pic{zoom:1;*display:inline}
+</style><style type="text/css">.msame_open .msame_Header{border-color:#e6e6e6;background-color:#fff}.msame_open .msame_Header.msame_Mobile{border-color:transparent;background-color:transparent}.msame_ClickStart.msame_Drop_root .msame_Drop_AI:focus,.msame_ClickStart.msame_Drop_root .msame_Drop_AI_remove:focus,.msame_ClickStart.msame_Drop_root a:focus{outline-style:none}.msame_Drop_root a,.msame_Drop_root a:active,.msame_Drop_root a:focus,.msame_Drop_root a:hover,.msame_Drop_root a:visited{text-decoration:none}.msame_Drop_topb{border-top-color:#e6e6e6;border-top-style:solid;border-top-width:1px}.msame_Mobile .msame_Drop_topb{width:100%!important}.msame_Drop_active{padding-bottom:8px}.msame_Drop_AI_picframe{width:44px;height:44px;border-radius:50%;overflow:hidden}.msame_Drop_AI_piccont img{width:44px;height:44px}.msame_Drop_root{border-width:1px;border-color:#e6e6e6;border-style:solid;border-top-style:none;position:absolute;width:360px;z-index:3000000;background-color:#fff;font-size:14px}.msame_Drop_sep{border-top-width:1px;border-top-color:#e6e6e6;border-top-style:solid;width:100%;height:0;display:block}.msame_Mobile.msame_Drop_root{left:0!important;right:0;bottom:0;width:100%;border-right-width:0;border-left-width:0}.msame_Mobile .msame_Drop_content{overflow-y:auto;position:absolute;left:0;right:0;bottom:0;top:0}.msame_Drop_root a{text-decoration:none}.msame_Drop_content{overflow:hidden}.msame_Mobile .msame_Drop_active{display:none}.msame_Drop_AI{cursor:pointer}.disabled .msame_Drop_AI_pic,.disabled .msame_Drop_AI_right{opacity:.4;cursor:default}.disabled .msame_Drop_AI_email,.disabled .msame_Drop_AI_name,.disabled .msame_Drop_AI_status{color:#000}.msame_Drop_active_piccont{padding:5px}.msame_Drop_AI_piccont{padding:10px}.msame_Drop_active_picframe{width:74px;height:74px;border-radius:50%;overflow:hidden}.msame_Drop_active_picborder,.msame_Drop_active_piccont a{display:block;padding:4px;border:1px dotted transparent;border-radius:50%}.msame_Drop_active_piccont a:focus{border:1px dotted #000}.msame_Drop_active_piccont img{width:64px;height:64px;border-radius:50%}.msame_Drop_active_name{display:block;line-height:1.3;font-size:150%;color:#000;font-family:"Segoe UI Light","Segoe UI Web Light","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol",HelveticaNeue-Light,"Helvetica Neue",Arial,sans-serif}.msame_Drop_active_email{display:block;line-height:1.42857;font-size:100%;color:rgba(0,0,0,.54);font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif}.msame_Drop_active_right{display:inline-block;width:216px;vertical-align:top;padding-top:12px;padding-right:12px;padding-left:12px}.msame_Drop_SI a{line-height:2;font-size:114%;font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;padding-left:12px;padding-right:12px;display:block;color:#000}.msame_Mobile .msame_Drop_SI a{line-height:2.75}.msame_Drop_AI.switch:hover,.msame_Drop_AI_remove:hover,.msame_Drop_SI a:hover{color:#000;background-color:rgba(0,0,0,.12)}.msame_Drop_AI.switch:active,.msame_Drop_AI.switch:active div,.msame_Drop_AI_remove:active,.msame_Drop_SI a:active{color:#fff!important;background-color:#000}.msame_Drop_SI a:link,.msame_Drop_SI a:visited{color:#000}.msame_Drop_active_link a,.msame_Drop_active_link a:active,.msame_Drop_active_link a:hover,.msame_Drop_active_link a:link,.msame_Drop_active_link a:visited{line-height:1.333333;font-size:86%;font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;color:#0078d7}.msame_Drop_AL{padding-bottom:24px}.msame_Drop_AI_right{display:inline-block;width:252px;vertical-align:top;padding-left:8px;padding-top:5px}.msame_Mobile .msame_Drop_AI_right{width:100px}.msame_Drop_AI_name{font-family:"Segoe UI","Segoe UI Web Regular","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;font-size:114%;color:#000;line-height:1.25}.msame_Drop_AI_remove{float:right;margin-top:6px;padding-top:12px;padding-bottom:12px;padding-left:12px;padding-right:12px;text-align:center;cursor:pointer}.msame_Drop_AI_remove img{display:block}.msame_auto_frame{display:none;position:absolute;top:0;left:-4000px;width:0}
+</style></head>
+<body ng-class="{ &#39;mobile&#39; : isMobile, &#39;desktop&#39;: !isMoble }" class="desktop">
+    
+<!-- Style for error content in the case that css + js files fail to download -->
+<style type="text/css">
+    .ng-hide .error-content {
+        display: none;
+        text-align: center;
+        font-family: 'Segoe UI';
+        padding-bottom: 12px;
+    }
+
+    .error-content h2 {
+        margin-top: 8px;
+        margin-bottom: 24px;
+        color: black;
+    }
+</style>
+
+<!-- Downloads theMicrosoft.Support.Portal.Config object from the server -->
+<script type="text/javascript" src="./Common Object File Format (COFF)_files/clientconfig"></script>
+
+<!--“Third party scripts or code, linked to, called or referenced from this web site, online service or product, are licensed to you by the third parties that own such code, not by Microsoft, see ASP.NET Ajax CDN Terms of Use – http://www.asp.net/ajaxlibrary/CDN.ashx.”-->
+<script src="./Common Object File Format (COFF)_files/jquery"></script>
+
+<script src="./Common Object File Format (COFF)_files/jslibraries"></script>
+
+<script src="./Common Object File Format (COFF)_files/application"></script>
+
+<script src="./Common Object File Format (COFF)_files/bootstrap"></script>
+
+
+
+<script type="text/javascript">
+    if (!window.angular) {
+        document.onreadystatechange = function () {
+            if (document.readyState == "complete") {
+                document.getElementById('error500').style.display = "block";
+            }
+        }
+    }
+</script>
+<iframe id="silent-signin-frame" ng-src="/api/content/silentauth" tabindex="-1" aria-hidden="true" src="./Common Object File Format (COFF)_files/silentauth.html"></iframe>
+
+<!-- ngIf: !online -->
+
+
+    <!-- ngIf: alertBanner -->
+    
+
+
+
+
+
+ 
+<!--[if lte IE 8]>
+    <script src="https://assets.onestore.ms/cdnfiles/onestorerolling-1610-04000/shell/common/js/shell_ie8.js"></script>
+<![endif]-->
+
+
+
+<script async="" src="./Common Object File Format (COFF)_files/meversion"></script>
+
+<script src="./Common Object File Format (COFF)_files/shellservice.v3.min.js.download"></script>
+
+<script src="./Common Object File Format (COFF)_files/blender.js.download"></script>
+    <!--Angular 1.2 does not certain locale, so we map to a locale that angular support until we upgrade to a higher version -->
+
+    <script src="./Common Object File Format (COFF)_files/angular-locale_en-us.js.download"></script>
+
+    <!-- ngIf: !noChrome --><div ng-if="!noChrome" class="ng-scope">
+            <div ng-controller="L0HeaderController" class="ng-scope"></div>
+ 
+
+
+
+<div id="shell-header" class="shell-header shell-responsive  global-sticky" ms.pgarea="header" role="banner">
+    <div class="shell-header-wrapper">
+        <div class="shell-header-top" data-bi-area="HeaderL0" data-bi-view="L0V1">
+                <div class="shell-header-brand" ms.cmpgrp="logo">
+                            <a id="srv_shellHeaderMicrosoftLogo" href="https://www.microsoft.com/" ms.cmpnm="MicrosoftBrandLogo" ms.title="Microsoft" title="Microsoft" data-bi-name="BrandLogo" tabindex="10">
+            <img src="./Common Object File Format (COFF)_files/microsoft-gray.png" alt="Microsoft">
+        </a>
+
+                </div>
+            <div class="shell-header-nav-wrapper" ms.cmpgrp="nav" role="navigation">
+                <ul class="shell-header-nav" role="menubar" id="srv_shellHeaderNav" data-bi-area="L1" data-bi-view="Hovermenus">
+                        <li class="shell-header-user-mobile-container">
+                        </li>
+                                    <li class="shell-header-dropdown" data-navcontainer="shellmenu_3_NavContainer">
+                                        <div id="shellmenu_3" class="shell-header-dropdown-label">
+                                            <a id="Store-navigation" href="javascript:void(0)" role="button" aria-labelledby="shellmenu_3" aria-expanded="false" ms.title="Store" data-bi-name="Store" data-bi-slot="1" tabindex="20">
+                                                Store
+                                            </a>
+                                        </div>
+
+
+
+
+
+<div class="shell-header-dropdown-content " aria-hidden="true" role="menu" style="height: auto;">
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Store home">
+
+                            <dt id="shellmenu_4" class="shell-header-dropdown-tab-label shell-header-L2menu-direct-link">
+                                <a href="https://www.microsoftstore.com/store/msusa/en_US/home" ms.title="Store home" tabindex="20" data-bi-name="Store_StoreHome">Store home</a>                         
+                            </dt>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Devices">
+
+                            <dt id="shellmenu_5" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Devices" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Devices
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_6">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/All-Surface/categoryID.69403400" class="shell-l3-list-item" ms.title="Microsoft Surface" tabindex="20" data-bi-name="Devices_Surface">
+                            Microsoft Surface
+                        </a>
+                    </li>
+                    <li id="shellmenu_7">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/All-PCs-tablets/categoryID.69404700" class="shell-l3-list-item" ms.title="PCs &amp; tablets" tabindex="20" data-bi-name="Devices_PCsAndTablets">
+                            PCs &amp; tablets
+                        </a>
+                    </li>
+                    <li id="shellmenu_8">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/categoryID.69405400" class="shell-l3-list-item" ms.title="Xbox" tabindex="20" data-bi-name="Devices_Xbox">
+                            Xbox
+                        </a>
+                    </li>
+                    <li id="shellmenu_9">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Virtual-and-Augmented-Reality/categoryID.594470000?icid=en_US_Store_UH_devices_vr" class="shell-l3-list-item" ms.title="Virtual reality" tabindex="20" data-bi-name="Devices_VirtualReality">
+                            Virtual reality
+                        </a>
+                    </li>
+                    <li id="shellmenu_10">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/All-accessories/categoryID.69407900" class="shell-l3-list-item" ms.title="Accessories" tabindex="20" data-bi-name="Devices_Accessories">
+                            Accessories
+                        </a>
+                    </li>
+                    <li id="shellmenu_11">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/All-Windows-Phone/categoryID.69406200" class="shell-l3-list-item" ms.title="Windows phone" tabindex="20" data-bi-name="Devices_WindowsPhone">
+                            Windows phone
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Software">
+
+                            <dt id="shellmenu_12" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Software" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Software
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_13">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/All-Office/categoryID.69403900" class="shell-l3-list-item" ms.title="Office" tabindex="20" data-bi-name="Store_Software_Office">
+                            Office
+                        </a>
+                    </li>
+                    <li id="shellmenu_14">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/categoryID.70036700" class="shell-l3-list-item" ms.title="Windows" tabindex="20" data-bi-name="Store_Software_Windows">
+                            Windows
+                        </a>
+                    </li>
+                    <li id="shellmenu_15">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/All-additional-software/categoryID.69407400" class="shell-l3-list-item" ms.title="Additional software" tabindex="20" data-bi-name="Store_Software_AdditionalSoftware">
+                            Additional software
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Apps">
+
+                            <dt id="shellmenu_16" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Apps" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Apps
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_17">
+                        <a href="https://www.microsoft.com/en-us/store/top-free/apps/pc" class="shell-l3-list-item" ms.title="All apps" tabindex="20" data-bi-name="Store_AllApps">
+                            All apps
+                        </a>
+                    </li>
+                    <li id="shellmenu_18">
+                        <a href="https://www.microsoft.com/en-us/store/apps/windows" class="shell-l3-list-item" ms.title="Windows apps" tabindex="20" data-bi-name="Store_Apps_WindowsApps">
+                            Windows apps
+                        </a>
+                    </li>
+                    <li id="shellmenu_19">
+                        <a href="https://www.microsoft.com/en-us/store/apps/windows-phone" class="shell-l3-list-item" ms.title="Windows phone apps" tabindex="20" data-bi-name="Store_Apps_WindowsPhoneApps">
+                            Windows phone apps
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Games">
+
+                            <dt id="shellmenu_20" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Games" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Games
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_21">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Xbox-One-games/categoryID.69405600" class="shell-l3-list-item" ms.title="Xbox One games" tabindex="20" data-bi-name="Store_Xbox One games">
+                            Xbox One games
+                        </a>
+                    </li>
+                    <li id="shellmenu_22">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Xbox-360-games/categoryID.69405800" class="shell-l3-list-item" ms.title="Xbox 360 games" tabindex="20" data-bi-name="Store_Xbox360Games">
+                            Xbox 360 games
+                        </a>
+                    </li>
+                    <li id="shellmenu_23">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/list/PC-games/categoryID.62688000?icid=en_US_Store_UH_games_PC" class="shell-l3-list-item" ms.title="PC games" tabindex="20" data-bi-name="Store_PCGames">
+                            PC games
+                        </a>
+                    </li>
+                    <li id="shellmenu_24">
+                        <a href="https://www.microsoft.com/en-us/store/games/windows" class="shell-l3-list-item" ms.title="Windows games" tabindex="20" data-bi-name="Store_Games_Windowsgames">
+                            Windows games
+                        </a>
+                    </li>
+                    <li id="shellmenu_25">
+                        <a href="https://www.microsoft.com/en-us/store/games/windows-phone" class="shell-l3-list-item" ms.title="Windows phone games" tabindex="20" data-bi-name="Store_Games_WindowsPhoneGames">
+                            Windows phone games
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Entertainment">
+
+                            <dt id="shellmenu_26" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Entertainment" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Entertainment
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_27">
+                        <a href="https://www.microsoft.com/en-us/store/entertainment" class="shell-l3-list-item" ms.title="All Entertainment" tabindex="20" data-bi-name="Store_Entertainment_AllEntertainment">
+                            All Entertainment
+                        </a>
+                    </li>
+                    <li id="shellmenu_28">
+                        <a href="https://www.microsoft.com/en-us/store/movies-and-tv" class="shell-l3-list-item" ms.title="Movies &amp; TV" tabindex="20" data-bi-name="Store_Entertainment_MoviesAndTV">
+                            Movies &amp; TV
+                        </a>
+                    </li>
+                    <li id="shellmenu_29">
+                        <a href="https://www.microsoft.com/en-us/store/music" class="shell-l3-list-item" ms.title="Music" tabindex="20" data-bi-name="Store_Entertainment_Music">
+                            Music
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Business &amp; Education">
+
+                            <dt id="shellmenu_30" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Business &amp; Education" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Business &amp; Education
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_31">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Business/categoryID.69408700" class="shell-l3-list-item" ms.title="Business" tabindex="20" data-bi-name="BusinessAndEducation_Business">
+                            Business
+                        </a>
+                    </li>
+                    <li id="shellmenu_32">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/edu" class="shell-l3-list-item" ms.title="Students &amp; educators" tabindex="20" data-bi-name="BusinessAndEducation_Education">
+                            Students &amp; educators
+                        </a>
+                    </li>
+                    <li id="shellmenu_33">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Developer/categoryID.69418300?icid=en_US_Store_UH_BusEd_Dev" class="shell-l3-list-item" ms.title="Developers" tabindex="20" data-bi-name="BusinessAndEducation_Developer">
+                            Developers
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Sale">
+
+                            <dt id="shellmenu_34" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Sale" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Sale
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_35">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Sale/categoryID.69403000" class="shell-l3-list-item" ms.title="Sale" tabindex="20" data-bi-name="Sale_Sale">
+                            Sale
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Find a store">
+
+                            <dt id="shellmenu_36" class="shell-header-dropdown-tab-label shell-header-L2menu-direct-link">
+                                <a href="https://www.microsoft.com/en-us/store/locations/find-a-store?icid=L_navAB_FindAStore" ms.title="Find a store" tabindex="20" data-bi-name="Store_FindAStore">Find a store</a>                         
+                            </dt>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Store; Gift cards">
+
+                            <dt id="shellmenu_37" class="shell-header-dropdown-tab-label shell-header-L2menu-direct-link">
+                                <a href="https://www.microsoft.com/en-us/store/gift-cards" ms.title="Gift cards" tabindex="20" data-bi-name="Store_GiftCards">Gift cards</a>                         
+                            </dt>
+
+                </dl>
+
+</div>
+                                    </li>
+                                    <li class="shell-header-dropdown" data-navcontainer="shellmenu_38_NavContainer">
+                                        <div id="shellmenu_38" class="shell-header-dropdown-label">
+                                            <a id="Products-navigation" href="javascript:void(0)" role="button" aria-labelledby="shellmenu_38" aria-expanded="false" ms.title="Products" data-bi-name="Products" data-bi-slot="2" tabindex="20">
+                                                Products
+                                            </a>
+                                        </div>
+
+
+
+
+
+<div class="shell-header-dropdown-content " aria-hidden="true" role="menu" style="height: auto;">
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Products; Software &amp; services">
+
+                            <dt id="shellmenu_39" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Software &amp; services" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Software &amp; services
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_40">
+                        <a href="https://www.microsoft.com/en-us/windows" class="shell-l3-list-item" ms.title="Windows" tabindex="20" data-bi-name="Products_SoftwareAndServices_Windows">
+                            Windows
+                        </a>
+                    </li>
+                    <li id="shellmenu_41">
+                        <a href="https://products.office.com/en-us/home" class="shell-l3-list-item" ms.title="Office" tabindex="20" data-bi-name="Products_SoftwareAndServices_Office">
+                            Office
+                        </a>
+                    </li>
+                    <li id="shellmenu_42">
+                        <a href="https://www.microsoft.com/en-us/download/default.aspx" class="shell-l3-list-item" ms.title="Free downloads &amp; security" tabindex="20" data-bi-name="Products_SoftwareAndServices_FreeDownloadsAndSecurity">
+                            Free downloads &amp; security
+                        </a>
+                    </li>
+                    <li id="shellmenu_43">
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie" class="shell-l3-list-item" ms.title="Internet Explorer" tabindex="20" data-bi-name="Products_SoftwareAndServices_InternetExplorer">
+                            Internet Explorer
+                        </a>
+                    </li>
+                    <li id="shellmenu_44">
+                        <a href="http://www.microsoft.com/en-us/windows/microsoft-edge" class="shell-l3-list-item" ms.title="Microsoft Edge" tabindex="20" data-bi-name="Products_SoftwareAndServices_MicrosoftEdge">
+                            Microsoft Edge
+                        </a>
+                    </li>
+                    <li id="shellmenu_45">
+                        <a href="http://www.skype.com/en/" class="shell-l3-list-item" ms.title="Skype" tabindex="20" data-bi-name="Products_SoftwareAndServices_Skype">
+                            Skype
+                        </a>
+                    </li>
+                    <li id="shellmenu_46">
+                        <a href="http://www.onenote.com/" class="shell-l3-list-item" ms.title="OneNote" tabindex="20" data-bi-name="Products_SoftwareAndServices_OneNote">
+                            OneNote
+                        </a>
+                    </li>
+                    <li id="shellmenu_47">
+                        <a href="https://onedrive.live.com/about/en-us/" class="shell-l3-list-item" ms.title="OneDrive" tabindex="20" data-bi-name="Products_SoftwareAndServices_OneDrive">
+                            OneDrive
+                        </a>
+                    </li>
+                    <li id="shellmenu_48">
+                        <a href="http://www.microsoft.com/microsoft-health/en-us" class="shell-l3-list-item" ms.title="Microsoft Health" tabindex="20" data-bi-name="Products_SoftwareAndServices_MicrosoftHealth">
+                            Microsoft Health
+                        </a>
+                    </li>
+                    <li id="shellmenu_49">
+                        <a href="http://www.msn.com/?ocid=HEA000" class="shell-l3-list-item" ms.title="MSN" tabindex="20" data-bi-name="Products_SoftwareAndServices_MSN">
+                            MSN
+                        </a>
+                    </li>
+                    <li id="shellmenu_50">
+                        <a href="http://www.bing.com/" class="shell-l3-list-item" ms.title="Bing" tabindex="20" data-bi-name="Products_SoftwareAndServices_Bing">
+                            Bing
+                        </a>
+                    </li>
+                    <li id="shellmenu_51">
+                        <a href="https://www.microsoft.com/en-us/groove" class="shell-l3-list-item" ms.title="Microsoft Groove" tabindex="20" data-bi-name="Products_SoftwareAndServices_XboxMusic">
+                            Microsoft Groove
+                        </a>
+                    </li>
+                    <li id="shellmenu_52">
+                        <a href="https://www.microsoft.com/en-us/movies-and-tv" class="shell-l3-list-item" ms.title="Microsoft Movies &amp; TV" tabindex="20" data-bi-name="Products_SoftwareAndServices_XboxVideo">
+                            Microsoft Movies &amp; TV
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Products; Devices &amp; Xbox">
+
+                            <dt id="shellmenu_53" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="Devices &amp; Xbox" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    Devices &amp; Xbox
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_54">
+                        <a href="https://www.microsoft.com/devices/en-us" class="shell-l3-list-item" ms.title="All Microsoft devices" tabindex="20" data-bi-name="Products_DevicesandXbox_AllMicrosoftDevices">
+                            All Microsoft devices
+                        </a>
+                    </li>
+                    <li id="shellmenu_55">
+                        <a href="http://www.microsoft.com/surface/en-us" class="shell-l3-list-item" ms.title="Microsoft Surface" tabindex="20" data-bi-name="Products_DevicesAndXbox_Surface">
+                            Microsoft Surface
+                        </a>
+                    </li>
+                    <li id="shellmenu_56">
+                        <a href="https://www.microsoftstore.com/store/msusa/en_US/cat/Computers/categoryID.62684600" class="shell-l3-list-item" ms.title="All Windows PCs &amp; tablets" tabindex="20" data-bi-name="Products_DevicesAndXbox_AllPCsAndTablets">
+                            All Windows PCs &amp; tablets
+                        </a>
+                    </li>
+                    <li id="shellmenu_57">
+                        <a href="https://www.microsoft.com/accessories/en-us" class="shell-l3-list-item" ms.title="PC accessories" tabindex="20" data-bi-name="Products_PCAccessories">
+                            PC accessories
+                        </a>
+                    </li>
+                    <li id="shellmenu_58">
+                        <a href="http://www.xbox.com/" class="shell-l3-list-item" ms.title="Xbox &amp; games" tabindex="20" data-bi-name="Products_DevicesAndXbox_XboxAndGames">
+                            Xbox &amp; games
+                        </a>
+                    </li>
+                    <li id="shellmenu_59">
+                        <a href="http://www.microsoft.com/en-us/mobile/" class="shell-l3-list-item" ms.title="Microsoft Lumia" tabindex="20" data-bi-name="Products_DevicesAndXbox_LumiaPhones">
+                            Microsoft Lumia
+                        </a>
+                    </li>
+                    <li id="shellmenu_60">
+                        <a href="https://www.microsoft.com/en-us/windows/phones" class="shell-l3-list-item" ms.title="All Windows phones" tabindex="20" data-bi-name="Products_DevicesAndXbox_AllWindowsPhones">
+                            All Windows phones
+                        </a>
+                    </li>
+                    <li id="shellmenu_61">
+                        <a href="http://www.microsoft.com/microsoft-hololens/en-us" class="shell-l3-list-item" ms.title="Microsoft HoloLens" tabindex="20" data-bi-name="Products_DevicesAndXbox_MicrosoftHololens">
+                            Microsoft HoloLens
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Products; For business">
+
+                            <dt id="shellmenu_62" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="For business" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    For business
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_63">
+                        <a href="http://www.microsoft.com/en-us/server-cloud/" class="shell-l3-list-item" ms.title="Cloud Platform" tabindex="20" data-bi-name="Products_ForBusiness_CloudPlatform">
+                            Cloud Platform
+                        </a>
+                    </li>
+                    <li id="shellmenu_64">
+                        <a href="http://azure.microsoft.com/" class="shell-l3-list-item" ms.title="Microsoft Azure" tabindex="20" data-bi-name="Products_ForBusiness_MicrosoftAzure">
+                            Microsoft Azure
+                        </a>
+                    </li>
+                    <li id="shellmenu_65">
+                        <a href="http://www.microsoft.com/en-us/dynamics/default.aspx" class="shell-l3-list-item" ms.title="Microsoft Dynamics" tabindex="20" data-bi-name="Products_ForBusiness_MicrosoftDynamics">
+                            Microsoft Dynamics
+                        </a>
+                    </li>
+                    <li id="shellmenu_66">
+                        <a href="http://www.microsoft.com/en-us/windows/business/default.aspx" class="shell-l3-list-item" ms.title="Windows for business" tabindex="20" data-bi-name="Products_ForBusiness_WindowsForBusiness">
+                            Windows for business
+                        </a>
+                    </li>
+                    <li id="shellmenu_67">
+                        <a href="https://products.office.com/en-us/business/office" class="shell-l3-list-item" ms.title="Office for business" tabindex="20" data-bi-name="Products_ForBusiness_OfficeForBusiness">
+                            Office for business
+                        </a>
+                    </li>
+                    <li id="shellmenu_68">
+                        <a href="https://products.office.com/en-us/skype-for-business" class="shell-l3-list-item" ms.title="Skype for business" tabindex="20" data-bi-name="Products_ForBusiness_SkypeForBusiness">
+                            Skype for business
+                        </a>
+                    </li>
+                    <li id="shellmenu_69">
+                        <a href="http://www.microsoft.com/surface/en-us/business/overview" class="shell-l3-list-item" ms.title="Surface for business" tabindex="20" data-bi-name="Products_ForBusiness_SurfaceForBusiness">
+                            Surface for business
+                        </a>
+                    </li>
+                    <li id="shellmenu_70">
+                        <a href="http://www.microsoft.com/enterprise" class="shell-l3-list-item" ms.title="Enterprise solutions" tabindex="20" data-bi-name="Products_ForBusiness_EnterpriseSolutions">
+                            Enterprise solutions
+                        </a>
+                    </li>
+                    <li id="shellmenu_71">
+                        <a href="https://business.microsoft.com/en-us/" class="shell-l3-list-item" ms.title="Small business solutions" tabindex="20" data-bi-name="Products_ForBusiness_SmallBusinessSolutions">
+                            Small business solutions
+                        </a>
+                    </li>
+                    <li id="shellmenu_72">
+                        <a href="https://pinpoint.microsoft.com/" class="shell-l3-list-item" ms.title="Find a solutions provider" tabindex="20" data-bi-name="Products_ForBusiness_FindASolutionsProvider">
+                            Find a solutions provider
+                        </a>
+                    </li>
+                    <li id="shellmenu_73">
+                        <a href="https://www.microsoft.com/en-us/licensing/default.aspx" class="shell-l3-list-item" ms.title="Volume Licensing" tabindex="20" data-bi-name="Products_ForBusiness_VolumeLicensing">
+                            Volume Licensing
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Products; For developers &amp; IT pros">
+
+                            <dt id="shellmenu_74" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="For developers &amp; IT pros" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    For developers &amp; IT pros
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_75">
+                        <a href="https://developer.microsoft.com/en-us/windows" class="shell-l3-list-item" ms.title="Develop Windows apps" tabindex="20" data-bi-name="Products_DeveloperAndITPro_DevelopWindowsApps">
+                            Develop Windows apps
+                        </a>
+                    </li>
+                    <li id="shellmenu_76">
+                        <a href="http://azure.microsoft.com/" class="shell-l3-list-item" ms.title="Microsoft Azure" tabindex="20" data-bi-name="Products_ForDevelopersAndITPros_Azure">
+                            Microsoft Azure
+                        </a>
+                    </li>
+                    <li id="shellmenu_77">
+                        <a href="http://msdn.microsoft.com/en-us/" class="shell-l3-list-item" ms.title="MSDN" tabindex="20" data-bi-name="Products_ForDevelopersAndITPros">
+                            MSDN
+                        </a>
+                    </li>
+                    <li id="shellmenu_78">
+                        <a href="http://technet.microsoft.com/en-us/" class="shell-l3-list-item" ms.title="TechNet" tabindex="20" data-bi-name="Products_ForDevelopersAndITPros_TechNet">
+                            TechNet
+                        </a>
+                    </li>
+                    <li id="shellmenu_79">
+                        <a href="http://www.visualstudio.com/" class="shell-l3-list-item" ms.title="Visual Studio" tabindex="20" data-bi-name="Products_ForDevelopersAndITPros_VisualStudio">
+                            Visual Studio
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+                <dl class="shell-header-dropdown-tab" ms.cmpnm="Products; For students &amp; educators">
+
+                            <dt id="shellmenu_80" class="shell-header-dropdown-tab-label">
+                                <a href="javascript:void(0)" role="button" ms.title="For students &amp; educators" ms.interactiontype="14" tabindex="20" data-bi-dnt="">
+                                    For students &amp; educators
+                                    <i class="shell-icon-dropdown facing-right"></i>
+                                </a>
+                            </dt>
+                            <dd class="shell-header-dropdown-tab-content" data-col="0">
+
+
+
+    <ul class="shell-header-dropdown-tab-list">
+                    <li id="shellmenu_81">
+                        <a href="http://www.microsoft.com/en-us/education/products/office/default.aspx" class="shell-l3-list-item" ms.title="Office for students" tabindex="20" data-bi-name="Products_ForStudentsAndEducators_OfficeForStudents">
+                            Office for students
+                        </a>
+                    </li>
+                    <li id="shellmenu_82">
+                        <a href="http://www.microsoft.com/en-us/education/products/onenote/default.aspx" class="shell-l3-list-item" ms.title="OneNote in classroom" tabindex="20" data-bi-name="Products_ForStudentsAndEducators_OneNoteInClassroom">
+                            OneNote in classroom
+                        </a>
+                    </li>
+                    <li id="shellmenu_83">
+                        <a href="http://www.microsoftstore.com/store/msusa/en_US/edu" class="shell-l3-list-item" ms.title="Shop PCs &amp; tablets perfect for students" tabindex="20" data-bi-name="Products_ForStudentsAndEducators_ShopPCsAndTablets">
+                            Shop PCs &amp; tablets perfect for students
+                        </a>
+                    </li>
+                    <li id="shellmenu_84">
+                        <a href="http://www.microsoft.com/en-us/education" class="shell-l3-list-item" ms.title="Microsoft in Education" tabindex="20" data-bi-name="Products_ForStudentsAndEducators_MicrosoftInEducation">
+                            Microsoft in Education
+                        </a>
+                    </li>
+
+    </ul>
+
+
+
+                            </dd>
+
+                </dl>
+
+</div>
+                                    </li>
+                                    <li id="l1_support" class="shell-header-dropdown-label">
+                                        <a class="top-level-link-text ctl_headerNavLink" tabindex="20" href="https://support.microsoft.com/en-us" ms.title="Support" data-bi-name="Support" data-bi-slot="3">
+                                            Support
+                                        </a>
+                                    </li>
+
+                </ul>
+            </div>
+                <div class="shell-header-user-container">
+                    <dl class="shell-header-user">
+                        <dt>
+                            <span id="meControl"><div class="msame_Header msame_unauth" tabindex="60" style="height: 48px;"><div class="msame_Header_name msame_TxtTrunc" style="line-height: 48px;">Sign in</div><div class="msame_Header_chev"></div></div></span>
+                        </dt>
+                    </dl>
+                </div>
+            
+            <div class="shell-header-nav-toggle " ms.cmpgrp="nav">
+                <button class="shell-header-toggle-menu" ms.cmpnm="mobile global nav toggle button" ms.title="Toggle menu" title="Toggle Menu" type="button" data-bi-name="Toggle Menu" tabindex="55">
+                    <i class="shell-icon-menu"></i>
+                </button>
+            </div>
+
+            <ul class="shell-header-toggle" ms.cmpgrp="header actions">
+                                    <li>
+                        <a id="shell-header-shopping-cart-mobile" href="https://www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage" class="shell-header-toggle-cart" title="Cart" data-bi-name="Toggle Cart" ms.title="cart" tabindex="50">
+                            <i id="toggle-shell-icon-cart" class="shell-icon-cart"></i>
+                            <span class="sr-only">Cart</span>
+                            <span class="shopping-cart-amount">0</span>
+                        </a>
+                    </li>
+            </ul>
+
+            <div class="shell-header-actions" ms.cmpgrp="header actions">
+
+                    <div class="shell-header-cart">
+                        <a id="shell-header-shopping-cart" href="https://www.microsoftstore.com/store/msusa/en_US/DisplayThreePgCheckoutShoppingCartPage" data-bi-name="Shopping Cart" title="Cart" ms.title="cart" tabindex="50">
+                            <i class="shell-icon-cart"></i>
+                            <span class="sr-only">Cart</span>
+                            <span class="shopping-cart-amount">0</span>
+                        </a>
+                    </div>
+                        <iframe id="shell-cart-count" data-src="//www.microsoftstore.com/store/msusa/en_US/Content/pbPage.CartSummary" style="display: none" src="./Common Object File Format (COFF)_files/pbPage.html"></iframe>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="fixed-global-nav-buffer" style="height: 48px;"></div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+    var shellInitOptions = {
+        lcaDisclaimerEnabled: false,
+        suggestedProductTitle : 'Suggested products'
+    };
+
+    
+    var meControlInitOptions = {
+        containerId: 'meControl',
+            enabled: true,
+        headerHeight: 48,
+        custom: {chevHtml:'<i class="msame_chev_uhf shell-icon-dropdown"></i>'},
+        
+
+        mobileBreakpoints: {
+            shortHeader: 1084
+            },
+
+        rpData:
+    {
+        msaInfo:
+            {
+                        
+                signInUrl: 'SMC-Sign-In-URL',
+                signOutUrl: 'SMC-Sign-Out-URL',
+                accountSettingsUrl: 'https://account.microsoft.com/',
+                switchUrl: '',
+                meUrl: 'https://login.live.com/me.srf?wa=wsignin1.0',
+                isSupported: true
+                
+            },
+        aadInfo:
+            {
+            },
+        preferredIdp: 'msa',
+    },
+        signInStr: 'Sign in',
+        signOutStr: 'Sign out'
+    };
+</script>
+     </div><!-- end ngIf: !noChrome -->
+
+    
+    <div comscore=""><script src="./Common Object File Format (COFF)_files/broker.js.download" async="async" type="text/javascript"></script></div>
+
+    <!-- ngIf: !noChrome && !hideSearch --><div ng-if="!noChrome &amp;&amp; !hideSearch" class="ng-scope">
+        <!-- ngInclude: '/PartialViews/Search/SearchContainer.html' --><div ng-include="&#39;/PartialViews/Search/SearchContainer.html&#39;" class="ng-scope"><div id="search-box" ng-controller="SearchController" class="ng-scope">    
+    <!-- ngIf: bannerPlacement=='above-search'  && displayAllContent -->
+    <div ng-hide="isEnterprisePage || isCommercial" class="search-container other" ng-class="{&#39;jumbotron jumbotron-centered jumbotron-search home&#39; : displayAllContent &amp;&amp; !errorStatus, &#39;other&#39; : !displayAllContent || errorStatus}" aria-hidden="false">
+        <div class="container">
+            <div class="row">
+                <div class="centering-col  col-xl-14 col-xl-offset-5 col-lg-16 col-lg-offset-4 col-md-20 col-md-offset-2 col-xs-24">
+                    <div class="centered-content" ng-hide="isSkylightNavFlight" aria-hidden="false">
+                        <!-- ngIf: displayAllContent && !errorStatus -->
+                        <form class="search-form ng-pristine ng-valid" novalidate="" role="form" ng-submit="primarySearchClicked();">
+                            <div class="has-feedback">
+                                <input class="form-control search-text ng-pristine ng-untouched ng-valid ng-empty" id="search-text" type="text" ng-attr-placeholder="{{ view.searchPlaceholder }}" ng-model="userQuery" autocomplete="off" placeholder="Search for help" aria-invalid="false">
+                                <span class="win-icon primary-search form-control-feedback" ng-click="primarySearchClicked();" tabindex="-1" role="button">  </span>
+                                <div class="auto-suggest-results ng-isolate-scope" auto-suggest="" data-template-url="/PartialViews/Search/BingAutoSuggest.html" data-input-source="#search-text" data-input-query="userQuery" data-selected-suggestion="selectedSuggestion" data-minimum-letters="0" data-telemetry-event-name="AutoSuggestSelected" data-query-model-mapper="getCompleteText(suggestion)" data-query-function="getSuggestions(query)" data-submit-handler="primarySearchClicked()" data-suggestion-html-generator="generateSuggestionHtml(query, suggestion)"><ul ng-show="result.suggestions.length &amp;&amp; isVisible" aria-hidden="true" class="ng-hide">
+    <!-- ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">windows 10</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">microsoft support phone number</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">windows 7</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">microsoft support</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">outlook</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">windows update</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">windows 8.1</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">microsoft</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">office 365</li><!-- end ngRepeat: suggestion in result.suggestions --><li ng-bind-html="generateSuggestionHtml(suggestion)" ng-class="{selected: isSelected(suggestion)}" ng-repeat="suggestion in result.suggestions" ng-mousedown="clickSuggestion(suggestion)" class="ng-binding ng-scope">fix windows update</li><!-- end ngRepeat: suggestion in result.suggestions -->
+</ul>
+<div class="sr-only ng-binding" aria-live="polite" role="status"></div>
+
+
+
+
+</div>
+                            </div>
+                        </form>
+                    </div>
+                    <div ng-hide="!isSkylightNavFlight" class="spacer-32-top ng-hide" aria-hidden="true">
+                        <virtual-agent-nav-entry data-view="view.virtualAgentNav" class="ng-isolate-scope"><div class="skylight-nav-entry">
+    <div class="skylight-image-container">
+        <img ng-src="https://compass-ssl.microsoft.com/assets/4a/c4/4ac498bd-46b4-4753-9ac6-bfb95187714e.svg?n=skylight_profile_pic_2.svg" src="./Common Object File Format (COFF)_files/4ac498bd-46b4-4753-9ac6-bfb95187714e.svg">
+    </div>
+    <div class="skylight-nav-details">
+        <h1 class="jumbotron-header search-header header-large ng-binding"> Need help?  </h1>
+        <button id="skylight-entry-nav" class="btn btn-primary ng-binding" ng-click="$ctrl.openVirtualAgent()"> ASK VIRTUAL AGENT </button>
+    </div>
+</div>
+</virtual-agent-nav-entry>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ngIf: !isCommercial --><!-- ngInclude: '/PartialViews/Search/HelpLinks.html' --><div ng-hide="isEnterprisePage" ng-if="!isCommercial" ng-include="&#39;/PartialViews/Search/HelpLinks.html&#39;" class="ng-scope" aria-hidden="false"><div class="container quick-nav ng-scope other" ng-class="{&#39;home&#39; : displayAllContent &amp;&amp; !errorStatus, &#39;other&#39; : !displayAllContent || errorStatus}">
+    <div class="row">
+        <!-- ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://account.microsoft.com/?lang=en-us" ng-attr-id="{{quickNavLink.key}}" ng-hide="checkVisibility(quickNavLink)" ng-href="https://account.microsoft.com/?lang=en-us" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="microsoft-account" aria-hidden="false">
+                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span class="text-body ng-binding">Manage my account</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://portal.office.com/account/" ng-attr-id="{{quickNavLink.key}}" ng-hide="checkVisibility(quickNavLink)" ng-href="https://portal.office.com/account/" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="work-account" aria-hidden="true" class="ng-hide">
+                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span class="text-body ng-binding">Manage my account</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://answers.microsoft.com/en-us" ng-attr-id="{{quickNavLink.key}}" ng-hide="checkVisibility(quickNavLink)" ng-href="https://answers.microsoft.com/en-us" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="ask-community" aria-hidden="false">
+                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span class="text-body ng-binding">Ask the community</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://support.microsoft.com/#" ng-attr-id="{{quickNavLink.key}}" ng-hide="checkVisibility(quickNavLink)" ng-href="#" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="contact-support" aria-hidden="false">
+                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span class="text-body ng-binding">Contact us</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks --><div class="help-link ng-scope" ng-repeat="quickNavLink in view.quickNavLinks">
+            <a href="https://www.microsoft.com/en-us/download/" ng-attr-id="{{quickNavLink.key}}" ng-hide="checkVisibility(quickNavLink)" ng-href="https://www.microsoft.com/en-us/download/" ng-click="linkClick($event, quickNavLink.key)" target="_self" id="download-center" aria-hidden="false">
+                <span class="win-icon ng-binding" aria-hidden="true"></span>
+                <span class="text-body ng-binding">Find downloads</span>
+            </a>
+        </div><!-- end ngRepeat: quickNavLink in view.quickNavLinks -->
+    </div>
+</div></div><!-- end ngIf: !isCommercial -->
+    <!-- ngIf: isCommercial -->
+    <!-- ngIf: bannerPlacement=='below-search' && !displayAllContent --> 
+</div>
+</div>        
+    </div><!-- end ngIf: !noChrome && !hideSearch -->
+
+
+    <!-- ngIf: isDefaultPremier -->
+
+
+        <noscript>
+        &lt;div class="error-content text-center"&gt;
+            &lt;div&gt;&lt;span class="win-icon warning-symbol win-icon-EmojiNeutral"&gt;&lt;/span&gt;&lt;/div&gt;
+            &lt;h2&gt; Javascript is disabled &lt;/h2&gt;
+            &lt;p&gt; Please enable javascript and refresh the page &lt;/p&gt;
+        &lt;/div&gt;
+    </noscript>
+    <!-- ngIf: errorStatus -->
+    <div class="error-content text-center text-muted ng-hide" ng-show="errorStatus" aria-hidden="true">
+        <p class="ng-binding">CV: zabasp/Gm8hSqiSH.0</p>
+    </div>
+
+
+    <div ng-class="{&#39;container&#39;: !noChrome &amp;&amp; !fluidContainer, &#39;container-fluid&#39;: fluidContainer}" class="container">
+        <div class="row">
+            <div class="col-xs-24">
+                
+<!-- ngView:  --><div ng-view="" ng-show="!errorStatus" scroll-track="" class="ng-scope" aria-hidden="false"><div class="row ng-scope">
+    <div class="col-lg-16 col-lg-offset-4 col-md-20 col-md-offset-2">
+        <!-- ngIf: !kbArticle -->
+        <!-- ngIf: mtLoading -->
+        <section class="section kb-article spacer-84-top" compile-html="" content="kbArticle">
+            <!-- ngIf: !iFrame --><h1 id="mt3" title="Common Object File Format (COFF)" ng-if="!iFrame" class="col-xl-20 col-md-18 title ng-scope">
+                Common Object File Format (COFF)
+            </h1><!-- end ngIf: !iFrame -->
+            <!-- ngIf: iFrame -->
+            <div ng-hide="iFrame" media-widget="" email-caption="Email" email-title="I think you&#39;d be interested in this article: {title}" email-body="{title} - {url}" print-caption="Print" title="Common Object File Format (COFF)" class="ng-scope ng-isolate-scope" aria-hidden="false"><div class="content-media row">
+    <ul class="list-unstyled col-md-6 col-xl-4 media-widget">
+        <li>
+            <a id="media-email" translate="no" ng-href="mailto:?subject=I think you&#39;d be interested in this article: Common Object File Format (COFF)&amp;body=Common Object File Format (COFF) - https://support.microsoft.com/en-us/kb/121460" class="ng-binding" href="mailto:?subject=I%20think%20you%27d%20be%20interested%20in%20this%20article:%20Common%20Object%20File%20Format%20(COFF)&amp;body=Common%20Object%20File%20Format%20(COFF)%20-%20https://support.microsoft.com/en-us/kb/121460">
+                <span class="win-icon" aria-hidden="true">  </span>Email
+            </a>
+        </li>
+        <li>
+            <a id="media-print" translate="no" href="javascript:window.print();" class="ng-binding">
+                <span class="win-icon" aria-hidden="true">  </span>Print
+            </a>
+        </li>
+    </ul>
+</div></div>
+            <!-- ngIf: iFrame --><div class="kb-notice-section section ng-scope">This article was previously published under Q121460</div><div class="kb-notice-section section ng-scope"><div class="kb-disclaimer-archived">This article has been archived.  It is offered "as is" and will no longer be updated.</div></div><div id="mt0" class="kb-summary-section section ng-scope"><div class="section-header"><h5 class="section-title">SUMMARY</h5></div>
+Windows NT uses a special format for the executable (image) files and
+object files. The format used in these files are referred to as Portable
+Executable (PE) or Common Object File Format (COFF) files. The name
+Portable Executable refers to the fact that executable files can run on
+more than one platform. This article describes in detail the internal
+features of PE/COFF file formats and its parameters.
+</div><div id="mt1" class="kb-moreinformation-section section ng-scope"><div class="section-header"><h5 class="section-title">MORE INFORMATION</h5></div>
+The PE/COFF file headers consist of a MS-DOS stub, file signature, COFF
+Header, and Optional Header. An object file contains only the COFF Header,
+but an image file contains all the headers described above. The most
+important of these headers is the COFF header. The table below describes
+the information stored in the COFF header.
+<br><br><pre class="sbody-pre">Offset Size Field               Description
+------ ---- ------------------- -----------------------------------------------
+0       2   Machine             Number identifying type of target machine.
+2       2   Number of Sections  Number of sections; indicates size of the
+                                Section Table, which immediately follows
+                                the headers.
+4       4   Time/Date Stamp     Time and date the file was created.
+8       4   Pointer to Symbol   Offset, within the COFF file, of the symbol
+            Table               table.
+12      4   Number of Symbols   Number of entries in the symbol table.
+                                This data can be used in locating the
+                                string table, which immediately follows
+                                the symbol table.
+16      2   Optional Header     Size of the optional header, which is
+            Size                included for executable files but not
+                                object files. An object file should have a
+                                value of 0 here.
+18      2   Characteristics     Flags indicating attributes of the file.
+				</pre>
+
+Windows NT Software Development Kit (SDK) provides a utility called
+DUMPBIN. DUMPBIN is a 32-bit tool that displays information about 32-bit
+Common Object File Format (COFF) binary files. DUMPBIN runs only from a
+command prompt. You can use DUMPBIN to examine the following kinds of COFF
+files: object files, standard libraries of COFF objects, executable files,
+and dynamic-link library (DLL) files.<br><br>
+
+To run DUMPBIN, use the following syntax:
+<div class="indent">
+   DUMPBIN [options] [files]
+</div>
+
+The following are options parameters and definitions for DUMPBIN:
+<pre class="sbody-pre">   /ALL
+   /ARCHIVEMEMBERS
+   /DISASM
+   /EXPORTS
+   /HEADERS
+   /IMPORTS
+   /LINENUMBERS
+   /LINKERMEMBER[:{1|2}]
+   /OUT:filename
+   /PDATA
+   /RAWDATA[:{NONE|BYTES|SHORTS|LONGS}[,#]]
+   /RELOCATIONS
+   /SECTION:name
+   /SUMMARY
+   /SYMBOLS
+				</pre><pre class="sbody-pre">Options          Definition
+---------------- -------------------------------------------------------
+/ALL             Setting this option causes DUMPBIN to display all
+                 available information except code disassembly.
+
+/ARCHIVEMEMBERS  Setting this option causes DUMPBIN to display minimal
+                 information about member objects in a library.
+
+/DISASM          Setting this option causes DUMPBIN to show disassembly
+                 of code sections, using symbols if present in the file.
+
+/EXPORTS         This option causes DUMPBIN to list all definitions
+                 exported from an executable file or DLL.
+
+/HEADERS         Setting this option causes DUMPBIN to display the file
+                 header and the header for each section. When used with a
+                 library, displays the header for each member object.
+
+/IMPORTS         This option causes DUMPBIN to list all definitions
+                 imported to an executable file or DLL.
+
+/LINENUMBERS     Setting this option causes DUMPBIN to show COFF line
+                 numbers. Line numbers exist in an object file if it was
+                 compiled with /Zi. An executable file or DLL contains
+                 COFF line numbers if it was linked with /DEBUG and
+                 /DEBUGTYPE:COFF option.
+
+/LINKERMEMBER [[:{1|2}]]
+                 Setting this option causes DUMPBIN to list public symbols
+                 defined in a library. Specify the 1 argument to display
+                 symbols in object order, along with their offsets. Specify
+                 the 2 argument to display offsets and index numbers of
+                 objects, then list the symbols in alphabetical order along
+                 with the object index for each. To get both outputs,
+                 specify /LINKERMEMBER without the number argument.
+
+/OUT:&lt;filename&gt;  This option specifies a filename for the output.
+
+/RAWDATA [[:{BYTES|SHORTS|LONGS|NONE}[[,number]]]]
+                 Setting this option causes DUMPBIN to display the raw
+                 contents of each section in the file. The arguments
+                 control the format of the display, as follows:
+      Argument - Result
+      BYTES    - The default. Contents are displayed in hexadecimal bytes,
+                 and also as ASCII if they have a printed representation.
+      SHORTS   - Contents are displayed in hexadecimal words.
+      LONGS    - Contents are displayed in hexadecimal longwords.
+      NONE     - Raw data is suppressed. This is useful to control the
+                 output of /ALL.
+      number   - Displayed lines are set to a width that holds number
+                 values per line.
+
+/RELOCATIONS     Setting this option causes DUMPBIN to display any
+                 relocations in the object or image.
+
+/SECTION: &lt;section&gt;
+              This option restricts the output to information on the
+              specified section.
+
+/SUMMARY      Setting this option causes DUMPBIN to display minimal
+              information about sections, including total size. This
+              option is the default if no other option is specified
+              in a DUMPBIN command.
+
+/SYMBOLS      Setting this option causes DUMPBIN to display the COFF symbol
+              table. Symbol tables exist in all object files. A COFF symbol
+              table appears in an image file only if it is linked with
+              /DEBUG /DEBUGTYPE:COFF
+				</pre></div><div id="mt2" class="kb-querywords-section section ng-scope">prodnt 3.10 entry NTS NTW</div><div content-properties="" translate="no" applies-to="[&quot;Microsoft Windows NT Advanced Server 3.1&quot;,&quot;Microsoft Windows NT Workstation 3.1&quot;,&quot;Microsoft Windows NT Advanced Server 3.1&quot;,&quot;Microsoft Windows NT Workstation 3.5&quot;,&quot;Microsoft Windows NT Server 3.5&quot;]" keywords="[{&quot;conf&quot;:0,&quot;confSpecified&quot;:true,&quot;level&quot;:0,&quot;Value&quot;:&quot;kbnosurvey kbarchive KB121460 &quot;}]" article-id="121460" last-modified="12/04/2015 10:35:49" revision="4.1" class="ng-scope ng-isolate-scope"><div class="section" ng-show="contentProperties" aria-hidden="false">
+    <div class="section-header">
+        <div class="section-title ng-binding">
+            Properties
+        </div>
+    </div>
+    <p class="ng-binding">Article ID: 121460 - Last Review: 12/04/2015 10:35:49 - Revision: 4.1</p>
+
+    <!-- ngIf: appliesTo.length > 0 --><div ng-if="appliesTo.length &gt; 0" class="ng-scope">
+        <label for="applies-to" class="ng-binding">Applies to</label>
+        <div id="applies-to" class="ng-binding">
+            Microsoft Windows NT Advanced Server 3.1, Microsoft Windows NT Workstation 3.1, Microsoft Windows NT Advanced Server 3.1, Microsoft Windows NT Workstation 3.5, Microsoft Windows NT Server 3.5
+        </div>
+        <br>
+    </div><!-- end ngIf: appliesTo.length > 0 -->
+    <!-- ngIf: keywords --><div ng-if="keywords" class="ng-scope">
+        <label for="keywords" class="ng-binding">Keywords: </label>
+        <ul id="keyword-list">
+            <!-- ngRepeat: keyword in keywords track by $index --><li ng-repeat="keyword in keywords track by $index" class="ng-binding ng-scope">
+                kbnosurvey kbarchive KB121460 
+            </li><!-- end ngRepeat: keyword in keywords track by $index -->
+        </ul>
+    </div><!-- end ngIf: keywords -->
+</div></div><!-- ngIf: !iFrame --><div content-survey="" ng-if="!iFrame" class="ng-scope ng-isolate-scope"><section class="section content-survey" ng-show="contentSurvey" aria-hidden="false">
+    <header class="section-header">
+        <h5 class="section-title ng-binding">Feedback</h5>
+    </header>
+    <form ng-submit="OnSubmit()" class="ng-pristine ng-valid ng-valid-minlength ng-valid-maxlength">
+        <div ng-show="showSurvey" aria-hidden="false">
+            <div class="choices" ng-show="showButtons" aria-hidden="false">
+                <label ng-class="choiceCaptionClass" class="ng-binding choice-caption">Was this information helpful?</label>
+                <div class="form-group">
+                    <span class="button">
+                        <label class="button-inline">
+                            <button id="content-survey-yes" class="btn btn-primary ng-binding" type="button" ng-click="onYesNoSomewhatClick(&#39;yes&#39;)" value="yes"> Yes </button>
+                        </label>
+                    </span>
+                    <span class="button">
+                        <label class="button-inline">
+                            <button id="content-survey-somewhat" class="btn btn-primary ng-binding" type="button" ng-click="onYesNoSomewhatClick(&#39;somewhat&#39;)" value="somewhat"> Somewhat </button>
+                        </label>
+                    </span>
+                    <span class="button">
+                        <label class="button-inline">
+                            <button id="content-survey-no" class="btn btn-primary ng-binding" type="button" ng-click="onYesNoSomewhatClick(&#39;no&#39;)" value="no"> No </button>
+                        </label>
+                    </span>
+                </div>
+            </div>
+            <div ng-show="showTextBox" aria-hidden="true" class="ng-hide">
+                <div class="form-group">
+                    <label class="suggestion ng-binding">
+                        Tell us what we can do to improve the article
+                    </label>
+                    <textarea id="survey-verbatim" class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-minlength ng-valid-maxlength" name="suggestion" ng-model="suggestion" ng-minlength="1" ng-maxlength="400" aria-invalid="false"></textarea>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary pull-right ng-binding" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div ng-show="!showSurvey" class="ng-binding ng-hide" aria-hidden="true">
+            Thanks! Your feedback will help us improve the support experience. For more help, try searching for what you need at the top of the page.
+        </div>
+    </form>
+</section></div><!-- end ngIf: !iFrame --><div class="ng-scope"><div kb-meta-tag="" data-name="description" data-value="Windows NT uses a special format for the executable (image) files and object files. The format used in these files are referred to as Portable Executable (PE) or Common Object File Format (COFF) files. The name Portable Executable refers to the..."></div><div kb-meta-tag="" data-name="Search.Description" data-value="Windows NT uses a special format for the executable (image) files and object files. The format used in these files are referred to as Portable Executable (PE) or Common Object File Format (COFF) files. The name Portable Executable refers to the..."></div><div kb-meta-tag="" data-name="Search.KBParents" data-value="5867 3183 6842 5878 3191 6843 5879 3192 5869 3186 "></div><div kb-meta-tag="" data-name="Search.DateModified" data-value="12/4/2015 10:35:49 AM"></div><div kb-meta-tag="" data-name="Search.ContentType" data-value="kb"></div><div kb-meta-tag="" data-name="Search.Products" data-value="36963 36974 36963 36975 36965 "></div><div kb-meta-tag="" data-name="keywords" data-value=" kbnosurvey kbarchive KB121460 "></div><div kb-meta-tag="" data-name="Search.Keywords" data-value=" kbnosurvey kbarchive KB121460 "></div></div></section>
+    </div>
+</div>
+
+</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ngIf: !noChrome --><div class="win-color-bg-10 ng-scope" ng-if="!noChrome" ng-class="{ &#39;skylight-entry-chrome-padding&#39;: hasSkylightEntry }">
+        <!-- ngInclude: '/PartialViews/Common/F1Footer.html' --><div ng-include="&#39;/PartialViews/Common/F1Footer.html&#39;" class="ng-scope"><div class="f1-footer ng-scope" ng-controller="F1FooterController">
+    <!-- Needed to span the full page -->
+    <div class="container">
+        <div class="row">
+            <!-- ngRepeat: section in viewlinkfarm.sectionList --><section class="col-sm-24 col-md-8 section remove-header-rule ng-scope" ng-repeat="section in viewlinkfarm.sectionList">
+                <header class="section-header dropdown-no-toggle-header collapsed">
+                    <h3 class="text-base ng-binding">Support</h3>
+                </header>
+                <header class="section-header dropdown-toggle-header collapsed" data-toggle="collapse" data-target="#link-section-footer-0">
+                    <h3 class="text-base ng-binding">Support<a href="https://support.microsoft.com/" class="text-title pull-right dropdown-toggle win-icon"></a></h3>
+                </header>
+
+                <ul id="link-section-footer-0" class="list-unstyled section-body collapse landing-section-content">
+                    <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-account-support" ng-href="/en-us/products/microsoft-account/" target="_self" class="ng-binding" href="https://support.microsoft.com/en-us/products/microsoft-account/">Account support</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-supported-products-list" ng-href="/en-us/allproducts" target="_self" class="ng-binding" href="https://support.microsoft.com/en-us/allproducts">Supported products list</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-product-support-lifecycle" ng-href="http://support.microsoft.com/en-us/lifecycle" target="_self" class="ng-binding" href="http://support.microsoft.com/en-us/lifecycle">Product support lifecycle</a></li><!-- end ngRepeat: link in section.links -->
+                </ul>
+            </section><!-- end ngRepeat: section in viewlinkfarm.sectionList --><section class="col-sm-24 col-md-8 section remove-header-rule ng-scope" ng-repeat="section in viewlinkfarm.sectionList">
+                <header class="section-header dropdown-no-toggle-header collapsed">
+                    <h3 class="text-base ng-binding">Security</h3>
+                </header>
+                <header class="section-header dropdown-toggle-header collapsed" data-toggle="collapse" data-target="#link-section-footer-1">
+                    <h3 class="text-base ng-binding">Security<a href="https://support.microsoft.com/" class="text-title pull-right dropdown-toggle win-icon"></a></h3>
+                </header>
+
+                <ul id="link-section-footer-1" class="list-unstyled section-body collapse landing-section-content">
+                    <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-safety-and-security-center" ng-href="https://www.microsoft.com/en-us/safety" target="_self" class="ng-binding" href="https://www.microsoft.com/en-us/safety">Safety &amp; Security Center</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-download-security-essentials" ng-href="/en-us/help/14210" target="_self" class="ng-binding" href="https://support.microsoft.com/en-us/help/14210">Download Security Essentials</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-malicious-software-removal-tool" ng-href="https://www.microsoft.com/en-us/download/malicious-software-removal-tool-details.aspx" target="_self" class="ng-binding" href="https://www.microsoft.com/en-us/download/malicious-software-removal-tool-details.aspx">Malicious Software Removal Tool</a></li><!-- end ngRepeat: link in section.links -->
+                </ul>
+            </section><!-- end ngRepeat: section in viewlinkfarm.sectionList --><section class="col-sm-24 col-md-8 section remove-header-rule ng-scope" ng-repeat="section in viewlinkfarm.sectionList">
+                <header class="section-header dropdown-no-toggle-header collapsed">
+                    <h3 class="text-base ng-binding">Contact Us</h3>
+                </header>
+                <header class="section-header dropdown-toggle-header collapsed" data-toggle="collapse" data-target="#link-section-footer-2">
+                    <h3 class="text-base ng-binding">Contact Us<a href="https://support.microsoft.com/" class="text-title pull-right dropdown-toggle win-icon"></a></h3>
+                </header>
+
+                <ul id="link-section-footer-2" class="list-unstyled section-body collapse landing-section-content">
+                    <!-- ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-report-support-scam" ng-href="https://www.microsoft.com/reportascam/" target="_self" class="ng-binding" href="https://www.microsoft.com/reportascam/">Report a support scam</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-disability-answer-desk" ng-href="http://support.microsoft.com/en-us/answerdesk/accessibility" target="_self" class="ng-binding" href="http://support.microsoft.com/en-us/answerdesk/accessibility">Disability Answer Desk</a></li><!-- end ngRepeat: link in section.links --><li ng-repeat="link in section.links" class="ng-scope"><a id="f1footer-locate-microsoft-office-worldwide" ng-href="https://www.microsoft.com/worldwide" target="_self" class="ng-binding" href="https://www.microsoft.com/worldwide">Locate Microsoft addresses worldwide</a></li><!-- end ngRepeat: link in section.links -->
+                </ul>
+            </section><!-- end ngRepeat: section in viewlinkfarm.sectionList -->
+        </div>
+    </div>
+</div></div>
+        <!-- ngInclude: '/PartialViews/Common/Locale.html' --><div ng-include="&#39;/PartialViews/Common/Locale.html&#39;" class="ng-scope"><div class="language-selector-section ng-scope ng-hide" id="language-selector" ng-controller="LanguageController" ng-show="displayLanguageSelector" aria-hidden="true">
+    <div class="container">
+        <div class="clearfix text-title spacer-20-top spacer-32-bottom language-selector-section ng-binding">
+            This site in other countries/regions
+            <a class="win-icon win-icon-Cancel pull-right" ng-click="closeClick()"></a>
+        </div>
+        <div class="row spacer-12-bottom hidden-sm hidden-md hidden-lg hidden-xl">
+            <!-- ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-dz">Algérie - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-ar">Argentina - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-au">Australia - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-be">Belgique - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-nl-be">België - Nederlands</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-bo">Bolivia - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-hr-ba">Bosna i Hercegovina  - Hrvatski</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-pt-br">Brasil - Português</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-ca">Canada - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-ca">Canada - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-cl">Chile - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-co">Colombia - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-cr">Costa Rica - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-sr-Latn-me">Crna Gora - Srpski</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-da-dk">Danmark - Dansk</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-de-de">Deutschland - Deutsch</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-do">Dominican Republic - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-ec">Ecuador - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-et-ee">Eesti - Eesti</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-sv">El Salvador - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-es">España - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-us">Estados Unidos - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-fr">France - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-gt">Guatemala - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-hk">Hong Kong SAR - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-hr-hr">Hrvatska - Hrvatski</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-in">India - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-id-id">Indonesia (Bahasa) - Bahasa</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-ie">Ireland - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-it-it">Italia - Italiano</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-lv-lv">Latvija - Latviešu</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-lt-lt">Lietuva - Lietuvių</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-lu">Luxembourg - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-hu-hu">Magyarország - Magyar</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-my">Malaysia - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-ma">Maroc - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-mx">México - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-nl-nl">Nederland - Nederlands</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-nz">New Zealand - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-nb-no">Norge - Bokmål</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-pa">Panamá - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-py">Paraguay - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-pe">Perú - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-ph">Philippines - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-pl-pl">Polska - Polski</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-pt-pt">Portugal - Português</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-pr">Puerto Rico - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ro-ro">România - Română</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-de-ch">Schweiz - Deutsch</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-sg">Singapore - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-sl-si">Slovenija - Slovenščina</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-sk-sk">Slovensko - Slovenčina</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-za">South Africa - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-sr-latn-rs">Srbija - Srpski</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-ch">Suisse - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fi-fi">Suomi - Suomi</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-sv-se">Sverige - Svenska</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-fr-tn">Tunisie - Français</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-tr-tr">Türkiye - Türkçe</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-gb">United Kingdom - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-en-us">United States - English</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-uy">Uruguay - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-es-ve">Venezuela - Español</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-vi-vn">Việt Nam - Tiếng việt</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-is-is">Ísland - Íslenska</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-de-at">Österreich - Deutsch</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-cs-cz">Česká Republika - Čeština</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-el-gr">Ελλάδα - Ελληνικά</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-bg-bg">България - Български</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ru-kz">Казахстан - Русский</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ru-ru">Россия - Русский</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-uk-ua">Україна - Українська</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-he-il">ישראל - עברית</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ar-ae">الإمارات العربية المتحدة - العربية</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ar-sa">المملكة العربية السعودية - العربية</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ar-eg">مصر - العربية</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-hi-in">भारत - हिंदी</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-th-th">ไทย - ไทย</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-zh-cn">中国  - 简体中文</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-zh-tw">台灣 - 繁體中文</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ja-jp">日本 - 日本語</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-zh-hk">香港特別行政區 - 繁體中文</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' --><div ng-repeat="language in languages | objectOrderBy:&#39;displayName&#39;" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;mobile-language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="mobile-language-ko-kr">대한민국 - 한국어</a>
+            </div><!-- end ngRepeat: language in languages | objectOrderBy:'displayName' -->
+        </div>
+        <div class="row spacer-12-bottom hidden-xs">
+            <!-- ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-dz">Algérie - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-us">Estados Unidos - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-pe">Perú - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-vi-vn">Việt Nam - Tiếng việt</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-ar">Argentina - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-fr">France - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-ph">Philippines - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-is-is">Ísland - Íslenska</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-au">Australia - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-gt">Guatemala - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-pl-pl">Polska - Polski</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-de-at">Österreich - Deutsch</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-be">Belgique - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-hk">Hong Kong SAR - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-pt-pt">Portugal - Português</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-cs-cz">Česká Republika - Čeština</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-nl-be">België - Nederlands</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-hr-hr">Hrvatska - Hrvatski</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-pr">Puerto Rico - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-el-gr">Ελλάδα - Ελληνικά</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-bo">Bolivia - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-in">India - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ro-ro">România - Română</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-bg-bg">България - Български</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-hr-ba">Bosna i Hercegovina  - Hrvatski</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-id-id">Indonesia (Bahasa) - Bahasa</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-de-ch">Schweiz - Deutsch</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ru-kz">Казахстан - Русский</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-pt-br">Brasil - Português</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-ie">Ireland - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-sg">Singapore - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ru-ru">Россия - Русский</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-ca">Canada - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-it-it">Italia - Italiano</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-sl-si">Slovenija - Slovenščina</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-uk-ua">Україна - Українська</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-ca">Canada - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-lv-lv">Latvija - Latviešu</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-sk-sk">Slovensko - Slovenčina</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-he-il">ישראל - עברית</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-cl">Chile - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-lt-lt">Lietuva - Lietuvių</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-za">South Africa - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ar-ae">الإمارات العربية المتحدة - العربية</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-co">Colombia - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-lu">Luxembourg - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-sr-latn-rs">Srbija - Srpski</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ar-sa">المملكة العربية السعودية - العربية</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-cr">Costa Rica - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-hu-hu">Magyarország - Magyar</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-ch">Suisse - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ar-eg">مصر - العربية</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-sr-Latn-me">Crna Gora - Srpski</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-my">Malaysia - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fi-fi">Suomi - Suomi</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-hi-in">भारत - हिंदी</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-da-dk">Danmark - Dansk</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-ma">Maroc - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-sv-se">Sverige - Svenska</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-th-th">ไทย - ไทย</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-de-de">Deutschland - Deutsch</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-mx">México - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-fr-tn">Tunisie - Français</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-zh-cn">中国  - 简体中文</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-do">Dominican Republic - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-nl-nl">Nederland - Nederlands</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-tr-tr">Türkiye - Türkçe</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-zh-tw">台灣 - 繁體中文</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-ec">Ecuador - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-nz">New Zealand - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-gb">United Kingdom - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ja-jp">日本 - 日本語</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-et-ee">Eesti - Eesti</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-nb-no">Norge - Bokmål</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-en-us">United States - English</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-zh-hk">香港特別行政區 - 繁體中文</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-sv">El Salvador - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-pa">Panamá - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-uy">Uruguay - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-ko-kr">대한민국 - 한국어</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-es">España - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-py">Paraguay - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-es-ve">Venezuela - Español</a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index --><div ng-repeat="language in languagesListForLargeScreens track by $index" class="col-sm-6 col-xs-24 ng-scope">
+                <a ng-attr-id="{{&#39;language-&#39;+language.locale}}" href="https://support.microsoft.com/" ng-click="setLanguage(language);" class="ng-binding" id="language-"></a>
+            </div><!-- end ngRepeat: language in languagesListForLargeScreens track by $index -->
+        </div>
+    </div>
+</div></div>
+
+ 
+
+
+<div class="shell-footer" role="contentinfo" ms.pgarea="uhffooter" data-bi-area="Footer" data-bi-view="3xLinks">
+    <div class="shell-footer-wrapper">
+
+
+        <div class="shell-footer-lang" ms.cmpgrp="loc picker" ms.cmpnm="loc picker">
+                <ul>
+                    <li>
+                        <i class="shell-icon-globe"></i>
+                    </li><li>
+                        <a id="locale-picker-link" ms.title="English (United States)" href="javascript:function smcLanguageSelector() { return undefined; } smcLanguageSelector();" data-bi-name="LocalePicker">
+                            English (United States)‎
+                        </a>
+                    </li>
+                </ul>
+        </div>
+        <div class="shell-footer-copyright" ms.cmpgrp="corp links" ms.cmpnm="corp">
+            <ul>
+                            <li>
+                                <a id="shellmenu_0" href="http://go.microsoft.com/fwlink/?LinkID=206977" ms.title="Terms of use" class="ctl_footerNavLink" data-bi-name="Footer_TermsOfUse" data-bi-slot="1">
+                                    Terms of use
+                                </a>
+                            </li>
+                            <li>
+                                <a id="shellmenu_1" href="http://go.microsoft.com/fwlink/?LinkID=521839" ms.title="Privacy &amp; cookies" class="ctl_footerNavLink" data-bi-name="Footer_Privacy&amp;cookies" data-bi-slot="2">
+                                    Privacy &amp; cookies
+                                </a>
+                            </li>
+                            <li>
+                                <a id="shellmenu_2" href="http://www.microsoft.com/trademarks" ms.title="Trademarks" class="ctl_footerNavLink" data-bi-name="Footer_Trademarks" data-bi-slot="3">
+                                    Trademarks
+                                </a>
+                            </li>
+
+                <li class="ctl_footerCopyright">
+                    © 2016 Microsoft
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+        </div><!-- end ngIf: !noChrome -->
+
+    
+    <div languaugeselector=""></div>
+
+    
+    <noscript>
+        &lt;img alt="" width="1" height="1" src="https://c.microsoft.com/trans_pixel.aspx"&gt;
+    </noscript>
+
+    
+    <div metatags=""></div>
+
+    
+    <!-- ngIf: hasSkylightEntry -->
+    
+    
+    <script type="text/javascript">var guid = ("xxxxxxxx-xxxx-4xxx-Rxxx-xxxxxxxxxxxx".replace(/x/g, function () { return Math.floor(Math.random() * 16).toString(16); })).replace("R", (8 | Math.floor(Math.random() * 3)).toString(16)); var m = document.createElement("meta"); m.content = guid; m.name = "ms.dqid"; document.getElementsByTagName("head")[0].appendChild(m);</script>
+    <img style="display:none;" onerror="var m=document.createElement(&#39;meta&#39;);m.name=&#39;ms.dqp0&#39;;m.content=&#39;true&#39;;document.getElementsByTagName(&#39;head&#39;)[0].appendChild(m);" onload="var m=document.createElement(&#39;meta&#39;);m.name=&#39;ms.dqp0&#39;;m.content=&#39;false&#39;;document.getElementsByTagName(&#39;head&#39;)[0].appendChild(m);" src="./Common Object File Format (COFF)_files/c.gif"> 
+    
+    
+    <script type="text/javascript">
+        Asimov.clickstreamTracker.init();
+    </script>
+
+    <script type="text/JavaScript" async="">
+        var varAutoFirePV = 1;
+        var varClickTracking = 1;
+        var varCustomerTracking = 1;
+        var Route = "76500";
+        var Ctrl = "";
+        document.write("<script type='text/javascript' src='" + (window.location.protocol) + "//c.microsoft.com/ms.js'><\/script>");
+    </script><script type="text/javascript" src="./Common Object File Format (COFF)_files/ms.js.download"></script><iframe id="_msnFrame" src="./Common Object File Format (COFF)_files/c.html" style="z-index:-1;height:1px;width:1px;display:none;visibility:hidden;"></iframe>
+
+    
+    
+
+
+
+
+
+
+<script src="./Common Object File Format (COFF)_files/broker-config.js.download"></script><div id="meControlDropdown" class="msame_Drop_root" style="display: none;"><div class="msame_Drop_topb"></div><div class="msame_Drop_content"><div class="msame_Drop_active"></div><div class="msame_Drop_rewards" style="display: none;"></div><div class="msame_Drop_account"></div><div class="msame_Drop_links" style="display: none;"><div class="msame_Drop_links_list"></div></div><div class="msame_Drop_signIn"></div><div class="msame_Drop_signOut"></div><div class="msame_Drop_accts" style="display: none;"><div class="msame_Drop_sep"></div><div class="msame_Drop_accts_list"></div></div></div></div></body></html>

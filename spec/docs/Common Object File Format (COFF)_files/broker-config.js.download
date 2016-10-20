@@ -1,0 +1,259 @@
+/*
+Copyright (c) 2016, comScore Inc. All rights reserved.
+version: 5.1.3
+*/
+COMSCORE.SiteRecruit.Broker.config = {
+	version: "5.1.3",
+	cddsDomains: 'store.microsoft.com|xbox.com|go.microsoft.com|windowsphone.com|microsoftstore.com|(templates|support).office.com',
+	cddsInProgress: 'cddsinprogress',
+	domainSwitch: 'tracking3p',
+	domainMatch: '([\\da-z\.-]+\.com)',
+	delay: 0,
+	cddsIntervalMax: 10,
+
+	crossDomainCheck: function() {
+		if (this.cddsIntervalMax > 1) {
+			this.cddsIntervalMax --;
+
+			if (COMSCORE.SiteRecruit.Utils.UserPersistence.getCookieValue(this.cddsInProgress) != false ) {
+				setInterval(function() { COMSCORE.SiteRecruit.DDKeepAlive.setDDTrackerCookie()}, 1000);
+				COMSCORE.SiteRecruit._halt = true;
+				this.clearCrossDomainCheck();
+			}
+		}
+		else {
+			this.clearCrossDomainCheck();
+		}
+	},
+
+	clearCrossDomainCheck: function() {
+		window.clearInterval(crossDomainInterval);
+	},
+
+	isolateDomain: function(a) {
+		a = a.substring(a.indexOf("//")+2,a.length);
+		a = a.substring(0,a.indexOf("/"));
+		return a;
+	},
+
+	testMode: false,
+	addEventDelay: 1000,
+	
+	cookie:{
+		name: 'msresearch',
+		path: '/',
+		domain:  '.microsoft.com' ,
+		duration: 90,
+		rapidDuration: 0,
+		expireDate: ''
+	},
+	tracker:{
+		std:'http://www.microsoft.com/library/svy/support/SiteRecruit_Tracker.htm',
+		ssl:'https://www.microsoft.com/library/svy/support/SiteRecruit_Tracker.htm'
+	},
+	mobile:{
+		match: 'iphone|ipad|ipod|android|opera mini|blackberry|windows (phone|ce)|iemobile|htc|nokia|bb10|mobile safari|mobile',
+		kmatch: '(?:; ([^;)]+) Build\/.*)?\bSilk\/([0-9._-]+)\b(.*\bMobile Safari\b)?',
+		halt: true
+	},
+	graceIncr:{
+		name: 'graceIncr',
+		initDelay: 0,
+		clickDelay: 5000,
+		match: 'https:\/\/(account|accounts|billing|commerce|support|login|live)\.(microsoft|live|xbox)\.(com)',
+		altTag: 'class',
+		htmlMatch: ''
+	},
+	
+	prefixUrl: "",
+	
+		mapping:[
+	// m=regex match, c=page config file (prefixed with configUrl), f=frequency
+		{m: 'support.microsoft.com/cs-cz', c: 'inv_c_p329970507-cs-cz.js', f: 0.0516, p: 0}
+	,{m: 'support.microsoft.com/de-ch', c: 'inv_c_p329970507-de-ch.js', f: 0.1719, p: 0}
+	,{m: 'support.microsoft.com/de-de', c: 'inv_c_p329970507-de-de.js', f: 0.0184, p: 0}
+	,{m: 'support.microsoft.com/en-au', c: 'inv_c_p329970507-en-au.js', f: 0.1647, p: 0}
+	,{m: 'support.microsoft.com/en-ca', c: 'inv_c_p329970507-en-ca.js', f: 0.0686, p: 0}
+	,{m: 'support.microsoft.com/en-gb', c: 'inv_c_p329970507-en-gb.js', f: 0.0249, p: 0}
+	,{m: 'support.microsoft.com/en-in', c: 'inv_c_p329970507-en-in.js', f: 0.0498, p: 0}
+	,{m: 'support.microsoft.com/en-nz', c: 'inv_c_p329970507-en-nz.js', f: 0.233, p: 0}
+	,{m: 'support.microsoft.com/en-us', c: 'inv_c_p329970507-en-us.js', f: 0.0072, p: 0}
+	,{m: 'support.microsoft.com/en-za', c: 'inv_c_p329970507-en-za.js', f: 0.204, p: 0}
+	,{m: 'support.microsoft.com/es-ar', c: 'inv_c_p329970507-es-ar.js', f: 0.0599, p: 0}
+	,{m: 'support.microsoft.com/es-co', c: 'inv_c_p329970507-es-co.js', f: 0.0922, p: 0}
+	,{m: 'support.microsoft.com/es-es', c: 'inv_c_p329970507-es-es.js', f: 0.0137, p: 0}
+	,{m: 'support.microsoft.com/es-mx', c: 'inv_c_p329970507-es-mx.js', f: 0.0784, p: 0}
+	,{m: 'support.microsoft.com/fr-be', c: 'inv_c_p329970507-fr-be.js', f: 0.1061, p: 0}
+	,{m: 'support.microsoft.com/fr-ca', c: 'inv_c_p329970507-fr-ca.js', f: 0.0487, p: 0}
+	,{m: 'support.microsoft.com/fr-ch', c: 'inv_c_p329970507-fr-ch.js', f: 0.5, p: 0}
+	,{m: 'support.microsoft.com/fr-fr', c: 'inv_c_p329970507-fr-fr.js', f: 0.0138, p: 0}
+	,{m: 'support.microsoft.com/hu-hu', c: 'inv_c_p329970507-hu-hu.js', f: 0.0922, p: 0}
+	,{m: 'support.microsoft.com/it-it', c: 'inv_c_p329970507-it-it.js', f: 0.0291, p: 0}
+	,{m: 'support.microsoft.com/ja-jp', c: 'inv_c_p329970507-ja-jp.js', f: 0.0262, p: 0}
+	,{m: 'support.microsoft.com/ko-kr', c: 'inv_c_p329970507-ko-kr.js', f: 0.0403, p: 0}
+	,{m: 'support.microsoft.com/nl-be', c: 'inv_c_p329970507-nl-be.js', f: 0.1061, p: 0}
+	,{m: 'support.microsoft.com/nl-nl', c: 'inv_c_p329970507-nl-nl.js', f: 0.0463, p: 0}
+	,{m: 'support.microsoft.com/pl-pl', c: 'inv_c_p329970507-pl-pl.js', f: 0.125, p: 0}
+	,{m: 'support.microsoft.com/pt-br', c: 'inv_c_p329970507-pt-br.js', f: 0.0168, p: 0}
+	,{m: 'support.microsoft.com/pt-pt', c: 'inv_c_p329970507-pt-pt.js', f: 0.0515, p: 0}
+	,{m: 'support.microsoft.com/ru-ru', c: 'inv_c_p329970507-ru-ru.js', f: 0.0097, p: 0}
+	,{m: 'support.microsoft.com/sv-se', c: 'inv_c_p329970507-sv-se.js', f: 0.0538, p: 0}
+	,{m: 'support.microsoft.com/th-th', c: 'inv_c_p329970507-th-th.js', f: 0.2586, p: 0}
+	,{m: 'support.microsoft.com/tr-tr', c: 'inv_c_p329970507-tr-tr.js', f: 0.1055, p: 0}
+	,{m: 'support.microsoft.com/vi-vn', c: 'inv_c_p329970507-vi-vn.js', f: 0.2935, p: 0}
+	,{m: 'support.microsoft.com/zh-cn', c: 'inv_c_p329970507-zh-cn.js', f: 0.0166, p: 0}
+	,{m: 'support.microsoft.com/zh-tw', c: 'inv_c_p329970507-zh-tw.js', f: 0.1007, p: 0}
+],
+
+	//events
+	Events: {
+		beforeRecruit: function() {
+			// ADD shortcuts
+			var csbc = COMSCORE.SiteRecruit.Broker.config;
+			var csuu = COMSCORE.SiteRecruit.Utils.UserPersistence;
+			
+			// IF TRACKING3P EXISTS, REMOVE IT
+			if (csuu.getCookieValue(csbc.domainSwitch) != false) {
+				csuu.createCookie(csbc.domainSwitch, '', {path:'/',domain:csbc.cookie.domain,duration:-1});
+			}
+
+			var _halt = true; 
+			var _days = false;
+			var _stC = COMSCORE.SiteRecruit.Utils.UserPersistence.getCookieValue("ST_GN_EN-US"); 
+			if(_stC){  
+				var _s = _stC.split('.');  
+				_t = _s[0].split('_');	
+				_d = _t[1];  
+				var mult = 86400000; 
+				if(_d && _d > 0){ 
+					var myDate = new Date().getTime(); 
+					var b = myDate - (_d * mult); _days = (b/mult); 
+				}
+			}
+
+			if(typeof ms != 'undefined' && typeof ms.ssversion != 'undefined'){ 
+				if (ms.ssversion == '200') { _halt = false; }
+			}
+
+			if(typeof document.getElementsByName('ms.ssversion')[0] != 'undefined' && typeof document.getElementsByName('ms.ssversion')[0].getAttribute('content') != 'undefined'){	
+				_ssvervion = document.getElementsByName('ms.ssversion')[0].getAttribute('content'); 
+				if(_ssvervion == '200'){ _halt = false;}
+			}
+
+			if(_days && _days <= 90 && /en-us/i.test(window.location.toString())){ _halt = true;} 
+			COMSCORE.SiteRecruit._halt = _halt;
+
+			if(/test=comscore/i.test(window.location.toString()) || /tstMode=1/i.test(document.cookie)){ COMSCORE.SiteRecruit._halt = false;} 
+
+			//if(/((sg1|dev|staging|co3rb|partner).support.services|support-uat)/i.test(window.location.toString())){ COMSCORE.SiteRecruit._halt = true; }
+			
+			if (!(/support.microsoft.com/i.test(window.location.toString()))) {COMSCORE.SiteRecruit._halt = true; }
+
+			if (/windows.com/i.test(document.domain)) {
+				COMSCORE.SiteRecruit.Broker.config.cookie.domain = '.windows.com';
+			}
+
+			COMSCORE.SiteRecruit.Broker.custom = {
+			  captLinks: function(u) {
+					var v = csuu.getCookieValue('captLinks');
+					var c = "";
+			    
+			    if (v == false) {
+						c = escape(u) + ';';
+					}
+					else {
+						if (c.length + v.length < 1440) {
+							c = v + escape(u) + ';';
+						}
+					}
+
+					if (c != "") {
+						csuu.createCookie('captLinks', c, {path:'/',domain:csbc.cookie.domain,duration:'s'});
+					}
+				},
+
+				allTags: function(x,x1,y,z) {
+			    /*
+			      x:  Tag type
+			      x1: Alt Match pattern
+			      y:  Match pattern
+			      z: 
+							1 - CDDS
+							2 - graceIncr
+							3 - captLinks
+			    */
+
+			    if (x == 'class') {
+						if (/msie (8|7)/i.test(navigator.userAgent)) { return; }
+			        var aTags = document.getElementsByClassName(x1);
+						}
+					else {
+						var aTags = document.getElementsByTagName(x);
+					}
+
+					var sr_r = new RegExp(y,'i');
+					for (var i = 0; i < aTags.length; i++) {
+				 		if ( (x == 'a' && sr_r.test(aTags[i].href)) || (x == 'class' && sr_r.test(aTags[i].innerHTML))	) {
+							if (aTags[i].addEventListener) {
+								this.href = aTags[i].href;
+								if (z == 1) {
+									aTags[i].addEventListener('click', function(event) {
+			              				if (sr_r.test(this.href)) {
+											if (/615609|391343|391342|328579|328578|619234|619238|619237|619242|619235/.test(this.href)) {	csuu.createCookie(csbc.domainSwitch, ".microsoftstore.com", {path:'/',domain:csbc.cookie.domain,duration:'s'})	}
+											else { csuu.createCookie(csbc.domainSwitch, this.href, {path:'/',domain:csbc.cookie.domain,duration:'s'}) }
+										}
+									}, false);
+								}
+								else if (z == 2) {
+									aTags[i].addEventListener('click',function(event){	csuu.createCookie("graceIncr", 1, {path:'/',domain:csbc.cookie.domain,duration:'s'})	},false);
+								}
+								else if (z == 3 && COMSCORE.isDDInProgress()) {
+									aTags[i].addEventListener('click',function(event){ COMSCORE.SiteRecruit.Broker.custom.captLinks(this.href)	},false);	
+								}
+							}
+							else if (aTags[i].attachEvent) {
+								if (z == 1) {
+									aTags[i].attachEvent('onclick', function(e) {
+										if (sr_r.test(this.href)) {
+											if (/615609|391343|391342|328579|328578|619234|619238|619237|619242|619235/.test(this.href)) {	csuu.createCookie(csbc.domainSwitch, ".microsoftstore.com", {path:'/',domain:csbc.cookie.domain,duration:'s'})	}
+											else { csuu.createCookie(csbc.domainSwitch, this.href, {path:'/',domain:csbc.cookie.domain,duration:'s'}) }
+										}
+									});
+								}
+								else if (z == 2) {
+									aTags[i].attachEvent('onclick',function()	{	csuu.createCookie("graceIncr", 1, {path:'/',domain:csbc.cookie.domain,duration:'s'})	});
+								}
+								else if (z == 3 && COMSCORE.isDDInProgress()) {
+									aTags[i].attachEvent('onclick',function()	{ 	COMSCORE.SiteRecruit.Broker.custom.captLinks(e.srcElement)	} );	
+								}
+							}
+							else {}
+						}
+					}
+				}
+			};
+
+			// Initialize graceIncr cookie
+			var gIdelay = 0;
+			if (COMSCORE.SiteRecruit.Utils.UserPersistence.getCookieValue("graceIncr") == 1) {	gIdelay = 5000;	}
+			setTimeout(function(){COMSCORE.SiteRecruit.Utils.UserPersistence.createCookie("graceIncr", 0, {path:'/',domain:csbc.cookie.domain,duration:'s'})},gIdelay);
+
+			// ADD onclick EVENTS FOR CDDS
+			setTimeout(function() { COMSCORE.SiteRecruit.Broker.custom.allTags('a','',csbc.cddsDomains,1) }, csbc.addEventDelay );
+			setTimeout(function() { COMSCORE.SiteRecruit.Broker.custom.allTags('a','',csbc.graceIncr.match,2) }, csbc.addEventDelay );
+			
+			setTimeout(function() { COMSCORE.SiteRecruit.Broker.custom.allTags(csbc.graceIncr.altTag,"msame_Header_name msame_TxtTrunc",csbc.graceIncr.htmlMatch,2) }, csbc.addEventDelay );
+		}
+	}
+};
+
+//CUSTOM - CHECK FOR THE CROSS-DOMAIN COOKIE. IF PRESENT, HALT RECRUITMENT AND SET DD TRACKING COOKIE
+var crossDomainInterval = window.setInterval('COMSCORE.SiteRecruit.Broker.config.crossDomainCheck()', '1000');
+//END CROSS_DOMAIN DEPARTURE FUNCTIONALITY
+
+//CUSTOM - ADD 5 SECOND DELAY ON CALLING BROKER.RUN()
+if (COMSCORE.SiteRecruit.Broker.delayConfig == true)  {
+	COMSCORE.SiteRecruit.Broker.config.delay = 5000;
+}
+window.setTimeout('COMSCORE.SiteRecruit.Broker.run()', COMSCORE.SiteRecruit.Broker.config.delay);
+//END CUSTOM

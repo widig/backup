@@ -1,0 +1,29 @@
+﻿
+<!doctype html>
+<html>
+<head>
+<script>
+window.addEventListener("load",function() {
+	var geoloc = false;
+	if ("geolocation" in navigator) {
+	  geoloc = true;
+	} else {
+	  geoloc = false;
+	}
+	function do_something(lat,lon) {
+		console.log(lat + ":" + lon);
+		document.getElementById("label").innerHTML = lat + ":" + lon;
+	}
+	if(geoloc) {
+		var watchID = navigator.geolocation.watchPosition(function(position) {
+			do_something(position.coords.latitude, position.coords.longitude);
+		});
+	}
+});
+</script>
+</head>
+<body>
+	<div id="label"></div>
+	
+</body>
+</html>

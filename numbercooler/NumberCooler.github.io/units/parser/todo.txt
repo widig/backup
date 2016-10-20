@@ -1,0 +1,81 @@
+// how to make a permanent assert to verify that log is correct?
+// 1) get source file, parse
+// 2) make a function just to slice entire document before running
+// it would be a cache running but its just an assert
+// if cache it then counscious will be offline
+// faster but offline. just like driving and talking.
+
+["issue",
+	{"$":["name"],"name":"a"},
+	[
+		["test",{"$":["false"],"false":true},[]],
+		["true",{"$":[]},[["print",{"$":["data"],"data":"1"},[]],["prin
+t",{"$":["data"],"data":"2"},[]]]],
+		["false",{"$":[]},[
+			["print",{"$":["data"],"data":"3"},[]],
+			["print",{"$":["data"],"data":"4"},[]]
+		]],
+		
+		// <1> this must be removed
+		["document",{},[["print",{"$":["data"],"data":"3"},[]],["print",{"$":["data"],"data":"4"},[]]]],
+		["print",{"$":["data"],"data":"3"},[]],
+		["print",{"$":["data"],"data":"4"},[]],
+		// </1>
+		
+		["test",{"$":["true"],"true":true},[]],
+		["true",{"$":[]},[
+			["print",{"$":["data"],"data":"5"},[]],
+			["print",{"$":["data"],"data":"6"},[]]
+		]],
+		// <1> this must be removed
+		["document",{},[["print",{"$":["data"],"data":"5"},[]],["print",{"$":["data"],"data":"6"},[]]]],
+		["print",{"$":["data"],"data":"5"},[]],
+		["print",{"$":["data"],"data":"6"},[]],
+		// </1>
+		
+		["false",{"$":[]},[
+			["print",{"$":["data"],"data":"7"},[]],
+			["print",{"$":["data"],"data":"8"},[]]
+		]],
+		
+		["test",{"1":true,"4":true,"$":["1","+","4"],"+":true},[]],
+		["1",{"$":[]},[
+			["print",{"$":["data"],"data":"9"},[]]
+		]],
+		// <1> this must be removed
+		["document",{},[["print",{"$":["data"],"data":"9"},[]]]],
+		["print",{"$":["data"],"data":"9"},[]],
+		// </1>
+		["2",{"$":[]},[
+			["print",{"$":["data"],"data":"10"},[]]
+		]],
+		["4",{"$":[]},[
+			["print",{"$":["data"],"data":"11"},[]]
+		]],
+		// <1> this must be removed
+		["document",{},[["print",{"$":["data"],"data":"11"},[]]]],
+		["print",{"$":["data"],"data":"11"},[]],
+		// </1>
+		["2",{"$":[]},[["print",{"$":["data"],"data":"12"},[]]]],
+		["4",{"$":[]},[["print",{"$":["data"],"data":"13"},[]]]],
+		// <1> this must be removed
+		["document",{},[["print",{"$":["data"],"data":"13"},[]]]],
+		["print",{"$":["data"],"data":"13"},[]],
+		// </1>
+		["log",{"$":["flush","storage"],"flush":"a","storage":"\"file://./samples/test.bs\""},[]]
+	]
+]
+
+// what it must be:
+
+in order to create a correct bs result of log, 
+and skip log of running documents we may create a
+option to runDoc that sets the frame depth of parent
+doc, so its better to stack docIndex to pop documents
+and logs correctly.
+tomorrow task. calmness is the key to do a good abstraction.
+
+next task is webserver for sure. localStorage is waiting.
+webserver and route to handle remote terminal if allowed.
+-> server can be a terminal, a display, a proxy/dns/ip server (internet2)
+(share terminal control, share partial display, share contacts)

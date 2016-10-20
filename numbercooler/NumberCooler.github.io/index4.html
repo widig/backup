@@ -1,0 +1,2269 @@
+<!--
+
+	this is an example of angle of camera define the size of your body besides camera size. cause the step change proportionally.
+	then you can scale worlds, just like math or real world. 30μ inner eclipse poly-4 inside of cube 1x1x1 inner faced.
+	
+	
+//-->
+
+
+<!doctype html>
+<html>
+<head>
+<script>
+// glMatrix v0.9.5
+glMatrixArrayType = typeof Float32Array != "undefined" ? Float32Array : typeof WebGLFloatArray != "undefined" ? WebGLFloatArray : Array;
+var vec3 = {};
+vec3.create = function(a) {
+    var b = new glMatrixArrayType(3);
+    if (a) {
+        b[0] = a[0];
+        b[1] = a[1];
+        b[2] = a[2]
+    }
+    return b
+};
+vec3.set = function(a, b) {
+    b[0] = a[0];
+    b[1] = a[1];
+    b[2] = a[2];
+    return b
+};
+vec3.add = function(a, b, c) {
+    if (!c || a == c) {
+        a[0] += b[0];
+        a[1] += b[1];
+        a[2] += b[2];
+        return a
+    }
+    c[0] = a[0] + b[0];
+    c[1] = a[1] + b[1];
+    c[2] = a[2] + b[2];
+    return c
+};
+vec3.subtract = function(a, b, c) {
+    if (!c || a == c) {
+        a[0] -= b[0];
+        a[1] -= b[1];
+        a[2] -= b[2];
+        return a
+    }
+    c[0] = a[0] - b[0];
+    c[1] = a[1] - b[1];
+    c[2] = a[2] - b[2];
+    return c
+};
+vec3.negate = function(a, b) {
+    b || (b = a);
+    b[0] = -a[0];
+    b[1] = -a[1];
+    b[2] = -a[2];
+    return b
+};
+vec3.scale = function(a, b, c) {
+    if (!c || a == c) {
+        a[0] *= b;
+        a[1] *= b;
+        a[2] *= b;
+        return a
+    }
+    c[0] = a[0] * b;
+    c[1] = a[1] * b;
+    c[2] = a[2] * b;
+    return c
+};
+vec3.normalize = function(a, b) {
+    b || (b = a);
+    var c = a[0],
+        d = a[1],
+        e = a[2],
+        g = Math.sqrt(c * c + d * d + e * e);
+    if (g) {
+        if (g == 1) {
+            b[0] = c;
+            b[1] = d;
+            b[2] = e;
+            return b
+        }
+    } else {
+        b[0] = 0;
+        b[1] = 0;
+        b[2] = 0;
+        return b
+    }
+    g = 1 / g;
+    b[0] = c * g;
+    b[1] = d * g;
+    b[2] = e * g;
+    return b
+};
+vec3.cross = function(a, b, c) {
+    c || (c = a);
+    var d = a[0],
+        e = a[1];
+    a = a[2];
+    var g = b[0],
+        f = b[1];
+    b = b[2];
+    c[0] = e * b - a * f;
+    c[1] = a * g - d * b;
+    c[2] = d * f - e * g;
+    return c
+};
+vec3.length = function(a) {
+    var b = a[0],
+        c = a[1];
+    a = a[2];
+    return Math.sqrt(b * b + c * c + a * a)
+};
+vec3.dot = function(a, b) {
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+};
+vec3.direction = function(a, b, c) {
+    c || (c = a);
+    var d = a[0] - b[0],
+        e = a[1] - b[1];
+    a = a[2] - b[2];
+    b = Math.sqrt(d * d + e * e + a * a);
+    if (!b) {
+        c[0] = 0;
+        c[1] = 0;
+        c[2] = 0;
+        return c
+    }
+    b = 1 / b;
+    c[0] = d * b;
+    c[1] = e * b;
+    c[2] = a * b;
+    return c
+};
+vec3.lerp = function(a, b, c, d) {
+    d || (d = a);
+    d[0] = a[0] + c * (b[0] - a[0]);
+    d[1] = a[1] + c * (b[1] - a[1]);
+    d[2] = a[2] + c * (b[2] - a[2]);
+    return d
+};
+vec3.str = function(a) {
+    return "[" + a[0] + ", " + a[1] + ", " + a[2] + "]"
+};
+var mat3 = {};
+mat3.create = function(a) {
+    var b = new glMatrixArrayType(9);
+    if (a) {
+        b[0] = a[0];
+        b[1] = a[1];
+        b[2] = a[2];
+        b[3] = a[3];
+        b[4] = a[4];
+        b[5] = a[5];
+        b[6] = a[6];
+        b[7] = a[7];
+        b[8] = a[8];
+        b[9] = a[9]
+    }
+    return b
+};
+mat3.set = function(a, b) {
+    b[0] = a[0];
+    b[1] = a[1];
+    b[2] = a[2];
+    b[3] = a[3];
+    b[4] = a[4];
+    b[5] = a[5];
+    b[6] = a[6];
+    b[7] = a[7];
+    b[8] = a[8];
+    return b
+};
+mat3.identity = function(a) {
+    a[0] = 1;
+    a[1] = 0;
+    a[2] = 0;
+    a[3] = 0;
+    a[4] = 1;
+    a[5] = 0;
+    a[6] = 0;
+    a[7] = 0;
+    a[8] = 1;
+    return a
+};
+mat3.transpose = function(a, b) {
+    if (!b || a == b) {
+        var c = a[1],
+            d = a[2],
+            e = a[5];
+        a[1] = a[3];
+        a[2] = a[6];
+        a[3] = c;
+        a[5] = a[7];
+        a[6] = d;
+        a[7] = e;
+        return a
+    }
+    b[0] = a[0];
+    b[1] = a[3];
+    b[2] = a[6];
+    b[3] = a[1];
+    b[4] = a[4];
+    b[5] = a[7];
+    b[6] = a[2];
+    b[7] = a[5];
+    b[8] = a[8];
+    return b
+};
+mat3.toMat4 = function(a, b) {
+    b || (b = mat4.create());
+    b[0] = a[0];
+    b[1] = a[1];
+    b[2] = a[2];
+    b[3] = 0;
+    b[4] = a[3];
+    b[5] = a[4];
+    b[6] = a[5];
+    b[7] = 0;
+    b[8] = a[6];
+    b[9] = a[7];
+    b[10] = a[8];
+    b[11] = 0;
+    b[12] = 0;
+    b[13] = 0;
+    b[14] = 0;
+    b[15] = 1;
+    return b
+};
+mat3.str = function(a) {
+    return "[" + a[0] + ", " + a[1] + ", " + a[2] + ", " + a[3] + ", " + a[4] + ", " + a[5] + ", " + a[6] + ", " + a[7] + ", " + a[8] + "]"
+};
+var mat4 = {};
+mat4.create = function(a) {
+    var b = new glMatrixArrayType(16);
+    if (a) {
+        b[0] = a[0];
+        b[1] = a[1];
+        b[2] = a[2];
+        b[3] = a[3];
+        b[4] = a[4];
+        b[5] = a[5];
+        b[6] = a[6];
+        b[7] = a[7];
+        b[8] = a[8];
+        b[9] = a[9];
+        b[10] = a[10];
+        b[11] = a[11];
+        b[12] = a[12];
+        b[13] = a[13];
+        b[14] = a[14];
+        b[15] = a[15]
+    }
+    return b
+};
+mat4.set = function(a, b) {
+    b[0] = a[0];
+    b[1] = a[1];
+    b[2] = a[2];
+    b[3] = a[3];
+    b[4] = a[4];
+    b[5] = a[5];
+    b[6] = a[6];
+    b[7] = a[7];
+    b[8] = a[8];
+    b[9] = a[9];
+    b[10] = a[10];
+    b[11] = a[11];
+    b[12] = a[12];
+    b[13] = a[13];
+    b[14] = a[14];
+    b[15] = a[15];
+    return b
+};
+mat4.identity = function(a) {
+    a[0] = 1;
+    a[1] = 0;
+    a[2] = 0;
+    a[3] = 0;
+    a[4] = 0;
+    a[5] = 1;
+    a[6] = 0;
+    a[7] = 0;
+    a[8] = 0;
+    a[9] = 0;
+    a[10] = 1;
+    a[11] = 0;
+    a[12] = 0;
+    a[13] = 0;
+    a[14] = 0;
+    a[15] = 1;
+    return a
+};
+mat4.transpose = function(a, b) {
+    if (!b || a == b) {
+        var c = a[1],
+            d = a[2],
+            e = a[3],
+            g = a[6],
+            f = a[7],
+            h = a[11];
+        a[1] = a[4];
+        a[2] = a[8];
+        a[3] = a[12];
+        a[4] = c;
+        a[6] = a[9];
+        a[7] = a[13];
+        a[8] = d;
+        a[9] = g;
+        a[11] = a[14];
+        a[12] = e;
+        a[13] = f;
+        a[14] = h;
+        return a
+    }
+    b[0] = a[0];
+    b[1] = a[4];
+    b[2] = a[8];
+    b[3] = a[12];
+    b[4] = a[1];
+    b[5] = a[5];
+    b[6] = a[9];
+    b[7] = a[13];
+    b[8] = a[2];
+    b[9] = a[6];
+    b[10] = a[10];
+    b[11] = a[14];
+    b[12] = a[3];
+    b[13] = a[7];
+    b[14] = a[11];
+    b[15] = a[15];
+    return b
+};
+mat4.determinant = function(a) {
+    var b = a[0],
+        c = a[1],
+        d = a[2],
+        e = a[3],
+        g = a[4],
+        f = a[5],
+        h = a[6],
+        i = a[7],
+        j = a[8],
+        k = a[9],
+        l = a[10],
+        o = a[11],
+        m = a[12],
+        n = a[13],
+        p = a[14];
+    a = a[15];
+    return m * k * h * e - j * n * h * e - m * f * l * e + g * n * l * e + j * f * p * e - g * k * p * e - m * k * d * i + j * n * d * i + m * c * l * i - b * n * l * i - j * c * p * i + b * k * p * i + m * f * d * o - g * n * d * o - m * c * h * o + b * n * h * o + g * c * p * o - b * f * p * o - j * f * d * a + g * k * d * a + j * c * h * a - b * k * h * a - g * c * l * a + b * f * l * a
+};
+mat4.inverse = function(a, b) {
+    b || (b = a);
+    var c = a[0],
+        d = a[1],
+        e = a[2],
+        g = a[3],
+        f = a[4],
+        h = a[5],
+        i = a[6],
+        j = a[7],
+        k = a[8],
+        l = a[9],
+        o = a[10],
+        m = a[11],
+        n = a[12],
+        p = a[13],
+        r = a[14],
+        s = a[15],
+        A = c * h - d * f,
+        B = c * i - e * f,
+        t = c * j - g * f,
+        u = d * i - e * h,
+        v = d * j - g * h,
+        w = e * j - g * i,
+        x = k * p - l * n,
+        y = k * r - o * n,
+        z = k * s - m * n,
+        C = l * r - o * p,
+        D = l * s - m * p,
+        E = o * s - m * r,
+        q = 1 / (A * E - B * D + t * C + u * z - v * y + w * x);
+    b[0] = (h * E - i * D + j * C) * q;
+    b[1] = (-d * E + e * D - g * C) * q;
+    b[2] = (p * w - r * v + s * u) * q;
+    b[3] = (-l * w + o * v - m * u) * q;
+    b[4] = (-f * E + i * z - j * y) * q;
+    b[5] = (c * E - e * z + g * y) * q;
+    b[6] = (-n * w + r * t - s * B) * q;
+    b[7] = (k * w - o * t + m * B) * q;
+    b[8] = (f * D - h * z + j * x) * q;
+    b[9] = (-c * D + d * z - g * x) * q;
+    b[10] = (n * v - p * t + s * A) * q;
+    b[11] = (-k * v + l * t - m * A) * q;
+    b[12] = (-f * C + h * y - i * x) * q;
+    b[13] = (c * C - d * y + e * x) * q;
+    b[14] = (-n * u + p * B - r * A) * q;
+    b[15] = (k * u - l * B + o * A) * q;
+    return b
+};
+mat4.toRotationMat = function(a, b) {
+    b || (b = mat4.create());
+    b[0] = a[0];
+    b[1] = a[1];
+    b[2] = a[2];
+    b[3] = a[3];
+    b[4] = a[4];
+    b[5] = a[5];
+    b[6] = a[6];
+    b[7] = a[7];
+    b[8] = a[8];
+    b[9] = a[9];
+    b[10] = a[10];
+    b[11] = a[11];
+    b[12] = 0;
+    b[13] = 0;
+    b[14] = 0;
+    b[15] = 1;
+    return b
+};
+mat4.toMat3 = function(a, b) {
+    b || (b = mat3.create());
+    b[0] = a[0];
+    b[1] = a[1];
+    b[2] = a[2];
+    b[3] = a[4];
+    b[4] = a[5];
+    b[5] = a[6];
+    b[6] = a[8];
+    b[7] = a[9];
+    b[8] = a[10];
+    return b
+};
+mat4.toInverseMat3 = function(a, b) {
+    var c = a[0],
+        d = a[1],
+        e = a[2],
+        g = a[4],
+        f = a[5],
+        h = a[6],
+        i = a[8],
+        j = a[9],
+        k = a[10],
+        l = k * f - h * j,
+        o = -k * g + h * i,
+        m = j * g - f * i,
+        n = c * l + d * o + e * m;
+    if (!n) return null;
+    n = 1 / n;
+    b || (b = mat3.create());
+    b[0] = l * n;
+    b[1] = (-k * d + e * j) * n;
+    b[2] = (h * d - e * f) * n;
+    b[3] = o * n;
+    b[4] = (k * c - e * i) * n;
+    b[5] = (-h * c + e * g) * n;
+    b[6] = m * n;
+    b[7] = (-j * c + d * i) * n;
+    b[8] = (f * c - d * g) * n;
+    return b
+};
+mat4.multiply = function(a, b, c) {
+    c || (c = a);
+    var d = a[0],
+        e = a[1],
+        g = a[2],
+        f = a[3],
+        h = a[4],
+        i = a[5],
+        j = a[6],
+        k = a[7],
+        l = a[8],
+        o = a[9],
+        m = a[10],
+        n = a[11],
+        p = a[12],
+        r = a[13],
+        s = a[14];
+    a = a[15];
+    var A = b[0],
+        B = b[1],
+        t = b[2],
+        u = b[3],
+        v = b[4],
+        w = b[5],
+        x = b[6],
+        y = b[7],
+        z = b[8],
+        C = b[9],
+        D = b[10],
+        E = b[11],
+        q = b[12],
+        F = b[13],
+        G = b[14];
+    b = b[15];
+    c[0] = A * d + B * h + t * l + u * p;
+    c[1] = A * e + B * i + t * o + u * r;
+    c[2] = A * g + B * j + t * m + u * s;
+    c[3] = A * f + B * k + t * n + u * a;
+    c[4] = v * d + w * h + x * l + y * p;
+    c[5] = v * e + w * i + x * o + y * r;
+    c[6] = v * g + w * j + x * m + y * s;
+    c[7] = v * f + w * k + x * n + y * a;
+    c[8] = z * d + C * h + D * l + E * p;
+    c[9] = z * e + C * i + D * o + E * r;
+    c[10] = z *
+        g + C * j + D * m + E * s;
+    c[11] = z * f + C * k + D * n + E * a;
+    c[12] = q * d + F * h + G * l + b * p;
+    c[13] = q * e + F * i + G * o + b * r;
+    c[14] = q * g + F * j + G * m + b * s;
+    c[15] = q * f + F * k + G * n + b * a;
+    return c
+};
+mat4.multiplyVec3 = function(a, b, c) {
+    c || (c = b);
+    var d = b[0],
+        e = b[1];
+    b = b[2];
+    c[0] = a[0] * d + a[4] * e + a[8] * b + a[12];
+    c[1] = a[1] * d + a[5] * e + a[9] * b + a[13];
+    c[2] = a[2] * d + a[6] * e + a[10] * b + a[14];
+    return c
+};
+mat4.multiplyVec4 = function(a, b, c) {
+    c || (c = b);
+    var d = b[0],
+        e = b[1],
+        g = b[2];
+    b = b[3];
+    c[0] = a[0] * d + a[4] * e + a[8] * g + a[12] * b;
+    c[1] = a[1] * d + a[5] * e + a[9] * g + a[13] * b;
+    c[2] = a[2] * d + a[6] * e + a[10] * g + a[14] * b;
+    c[3] = a[3] * d + a[7] * e + a[11] * g + a[15] * b;
+    return c
+};
+mat4.translate = function(a, b, c) {
+    var d = b[0],
+        e = b[1];
+    b = b[2];
+    if (!c || a == c) {
+        a[12] = a[0] * d + a[4] * e + a[8] * b + a[12];
+        a[13] = a[1] * d + a[5] * e + a[9] * b + a[13];
+        a[14] = a[2] * d + a[6] * e + a[10] * b + a[14];
+        a[15] = a[3] * d + a[7] * e + a[11] * b + a[15];
+        return a
+    }
+    var g = a[0],
+        f = a[1],
+        h = a[2],
+        i = a[3],
+        j = a[4],
+        k = a[5],
+        l = a[6],
+        o = a[7],
+        m = a[8],
+        n = a[9],
+        p = a[10],
+        r = a[11];
+    c[0] = g;
+    c[1] = f;
+    c[2] = h;
+    c[3] = i;
+    c[4] = j;
+    c[5] = k;
+    c[6] = l;
+    c[7] = o;
+    c[8] = m;
+    c[9] = n;
+    c[10] = p;
+    c[11] = r;
+    c[12] = g * d + j * e + m * b + a[12];
+    c[13] = f * d + k * e + n * b + a[13];
+    c[14] = h * d + l * e + p * b + a[14];
+    c[15] = i * d + o * e + r * b + a[15];
+    return c
+};
+mat4.scale = function(a, b, c) {
+    var d = b[0],
+        e = b[1];
+    b = b[2];
+    if (!c || a == c) {
+        a[0] *= d;
+        a[1] *= d;
+        a[2] *= d;
+        a[3] *= d;
+        a[4] *= e;
+        a[5] *= e;
+        a[6] *= e;
+        a[7] *= e;
+        a[8] *= b;
+        a[9] *= b;
+        a[10] *= b;
+        a[11] *= b;
+        return a
+    }
+    c[0] = a[0] * d;
+    c[1] = a[1] * d;
+    c[2] = a[2] * d;
+    c[3] = a[3] * d;
+    c[4] = a[4] * e;
+    c[5] = a[5] * e;
+    c[6] = a[6] * e;
+    c[7] = a[7] * e;
+    c[8] = a[8] * b;
+    c[9] = a[9] * b;
+    c[10] = a[10] * b;
+    c[11] = a[11] * b;
+    c[12] = a[12];
+    c[13] = a[13];
+    c[14] = a[14];
+    c[15] = a[15];
+    return c
+};
+mat4.rotate = function(a, b, c, d) {
+    var e = c[0],
+        g = c[1];
+    c = c[2];
+    var f = Math.sqrt(e * e + g * g + c * c);
+    if (!f) return null;
+    if (f != 1) {
+        f = 1 / f;
+        e *= f;
+        g *= f;
+        c *= f
+    }
+    var h = Math.sin(b),
+        i = Math.cos(b),
+        j = 1 - i;
+    b = a[0];
+    f = a[1];
+    var k = a[2],
+        l = a[3],
+        o = a[4],
+        m = a[5],
+        n = a[6],
+        p = a[7],
+        r = a[8],
+        s = a[9],
+        A = a[10],
+        B = a[11],
+        t = e * e * j + i,
+        u = g * e * j + c * h,
+        v = c * e * j - g * h,
+        w = e * g * j - c * h,
+        x = g * g * j + i,
+        y = c * g * j + e * h,
+        z = e * c * j + g * h;
+    e = g * c * j - e * h;
+    g = c * c * j + i;
+    if (d) {
+        if (a != d) {
+            d[12] = a[12];
+            d[13] = a[13];
+            d[14] = a[14];
+            d[15] = a[15]
+        }
+    } else d = a;
+    d[0] = b * t + o * u + r * v;
+    d[1] = f * t + m * u + s * v;
+    d[2] = k * t + n * u + A * v;
+    d[3] = l * t + p * u + B *
+        v;
+    d[4] = b * w + o * x + r * y;
+    d[5] = f * w + m * x + s * y;
+    d[6] = k * w + n * x + A * y;
+    d[7] = l * w + p * x + B * y;
+    d[8] = b * z + o * e + r * g;
+    d[9] = f * z + m * e + s * g;
+    d[10] = k * z + n * e + A * g;
+    d[11] = l * z + p * e + B * g;
+    return d
+};
+mat4.rotateX = function(a, b, c) {
+    var d = Math.sin(b);
+    b = Math.cos(b);
+    var e = a[4],
+        g = a[5],
+        f = a[6],
+        h = a[7],
+        i = a[8],
+        j = a[9],
+        k = a[10],
+        l = a[11];
+    if (c) {
+        if (a != c) {
+            c[0] = a[0];
+            c[1] = a[1];
+            c[2] = a[2];
+            c[3] = a[3];
+            c[12] = a[12];
+            c[13] = a[13];
+            c[14] = a[14];
+            c[15] = a[15]
+        }
+    } else c = a;
+    c[4] = e * b + i * d;
+    c[5] = g * b + j * d;
+    c[6] = f * b + k * d;
+    c[7] = h * b + l * d;
+    c[8] = e * -d + i * b;
+    c[9] = g * -d + j * b;
+    c[10] = f * -d + k * b;
+    c[11] = h * -d + l * b;
+    return c
+};
+mat4.rotateY = function(a, b, c) {
+    var d = Math.sin(b);
+    b = Math.cos(b);
+    var e = a[0],
+        g = a[1],
+        f = a[2],
+        h = a[3],
+        i = a[8],
+        j = a[9],
+        k = a[10],
+        l = a[11];
+    if (c) {
+        if (a != c) {
+            c[4] = a[4];
+            c[5] = a[5];
+            c[6] = a[6];
+            c[7] = a[7];
+            c[12] = a[12];
+            c[13] = a[13];
+            c[14] = a[14];
+            c[15] = a[15]
+        }
+    } else c = a;
+    c[0] = e * b + i * -d;
+    c[1] = g * b + j * -d;
+    c[2] = f * b + k * -d;
+    c[3] = h * b + l * -d;
+    c[8] = e * d + i * b;
+    c[9] = g * d + j * b;
+    c[10] = f * d + k * b;
+    c[11] = h * d + l * b;
+    return c
+};
+mat4.rotateZ = function(a, b, c) {
+    var d = Math.sin(b);
+    b = Math.cos(b);
+    var e = a[0],
+        g = a[1],
+        f = a[2],
+        h = a[3],
+        i = a[4],
+        j = a[5],
+        k = a[6],
+        l = a[7];
+    if (c) {
+        if (a != c) {
+            c[8] = a[8];
+            c[9] = a[9];
+            c[10] = a[10];
+            c[11] = a[11];
+            c[12] = a[12];
+            c[13] = a[13];
+            c[14] = a[14];
+            c[15] = a[15]
+        }
+    } else c = a;
+    c[0] = e * b + i * d;
+    c[1] = g * b + j * d;
+    c[2] = f * b + k * d;
+    c[3] = h * b + l * d;
+    c[4] = e * -d + i * b;
+    c[5] = g * -d + j * b;
+    c[6] = f * -d + k * b;
+    c[7] = h * -d + l * b;
+    return c
+};
+mat4.frustum = function(a, b, c, d, e, g, f) {
+    f || (f = mat4.create());
+    var h = b - a,
+        i = d - c,
+        j = g - e;
+    f[0] = e * 2 / h;
+    f[1] = 0;
+    f[2] = 0;
+    f[3] = 0;
+    f[4] = 0;
+    f[5] = e * 2 / i;
+    f[6] = 0;
+    f[7] = 0;
+    f[8] = (b + a) / h;
+    f[9] = (d + c) / i;
+    f[10] = -(g + e) / j;
+    f[11] = -1;
+    f[12] = 0;
+    f[13] = 0;
+    f[14] = -(g * e * 2) / j;
+    f[15] = 0;
+    return f
+};
+mat4.perspective = function(a, b, c, d, e) {
+    a = c * Math.tan(a * Math.PI / 360);
+    b = a * b;
+    return mat4.frustum(-b, b, -a, a, c, d, e)
+};
+mat4.ortho = function(a, b, c, d, e, g, f) {
+    f || (f = mat4.create());
+    var h = b - a,
+        i = d - c,
+        j = g - e;
+    f[0] = 2 / h;
+    f[1] = 0;
+    f[2] = 0;
+    f[3] = 0;
+    f[4] = 0;
+    f[5] = 2 / i;
+    f[6] = 0;
+    f[7] = 0;
+    f[8] = 0;
+    f[9] = 0;
+    f[10] = -2 / j;
+    f[11] = 0;
+    f[12] = -(a + b) / h;
+    f[13] = -(d + c) / i;
+    f[14] = -(g + e) / j;
+    f[15] = 1;
+    return f
+};
+mat4.lookAt = function(a, b, c, d) {
+    d || (d = mat4.create());
+    var e = a[0],
+        g = a[1];
+    a = a[2];
+    var f = c[0],
+        h = c[1],
+        i = c[2];
+    c = b[1];
+    var j = b[2];
+    if (e == b[0] && g == c && a == j) return mat4.identity(d);
+    var k, l, o, m;
+    c = e - b[0];
+    j = g - b[1];
+    b = a - b[2];
+    m = 1 / Math.sqrt(c * c + j * j + b * b);
+    c *= m;
+    j *= m;
+    b *= m;
+    k = h * b - i * j;
+    i = i * c - f * b;
+    f = f * j - h * c;
+    if (m = Math.sqrt(k * k + i * i + f * f)) {
+        m = 1 / m;
+        k *= m;
+        i *= m;
+        f *= m
+    } else f = i = k = 0;
+    h = j * f - b * i;
+    l = b * k - c * f;
+    o = c * i - j * k;
+    if (m = Math.sqrt(h * h + l * l + o * o)) {
+        m = 1 / m;
+        h *= m;
+        l *= m;
+        o *= m
+    } else o = l = h = 0;
+    d[0] = k;
+    d[1] = h;
+    d[2] = c;
+    d[3] = 0;
+    d[4] = i;
+    d[5] = l;
+    d[6] = j;
+    d[7] = 0;
+    d[8] = f;
+    d[9] =
+        o;
+    d[10] = b;
+    d[11] = 0;
+    d[12] = -(k * e + i * g + f * a);
+    d[13] = -(h * e + l * g + o * a);
+    d[14] = -(c * e + j * g + b * a);
+    d[15] = 1;
+    return d
+};
+mat4.str = function(a) {
+    return "[" + a[0] + ", " + a[1] + ", " + a[2] + ", " + a[3] + ", " + a[4] + ", " + a[5] + ", " + a[6] + ", " + a[7] + ", " + a[8] + ", " + a[9] + ", " + a[10] + ", " + a[11] + ", " + a[12] + ", " + a[13] + ", " + a[14] + ", " + a[15] + "]"
+};
+quat4 = {};
+quat4.create = function(a) {
+    var b = new glMatrixArrayType(4);
+    if (a) {
+        b[0] = a[0];
+        b[1] = a[1];
+        b[2] = a[2];
+        b[3] = a[3]
+    }
+    return b
+};
+quat4.set = function(a, b) {
+    b[0] = a[0];
+    b[1] = a[1];
+    b[2] = a[2];
+    b[3] = a[3];
+    return b
+};
+quat4.calculateW = function(a, b) {
+    var c = a[0],
+        d = a[1],
+        e = a[2];
+    if (!b || a == b) {
+        a[3] = -Math.sqrt(Math.abs(1 - c * c - d * d - e * e));
+        return a
+    }
+    b[0] = c;
+    b[1] = d;
+    b[2] = e;
+    b[3] = -Math.sqrt(Math.abs(1 - c * c - d * d - e * e));
+    return b
+};
+quat4.inverse = function(a, b) {
+    if (!b || a == b) {
+        a[0] *= 1;
+        a[1] *= 1;
+        a[2] *= 1;
+        return a
+    }
+    b[0] = -a[0];
+    b[1] = -a[1];
+    b[2] = -a[2];
+    b[3] = a[3];
+    return b
+};
+quat4.length = function(a) {
+    var b = a[0],
+        c = a[1],
+        d = a[2];
+    a = a[3];
+    return Math.sqrt(b * b + c * c + d * d + a * a)
+};
+quat4.normalize = function(a, b) {
+    b || (b = a);
+    var c = a[0],
+        d = a[1],
+        e = a[2],
+        g = a[3],
+        f = Math.sqrt(c * c + d * d + e * e + g * g);
+    if (f == 0) {
+        b[0] = 0;
+        b[1] = 0;
+        b[2] = 0;
+        b[3] = 0;
+        return b
+    }
+    f = 1 / f;
+    b[0] = c * f;
+    b[1] = d * f;
+    b[2] = e * f;
+    b[3] = g * f;
+    return b
+};
+quat4.multiply = function(a, b, c) {
+    c || (c = a);
+    var d = a[0],
+        e = a[1],
+        g = a[2];
+    a = a[3];
+    var f = b[0],
+        h = b[1],
+        i = b[2];
+    b = b[3];
+    c[0] = d * b + a * f + e * i - g * h;
+    c[1] = e * b + a * h + g * f - d * i;
+    c[2] = g * b + a * i + d * h - e * f;
+    c[3] = a * b - d * f - e * h - g * i;
+    return c
+};
+quat4.multiplyVec3 = function(a, b, c) {
+    c || (c = b);
+    var d = b[0],
+        e = b[1],
+        g = b[2];
+    b = a[0];
+    var f = a[1],
+        h = a[2];
+    a = a[3];
+    var i = a * d + f * g - h * e,
+        j = a * e + h * d - b * g,
+        k = a * g + b * e - f * d;
+    d = -b * d - f * e - h * g;
+    c[0] = i * a + d * -b + j * -h - k * -f;
+    c[1] = j * a + d * -f + k * -b - i * -h;
+    c[2] = k * a + d * -h + i * -f - j * -b;
+    return c
+};
+quat4.toMat3 = function(a, b) {
+    b || (b = mat3.create());
+    var c = a[0],
+        d = a[1],
+        e = a[2],
+        g = a[3],
+        f = c + c,
+        h = d + d,
+        i = e + e,
+        j = c * f,
+        k = c * h;
+    c = c * i;
+    var l = d * h;
+    d = d * i;
+    e = e * i;
+    f = g * f;
+    h = g * h;
+    g = g * i;
+    b[0] = 1 - (l + e);
+    b[1] = k - g;
+    b[2] = c + h;
+    b[3] = k + g;
+    b[4] = 1 - (j + e);
+    b[5] = d - f;
+    b[6] = c - h;
+    b[7] = d + f;
+    b[8] = 1 - (j + l);
+    return b
+};
+quat4.toMat4 = function(a, b) {
+    b || (b = mat4.create());
+    var c = a[0],
+        d = a[1],
+        e = a[2],
+        g = a[3],
+        f = c + c,
+        h = d + d,
+        i = e + e,
+        j = c * f,
+        k = c * h;
+    c = c * i;
+    var l = d * h;
+    d = d * i;
+    e = e * i;
+    f = g * f;
+    h = g * h;
+    g = g * i;
+    b[0] = 1 - (l + e);
+    b[1] = k - g;
+    b[2] = c + h;
+    b[3] = 0;
+    b[4] = k + g;
+    b[5] = 1 - (j + e);
+    b[6] = d - f;
+    b[7] = 0;
+    b[8] = c - h;
+    b[9] = d + f;
+    b[10] = 1 - (j + l);
+    b[11] = 0;
+    b[12] = 0;
+    b[13] = 0;
+    b[14] = 0;
+    b[15] = 1;
+    return b
+};
+quat4.slerp = function(a, b, c, d) {
+    d || (d = a);
+    var e = c;
+    if (a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3] < 0) e = -1 * c;
+    d[0] = 1 - c * a[0] + e * b[0];
+    d[1] = 1 - c * a[1] + e * b[1];
+    d[2] = 1 - c * a[2] + e * b[2];
+    d[3] = 1 - c * a[3] + e * b[3];
+    return d
+};
+quat4.str = function(a) {
+    return "[" + a[0] + ", " + a[1] + ", " + a[2] + ", " + a[3] + "]"
+};
+/*
+
+mat4.multiply=function(a,b,c) // c=a*b
+
+
+
+
+*/
+
+
+window["3Devils"] = function(target) {
+	this.internal = {};
+	this.internal["3Devils"] = {};
+	var i = this.internal["3Devils"].data = {};
+	i.padding = [0,0,0,0]; // left,top,right,bottom
+	i.border = [0,0,0,0]; // left,top,right,bottom
+	i.size = [1,1];
+	i.aspect = [1,1];
+	i.source = [1,1];
+	i.canvas = target;
+	i.mouse = [0,0];
+	var self = this;
+	var observer = new MutationObserver(function(mutations) {
+		mutations.forEach(function(mutation) {
+			console.log("DOM CHANGE"
+				,mutation
+				,mutation.target.style
+				,parseInt(mutation.target.style.borderRightWidth)
+			);
+			var st = mutation.target.style;
+			i.border = [
+				isNaN( parseInt(st.borderLeftWidth) ) ? 0 : parseInt(st.borderLeftWidth),
+				isNaN( parseInt(st.borderTopWidth) ) ? 0 : parseInt(st.borderTopWidth),
+				isNaN( parseInt(st.borderRightWidth) )? 0 : parseInt(st.borderRightWidth),
+				isNaN( parseInt(st.borderBottomWidth) )? 0 : parseInt(st.borderBottomWidth)
+			];
+			i.padding = [
+				isNaN( parseInt(st.paddingLeft) ) ? 0 : parseInt(st.paddingLeft),
+				isNaN( parseInt(st.paddingTo) ) ? 0 : parseInt(st.paddingTop),
+				isNaN( parseInt(st.paddingRight) )? 0 : parseInt(st.paddingRight),
+				isNaN( parseInt(st.paddingBottom) )? 0 : parseInt(st.paddingBottom)
+			];
+			console.log(i.border,i.padding);
+		});
+		
+	});
+
+	// configuration of the observer:
+	var config = { 
+		attributes: true, 
+		childList: true, 
+		characterData: true, 
+		subtree : true, 
+		attributeOldValue: true, 
+		characterDataOldValue: true, 
+		/*
+			// cant track this
+			attributeFilter: true 
+		*/
+	};
+	observer.observe(target,config);
+	// this.observer.disconnect();
+	
+	i.canvas.addEventListener("mousemove",function(event) {
+		var rect = event.target.getBoundingClientRect();
+		if( 
+			(event.clientX-rect.left) > (i.padding[0] + i.border[0]) &&
+			(event.clientX-rect.left) < (i.source[0] + i.padding[0] + i.border[0]) &&
+			(event.clientY-rect.top) > (i.padding[1] + i.border[1]) &&
+			(event.clientY-rect.top) < (i.source[1] + i.padding[1] + i.border[1])
+		) {
+			i.mouse[0] = 2 * ( 
+			( 
+				(event.clientX-(rect.left + i.padding[0]+i.border[0]))
+			) / i.source[0] ) - 1;
+			i.mouse[1] = 2 * (
+			(
+				(event.clientY-(rect.top + i.padding[1]+i.border[1]))
+			) / i.source[1] ) - 1;
+			i.mouseInFrame = true;
+			console.log(i.mouse);
+		} else {
+			i.mouseInFrame = false;
+		}
+	});
+	i.canvas.addEventListener("mousedown",function(event) {
+		console.log("mousedown");
+	});
+	i.canvas.addEventListener("mouseup",function(event) {
+		console.log("mouseup");
+	});
+	
+	Object.defineProperty(this,"width",{
+		get : function() { 
+			return i.size[0];
+		},
+		set : function(val) { 
+			if( i.source[0] )
+			i.size[0] = val; 
+			i.canvas.setAttribute("width",val);
+		}
+	});
+	Object.defineProperty(this,"height",{
+		get : function() { 
+			return i.size[1]; 
+		},
+		set : function(val) { 
+			i.size[1] = val; 
+			i.canvas.setAttribute("height",val);
+		}
+	});
+	Object.defineProperty(this,"sourceX",{
+		get : function() {
+			return i.source[0];
+		},
+		set : function(val) {
+			i.source[0] = val;
+			i.canvas.style.width = val+"px";
+		}
+	});
+	Object.defineProperty(this,"sourceY",{
+		get : function() {
+			return i.source[1];
+		},
+		set : function(val) {
+			i.source[1] = val;
+			i.canvas.style.height = val+"px";
+		}
+	});
+	Object.defineProperty(this,"aspectX",{ // from final user to source
+		get : function() { 
+			return i.aspect[0]; 
+		},
+		set : function(val) { 
+			i.aspect[0] = val; 
+			//parseInt( i.size[0]*i.aspect[0] );
+		}
+	});
+	Object.defineProperty(this,"aspectY",{ // from final user to source
+		get : function() { 
+			return i.aspect[1]; 
+		},
+		set : function(val) { 
+			i.aspect[1] = val; 
+			//i.canvas.style.height = parseInt( i.size[1]*i.aspect[1] );
+		}
+	});
+	
+	
+	
+	
+	
+	var GL = null;
+	try { 
+		GL = i.canvas.getContext("experimental-webgl", {antialias: true}); 
+	} catch (e) {
+		//alert("You are not webgl compatible :(") ;
+		//return false;
+	}
+	this.context = GL;
+	
+	
+	function _scene() {
+		this.camera_field = [
+			0.0466,0.0934,0.1872,0.374,
+			0.747,1.49,2.99,5.98,
+			11.92,23.6,45.3,79.6,
+			118,146,163,171.45,
+			175.72,177.86,178.9295,179.464,
+			179.732,179.8661,179.9331
+		];
+		this.camera_field_selected = 13; /// 118 is 1:1 view
+		this.camera = [0,0,0];
+		this.objects = [];
+		
+		this.set = function(offset,field) {
+			this.camera[0] = this.camera[0] + offset[0];
+			this.camera[1] = this.camera[1] + offset[1];
+			this.camera[2] = this.camera[2] + offset[2];
+			this.camera_field_selected = ( this.camera_field.length + this.camera_field_selected + field ) % this.camera_field.length;
+		}
+		var self = this;
+		window.addEventListener("keydown",function(e) {
+			console.log(e.keyCode,self.camera);
+			var camera_offset = [0,0,0];
+			var camera_field = 0;
+			
+			var step = 1/4093;
+			if( e.keyCode == 33 ) {
+				camera_offset = [ 0,-step,0];
+			}
+			if( e.keyCode == 34 ) {
+				camera_offset = [ 0,step,0];
+			}
+			
+			if( e.keyCode == 37 ) {
+				camera_offset = [ step,0,0];
+			}
+			
+			if( e.keyCode == 38 ) {
+				camera_offset = [ 0,0,step];
+			}
+			
+			if( e.keyCode == 39 ) {
+				camera_offset = [ -step,0,0];
+			}
+			if( e.keyCode == 40 ) {
+				camera_offset = [ 0,0,-step];
+			}
+			if( e.keyCode == 45 ) {
+				camera_field = -1;
+			}
+			if( e.keyCode == 46 ) {
+				camera_field = 1;
+			}
+			self.set(camera_offset,camera_field);
+			console.log(e.keyCode,self.camera,self.camera_field[self.camera_field_selected]);
+		});
+	}
+	_scene.prototype.push = function(obj) {
+		this.objects.push(obj);
+	}
+	_scene.prototype.setCamera = function() {
+	}
+	_scene.prototype.build = function(GL) {
+		// setup for objects
+		var mapping = [];
+		for(var x = 0; x < this.objects.length;x++) {
+			//console.log("SCENE",x);
+			// check if object is built
+			if(!this.objects[x].built) {
+				console.log("BUILDING");
+				this.objects[x].init();
+				this.objects[x].build(GL);
+			}
+			mapping[x] = this.objects[x].loadMapping(GL);
+		}
+		
+		// camera
+		var aMatrix = mat4.create();
+		
+		// xy calibration
+		
+		// ? is the angle to cover (1/2048)x(1/2048) unit // clickable unit in real world simulation
+		// ? is the angle to cover (1/1024)x(1/1024) unit
+		// ? is the angle to cover (1/512)x(1/512) unit
+		// ? is the angle to cover (1/256)x(1/256) unit
+		// ? is the angle to cover (1/128)x(1/128) unit -> good choice
+		// ? is the angle to cover (1/64)x(1/64) unit
+		// ? is the angle to cover (1/32)x(1/32) unit
+		// ? is the angle to cover (1/16)x(1/16) unit
+		// ? is the angle to cover (1/8)x(1/8) unit -> good choice
+		// ? is the angle to cover (1/4)x(1/4) unit
+		// ? is the angle to cover (1/2)x(1/2) unit
+		// ? is the angle to cover 1x1 unit // clickable unit in scope by texture mapping -> 2 x (2048*2048) sphere required, im a mage
+		// -> im.age -> resolutioned timed scoped information
+		// 118 is the angle to cover 2x2 units 
+		// 146 is the angle to cover 4x4 units (2->4 : 28)
+		// ? is the angle to cover 6x6 units (mine craft) -> choose to be bigger or smaller than minecraft?
+		// 163 is the angle to cover 8x8 units (4->8 : 17)
+		// 171.45 is the angle to cover 16x16 units (8->16 : 8)
+		// 175.72 is the angle to cover 32x32 units (16->32 : 4.25)
+		// 177.86 is the angle to cover 64x64 units ( 32->64 : 2.14)
+		// 178.9295 is the angle to cover 128x128units (64->128 : 1.0695)
+		// 179.464 is the angle to cover 256x256units (128->256 : 0.567) // trigonometric
+		// 179.732 is the angle to cover 512x512units (256->512 : 0.268) // trigonometric
+		// 179.8661 is the angle to cover 1024x1024units (512->1024 : 0.1341) // trigonometric
+		// 179.9331 is the angle to cover 2048x2048units (512->1024 : 0.067) // trigonometric clickable unit in real board design
+		
+		// z calibration
+		
+		mat4.perspective(this.camera_field[this.camera_field_selected], i.canvas.width/ i.canvas.height, 0.00001, 2000.0, aMatrix);
+		
+		
+		var z = this.camera[2];
+		//mat4.translate(aMatrix,[0,0,-1.0025]);
+		mat4.translate(aMatrix,[this.camera[0],this.camera[1],this.camera[2]]); // walk foward 1 in unit view of 1
+		
+		// set worlds reference
+		var cMatrix = mat4.create();
+		mat4.identity(cMatrix);
+		mat4.translate(cMatrix,[0,0,0]);
+		
+		// lights if light is close to object
+		
+		// objects if object in in world range
+		for(var x = 0; x < this.objects.length;x++) {
+			//console.log("SCENE",x);
+			// check if object is built
+			this.objects[x].loadProgram(GL);
+			
+			GL.uniformMatrix4fv(mapping[x].amatrix, false, aMatrix);
+			GL.uniformMatrix4fv(mapping[x].cmatrix, false, cMatrix);
+			
+			this.objects[x].render(GL,mapping[x]);
+			
+		}
+		
+	}
+	
+	
+	this.scene = function() {
+		return new _scene();
+	}
+	
+	this.forms = {};
+	var SHAPES = this.forms;
+	this.forms.Point3 = function (x,y,z) {
+		this.data = [x,y,z];
+		
+	}
+	this.forms.Point4 = function (x,y,z,w) {
+		this.data = [x,y,z,w];
+		
+	}
+	
+	function _primitive(GL) {
+	
+	
+		
+		var selfp = this;
+		this.position = new SHAPES.Point3(0,0,-0.6);
+		this.color = new SHAPES.Point4(0,0,1,1);
+		
+		this.count = 0;
+		this.built = false;
+		this.programAssert = false;
+		this.init = function() {
+			console.log("CREATING PROGRAM");
+			this.type = "primitive";
+			this.pointBuffer = GL.createBuffer();
+			this.indexBuffer = GL.createBuffer();
+			this.colorBuffer = GL.createBuffer();
+			this.program = GL.createProgram();
+		}
+		
+		var i = {};
+		i.vertex = { 
+			source : "", 
+			state : 0, 
+			error : 0, 
+			program : null
+		};
+		i.fragment = { 
+			source : "", 
+			state : 0, 
+			error : 0, 
+			program : null
+		};
+		this.shaders = [];
+		
+		this.targets = {};
+		this.internal = i;
+		
+		
+		Object.defineProperty(this,"vertex",{ get : function() { return i.vertex.source; } });
+		this.createVertex = function(program) {
+			this.targets = program.targets;
+			
+			
+			i.vertex.source = program.code;
+			i.vertex.state = 1;
+			i.vertex.error = 0;
+			i.vertex.program = null;
+			
+			var shader = GL.createShader(GL.VERTEX_SHADER);
+			GL.shaderSource(shader, program.code);
+			GL.compileShader(shader);
+			if (!GL.getShaderParameter(shader, GL.COMPILE_STATUS)) {
+				alert("ERROR IN VERTEX SHADER : " + GL.getShaderInfoLog(shader));
+				console.log(program.code);
+				i.vertex.error = 1;
+				i.vertex.state = 0;
+			} else {
+				this.shaders.push({
+					enabled : true,
+					program : shader,
+					date : new Number(new Date()),
+					turnOn : function() {
+						this.enabled = true;
+						GL.attachShader(selfp.program, this.program);
+					},
+					turnOff : function() {
+						this.enabled = false;
+						GL.detachShader(selfp.program, this.program);		
+					}
+				});
+				i.vertex.program = shader;
+				i.vertex.error = 0;
+				i.vertex.state = 2;
+				
+				
+			}
+		};
+		
+		Object.defineProperty(this,"fragment", { get : function() { i.data.source; } });
+		this.createFragment = function(program) {
+			this.targets = program.targets;
+		
+			i.fragment.source = program.code;
+			i.fragment.state = 1;
+			i.fragment.error = 0;
+			i.fragment.program = null;
+			
+			var shader = GL.createShader(GL.FRAGMENT_SHADER);
+			GL.shaderSource(shader, program.code);
+			GL.compileShader(shader);
+			
+			
+			if (!GL.getShaderParameter(shader, GL.COMPILE_STATUS)) {
+				alert("ERROR IN FRAGMENT SHADER : " + GL.getShaderInfoLog(shader));
+				console.log(program.code);
+				i.fragment.error = 1;
+				i.fragment.state = 0;
+			} else {
+				this.shaders.push({
+					enabled : true,
+					program : shader,
+					date : new Number(new Date()),
+					turnOn : function() {
+						this.enabled = true;
+						GL.attachShader(selfp.program, this.program);
+					},
+					turnOff : function() {
+						this.enabled = false;
+						GL.detachShader(selfp.program, this.program);
+					}
+				})
+				i.fragment.program = shader;
+				i.fragment.error = 0;
+				i.fragment.state = 2;
+				
+			}
+		};
+		
+		
+		this.loadMapping = function(GL) {
+			if(!this.programAssert) {
+				for(var x = 0; x < this.shaders.length;x++) {
+					if(this.shaders[x].enabled)
+						GL.attachShader(this.program, this.shaders[x].program);
+				}
+				console.log("LINK PROGRAM");
+				this.map = {};
+				var r = this.map;
+				GL.linkProgram(this.program);
+				if ( !GL.getProgramParameter( this.program, GL.LINK_STATUS) ) {
+					console.log(default_vertex.code);
+					console.log(default_fragment.code);
+					var info = GL.getProgramInfoLog(this.program);
+					throw "LINK Could not compile WebGL program. \n\n" + info;
+				}
+				if("u" in this.targets) {
+					for(var x = 0; x < this.targets.u.length;x++)
+						r[ this.targets.u[x] ] = GL.getUniformLocation(this.program, this.targets.u[x] );
+				}
+				if("aa" in this.targets) {
+					for(var x = 0; x < this.targets.aa.length;x++) {
+						r[ this.targets.aa[x] ] = GL.getAttribLocation(this.program, this.targets.aa[x] );
+						GL.enableVertexAttribArray( r[ this.targets.aa[x] ] );
+					}
+				}
+				
+				this.programAssert = true;
+			}
+			return this.map;
+		};
+		this.loadProgram = function(GL) {
+			GL.useProgram(this.program);
+		};
+		
+		this.render = function(GL,vars) {
+		
+			// load object data
+			GL.bindBuffer(GL.ARRAY_BUFFER, this.pointBuffer);
+			GL.vertexAttribPointer(vars.position, this.pointBuffer.itemSize, GL.FLOAT, false, 0, 0);
+			
+			GL.bindBuffer(GL.ARRAY_BUFFER, this.colorBuffer);
+			GL.vertexAttribPointer(vars.color, this.colorBuffer.itemSize, GL.FLOAT, false, 0, 0);
+
+			GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, this.indexBuffer);
+			
+			// position of object
+			var bMatrix = mat4.create();
+			mat4.identity(bMatrix);
+			mat4.translate(bMatrix, this.position.data);
+			GL.uniformMatrix4fv(vars.bmatrix, false, bMatrix);	
+			
+			
+			GL.drawElements(GL.TRIANGLES, this.count, GL.UNSIGNED_SHORT, 0);
+
+		
+		}
+		
+		this.setColor = function(r,g,b) {
+			this.built = false;
+			var colors = [];
+			for(var x = 0; x < this.count;x++) {
+				colors = colors.concat([r,g,b,1]);
+			}
+			this.colors = colors;
+		}
+		
+	}
+	
+	
+	
+	function _triangle(GL,a,b,c,ca,cb,cc) {
+		_primitive.apply(this,[GL]);
+		this.type = "triangle";
+		this.count = 3;
+		this.points = new Float32Array(9);
+		for(var y = 0; y < 3; y++) {
+			for(var x = 0; x < 3; x++) {
+				console.log(arguments[1+y].data[x])
+				this.points[y*3+x] = arguments[1+y].data[x];
+			}
+		}
+		
+		this.index = new Uint16Array(3);
+		this.index[0] = 0;
+		this.index[1] = 1;
+		this.index[2] = 2;
+		
+		// mock
+		this.colors = [];
+		this.colors = this.colors.concat(ca.data);
+		this.colors = this.colors.concat(cb.data);
+		this.colors = this.colors.concat(cc.data);
+		console.log("points",this.points,"colors",this.colors,"index",this.index);
+	}
+	
+	_triangle.prototype = Object.create(_primitive.prototype);
+	_triangle.prototype.build = function() {
+		console.log("TRIANGLE BUILD",this.points,this.index);
+		// send to scene buffer
+		if(!this.built) {
+			
+			this.pointBuffer.itemSize = 3;
+			this.pointBuffer.numItems = 3;
+			GL.bindBuffer(GL.ARRAY_BUFFER, this.pointBuffer);
+			GL.bufferData(GL.ARRAY_BUFFER, this.points, GL.STATIC_DRAW);
+			
+			this.colorBuffer.itemSize = 4;
+			this.colorBuffer.numItems = 3;		
+			GL.bindBuffer(GL.ARRAY_BUFFER, this.colorBuffer);
+			GL.bufferData(GL.ARRAY_BUFFER, new Float32Array(this.colors), GL.STATIC_DRAW);	
+			
+			this.indexBuffer.itemSize = 1;
+			this.indexBuffer.numItems  = 3;
+			GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, this.indexBuffer );
+			GL.bufferData(GL.ELEMENT_ARRAY_BUFFER, this.index,GL.STATIC_DRAW);
+			
+			this.built = true;
+		}
+	}
+	
+	
+	function _square2(GL,a,b,c,d,ca,cb,cc,cd) { // square2 is 2 triangles, square4 is 4 triangles
+	
+		_primitive.apply(this,[GL]);
+		this.type = "square2";
+		this.count = 6;
+		this.points = new Float32Array(12);
+		for(var y = 0; y < 4; y++) {
+			for(var x = 0; x < 3; x++) {
+				this.points[y*3+x] = arguments[1+y].data[x];
+			}
+		}
+		
+		this.index = new Uint16Array(6);
+		this.index[0] = 0;
+		this.index[1] = 3;
+		this.index[2] = 1;
+		this.index[3] = 0;
+		this.index[4] = 2;
+		this.index[5] = 3;
+		
+		// mock
+		this.colors = [];
+		this.colors = this.colors.concat(ca.data);
+		this.colors = this.colors.concat(cb.data);
+		this.colors = this.colors.concat(cc.data);
+		this.colors = this.colors.concat(cd.data);
+		console.log("points",this.points,"colors",this.colors,"index",this.index);
+		
+	}
+	_square2.prototype = Object.create(_primitive.prototype);
+	_square2.prototype.build = function() {
+		if(!this.built) {
+			this.pointBuffer.itemSize = 3;
+			this.pointBuffer.numItems = 4;
+			GL.bindBuffer(GL.ARRAY_BUFFER, this.pointBuffer);
+			GL.bufferData(GL.ARRAY_BUFFER, this.points, GL.STATIC_DRAW);
+			
+			this.colorBuffer.itemSize = 4;
+			this.colorBuffer.numItems = 4;
+			GL.bindBuffer(GL.ARRAY_BUFFER, this.colorBuffer);
+			GL.bufferData(GL.ARRAY_BUFFER, new Float32Array(this.colors), GL.STATIC_DRAW);	
+			
+			this.indexBuffer.itemSize = 1;
+			this.indexBuffer.numItems  = 6;
+			GL.bindBuffer(GL.ELEMENT_ARRAY_BUFFER, this.indexBuffer );
+			GL.bufferData(GL.ELEMENT_ARRAY_BUFFER, this.index,GL.STATIC_DRAW);
+			
+			this.built = true;
+		}
+	}
+	
+	
+	
+	
+	this.forms.Primitive = function() { return null; }
+	this.forms.Triangle = function(GL,a,b,c,ca,cb,cc) {
+		if(!a) {
+			a = new SHAPES.Point3(-1,-1,0);
+			b = new SHAPES.Point3(1,-1,0);
+			c = new SHAPES.Point3(0,1,0);
+		}
+		if(!ca) {
+			ca = new SHAPES.Point4(0,0,1,1);
+			cb = new SHAPES.Point4(0,0,1,1);
+			cc = new SHAPES.Point4(0,0,1,1);
+		}
+		return new _triangle(GL,a,b,c,ca,cb,cc); 
+	}
+	this.forms.Square2 = function(GL,options) {
+		var type = options.type;
+		var unit = options.unit || 1;
+		var scale = options.scale || 1;
+		
+		var ca = new SHAPES.Point4(0,0,1,1),
+			cb = new SHAPES.Point4(0,0,1,1),
+			cc = new SHAPES.Point4(0,0,1,1),
+			cd = new SHAPES.Point4(0,0,1,1);
+			
+		if(type=="face") {
+			a = new SHAPES.Point3(-unit*scale,unit*scale,0);
+			b = new SHAPES.Point3(unit*scale,unit*scale,0);
+			c = new SHAPES.Point3(-unit*scale,-unit*scale,0);
+			d = new SHAPES.Point3(unit*scale,-unit*scale,0);
+		} else if(type=="face_left") {
+			a = new SHAPES.Point3(-unit*scale,unit*scale,0);
+			b = new SHAPES.Point3(-unit*scale,unit*scale,-unit*scale);
+			c = new SHAPES.Point3(-unit*scale,-unit*scale,0);
+			d = new SHAPES.Point3(-unit*scale,-unit*scale,-unit*scale);
+		} else if(type=="face_right") {
+			a = new SHAPES.Point3(unit*scale,unit*scale,0);
+			b = new SHAPES.Point3(unit*scale,unit*scale,-unit*scale);
+			c = new SHAPES.Point3(unit*scale,-unit*scale,0);
+			d = new SHAPES.Point3(unit*scale,-unit*scale,-unit*scale);
+		} else if(type=="face_top") {
+			a = new SHAPES.Point3(-unit*scale,unit*scale,-unit*scale);
+			b = new SHAPES.Point3(unit*scale,unit*scale,-unit*scale);
+			c = new SHAPES.Point3(-unit*scale,unit*scale,0);
+			d = new SHAPES.Point3(unit*scale,unit*scale,0);
+		} else if(type=="face_bottom") {
+			a = new SHAPES.Point3(-unit*scale,-unit*scale,-unit*scale);
+			b = new SHAPES.Point3(unit*scale,-unit*scale,-unit*scale);
+			c = new SHAPES.Point3(-unit*scale,-unit*scale,0);
+			d = new SHAPES.Point3(unit*scale,-unit*scale,0);
+		} else if(type=="floor") {
+			a = new SHAPES.Point3(-unit*scale,-unit*scale,-unit*scale);
+			b = new SHAPES.Point3(unit*scale,-unit*scale,-unit*scale);
+			c = new SHAPES.Point3(-unit*scale,-unit*scale,0);
+			d = new SHAPES.Point3(unit*scale,-unit*scale,0);
+		}
+		if("colors" in options) {
+			ca = options.colors[0];
+			cb = options.colors[1];
+			cc = options.colors[2];
+			cd = options.colors[3];
+		}
+		return new _square2(GL,a,b,c,d,ca,cb,cc,cd);
+	}
+	
+	
+	this.shaders = {};
+	this.shaders.targets = {};
+	this.shaders.targets.default = {
+		u : ["amatrix","bmatrix","cmatrix"],
+		aa : ["color","position"]
+	};
+	this.shaders.vs = {};
+	this.shaders.vs.default = { 
+		targets: this.shaders.targets.default,
+		code : "\
+		attribute vec3 position;\n\
+		attribute vec4 color;\n\
+		uniform mat4 amatrix;\n\
+		uniform mat4 bmatrix;\n\
+		uniform mat4 cmatrix;\n\
+		varying vec4 vColor;\n\
+		void main(void) {\n\
+			mat4 id0,id1,id2,id3,id4,id5,id6,id7;\n\
+			mat4 idA, idB, idC, idD, idE, idF, idG, idH;\n\
+			float scale=0.5;\n\
+			// last outter frame\n\
+			id7[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id7[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id7[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id7[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			id6[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id6[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id6[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id6[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			id5[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id5[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id5[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id5[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			id4[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id4[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id4[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id4[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			id3[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id3[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id3[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id3[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			id2[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id2[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id2[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id2[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			id1[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id1[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id1[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id1[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			// first outter frame\n\
+			id0[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			id0[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			id0[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			id0[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			//\n\
+			//\n\
+			//\n\
+			// focus frame is amatrix*bmatrix*cmatrix*vertex_position\n\
+			//\n\
+			//\n\
+			//\n\
+			// first inner frame\n\
+			idA[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idA[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idA[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idA[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			idB[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idB[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idB[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idB[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			idC[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idC[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idC[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idC[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			idD[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idD[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idD[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idD[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			idE[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idE[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idE[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idE[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			idF[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idF[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idF[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idF[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			idG[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idG[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idG[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idG[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			//last inner frame\n\
+			idH[0] = vec4(1.0, 0.0, 0.0, 0.0);\n\
+			idH[1] = vec4(0.0, 1.0, 0.0, 0.0);\n\
+			idH[2] = vec4(0.0, 0.0, 1.0, 0.0);\n\
+			idH[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			mat4 idScale;\n\
+			idScale[0] = vec4(scale, 0.0, 0.0, 0.0);\n\
+			idScale[1] = vec4(0.0, scale, 0.0, 0.0);\n\
+			idScale[2] = vec4(0.0, 0.0, scale, 0.0);\n\
+			idScale[3] = vec4(0.0, 0.0, 0.0, 1.0);\n\
+			float angle = 0.0*3.1415926535897932384626433832795/180.0;\n\
+			//gl_Position = id7*id6*id5*id4*id3*id2*id1*id0*amatrix*bmatrix*cmatrix*vec4(position, 1.0)*idA*idB*idC*idD*idE*idF*idG*idH;\n\
+			gl_Position = id7*id6*id5*id4*id3*id2*id1*id0*amatrix*bmatrix*cmatrix*vec4(position, 1.0)*idA*idB*idC*idD*idE*idF*idG*idH;\n\
+			vColor=color;\n\
+		}"
+		/*
+			
+			id2[3][0] // strafe x
+			id2[3][1] // strafe y
+			id2[2][3] // flat zoom or z walk , has a locked point by 0,0,0
+		*/
+	};
+	this.shaders.fs = {};
+	this.shaders.fs.default = {
+		targets: this.shaders.targets.default,
+		code : "\n\
+			precision highp float;\n\
+			varying vec4 vColor;\n\
+			void main(void) {\n\
+				gl_FragColor = vColor;\n\
+		}"
+	};
+	
+	
+};
+
+
+window["3Devils"].prototype.render = function() {
+	var GL = this.context;
+	// routine options
+	GL.viewport(0, 0, this.width, this.height);
+	GL.clear(GL.COLOR_BUFFER_BIT | GL.DEPTH_BUFFER_BIT);
+	
+	// dynamic options	
+
+
+	this.selected_scene&&this.selected_scene.build(GL);
+	// finish frame
+	GL.flush();
+	var self = this;
+	window.requestAnimationFrame(function() { self.render(); });
+	console.log("render");
+}
+window["3Devils"].prototype.start = function(callback) {
+	var self = this;
+	callback&&callback(this.context);
+	self.render();
+	//window.requestAnimationFrame(function() { self.render(); });
+}
+window["3Devils"].prototype.set = function(obj) {
+	for(var key in obj) {
+		this[key] = obj[key];
+	}
+}
+
+
+window.onload = function() {
+	var canvas = document.getElementById("gl");
+	canvas.style.position = "relative";
+	//canvas.style.left = "100px";
+	canvas.style.borderRight ="solid 300px #000";
+	canvas.style.paddingRight = "10px";
+	//console.log( document.querySelector('#gl') );
+	
+	var controller = new window["3Devils"](canvas);
+	controller.set({
+		width: 960,
+		height: 960,
+		
+		sourceX: 960,
+		sourceY: 960
+	});
+	
+	controller.start(function(GL) {
+	
+	
+	
+		var x_calibration = false;
+		if(x_calibration) {
+	
+			var obj_11th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_11th_face_left.createVertex(controller.shaders.vs.default );
+			obj_11th_face_left.createFragment( controller.shaders.fs.default);
+			obj_11th_face_left.position.data[0] = 1+2+4+8+16+32+64+128+256+512;
+			obj_11th_face_left.position.data[1] = 0;
+			obj_11th_face_left.setColor(1,0,0);
+			
+			var obj_11th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_11th_face_right.createVertex(controller.shaders.vs.default );
+			obj_11th_face_right.createFragment( controller.shaders.fs.default);
+			obj_11th_face_right.position.data[0] = -1-2-4-8-16-32-64-128-256-512;
+			obj_11th_face_right.position.data[1] = 0;
+			obj_11th_face_right.setColor(1,0,0);
+			
+			
+		
+			var obj_10th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_10th_face_left.createVertex(controller.shaders.vs.default );
+			obj_10th_face_left.createFragment( controller.shaders.fs.default);
+			obj_10th_face_left.position.data[0] = 1+2+4+8+16+32+64+128+256;
+			obj_10th_face_left.position.data[1] = 0;
+			obj_10th_face_left.setColor(1,0,0);
+			
+			var obj_10th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_10th_face_right.createVertex(controller.shaders.vs.default );
+			obj_10th_face_right.createFragment( controller.shaders.fs.default);
+			obj_10th_face_right.position.data[0] = -1-2-4-8-16-32-64-128-256;
+			obj_10th_face_right.position.data[1] = 0;
+			obj_10th_face_right.setColor(1,0,0);
+			
+		
+			var obj_9th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_9th_face_left.createVertex(controller.shaders.vs.default );
+			obj_9th_face_left.createFragment( controller.shaders.fs.default);
+			obj_9th_face_left.position.data[0] = 1+2+4+8+16+32+64+128;
+			obj_9th_face_left.position.data[1] = 0;
+			obj_9th_face_left.setColor(1,0,0);
+			
+			var obj_9th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_9th_face_right.createVertex(controller.shaders.vs.default );
+			obj_9th_face_right.createFragment( controller.shaders.fs.default);
+			obj_9th_face_right.position.data[0] = -1-2-4-8-16-32-64-128;
+			obj_9th_face_right.position.data[1] = 0;
+			obj_9th_face_right.setColor(1,0,0);
+			
+		
+			var obj_8th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_8th_face_left.createVertex(controller.shaders.vs.default );
+			obj_8th_face_left.createFragment( controller.shaders.fs.default);
+			obj_8th_face_left.position.data[0] = 1+2+4+8+16+32+64;
+			obj_8th_face_left.position.data[1] = 0;
+			obj_8th_face_left.setColor(1,0,0);
+			
+			var obj_8th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_8th_face_right.createVertex(controller.shaders.vs.default );
+			obj_8th_face_right.createFragment( controller.shaders.fs.default);
+			obj_8th_face_right.position.data[0] = -1-2-4-8-16-32-64;
+			obj_8th_face_right.position.data[1] = 0;
+			obj_8th_face_right.setColor(1,0,0);
+			
+			var obj_7th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_7th_face_left.createVertex(controller.shaders.vs.default );
+			obj_7th_face_left.createFragment( controller.shaders.fs.default);
+			obj_7th_face_left.position.data[0] = 1+2+4+8+16+32;
+			obj_7th_face_left.position.data[1] = 0;
+			obj_7th_face_left.setColor(1,0,0);
+			
+			var obj_7th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_7th_face_right.createVertex(controller.shaders.vs.default );
+			obj_7th_face_right.createFragment( controller.shaders.fs.default);
+			obj_7th_face_right.position.data[0] = -1-2-4-8-16-32;
+			obj_7th_face_right.position.data[1] = 0;
+			obj_7th_face_right.setColor(1,0,0);
+			
+			var obj_6th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_6th_face_left.createVertex(controller.shaders.vs.default );
+			obj_6th_face_left.createFragment( controller.shaders.fs.default);
+			obj_6th_face_left.position.data[0] = 1+2+4+8+16;
+			obj_6th_face_left.position.data[1] = 0;
+			obj_6th_face_left.setColor(1,0,0);
+			
+			var obj_6th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_6th_face_right.createVertex(controller.shaders.vs.default );
+			obj_6th_face_right.createFragment( controller.shaders.fs.default);
+			obj_6th_face_right.position.data[0] = -1-2-4-8-16;
+			obj_6th_face_right.position.data[1] = 0;
+			obj_6th_face_right.setColor(1,0,0);
+			
+			var obj_5th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_5th_face_left.createVertex(controller.shaders.vs.default );
+			obj_5th_face_left.createFragment( controller.shaders.fs.default);
+			obj_5th_face_left.position.data[0] = 1+2+4+8;
+			obj_5th_face_left.position.data[1] = 0;
+			obj_5th_face_left.setColor(1,0,0);
+			
+			var obj_5th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_5th_face_right.createVertex(controller.shaders.vs.default );
+			obj_5th_face_right.createFragment( controller.shaders.fs.default);
+			obj_5th_face_right.position.data[0] = -1-2-4-8;
+			obj_5th_face_right.position.data[1] = 0;
+			obj_5th_face_right.setColor(1,0,0);
+			
+		
+			var obj_4th_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_4th_face_left.createVertex(controller.shaders.vs.default );
+			obj_4th_face_left.createFragment( controller.shaders.fs.default);
+			obj_4th_face_left.position.data[0] = 1+2+4;
+			obj_4th_face_left.position.data[1] = 0;
+			obj_4th_face_left.setColor(1,0,0);
+			
+			var obj_4th_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_4th_face_right.createVertex(controller.shaders.vs.default );
+			obj_4th_face_right.createFragment( controller.shaders.fs.default);
+			obj_4th_face_right.position.data[0] = -1-2-4;
+			obj_4th_face_right.position.data[1] = 0;
+			obj_4th_face_right.setColor(1,0,0);
+			
+		
+			var obj_3rd_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_3rd_face_left.createVertex(controller.shaders.vs.default );
+			obj_3rd_face_left.createFragment( controller.shaders.fs.default);
+			obj_3rd_face_left.position.data[0] = 1+2;
+			obj_3rd_face_left.position.data[1] = 0;
+			obj_3rd_face_left.setColor(1,0,0);
+			
+			var obj_3rd_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_3rd_face_right.createVertex(controller.shaders.vs.default );
+			obj_3rd_face_right.createFragment( controller.shaders.fs.default);
+			obj_3rd_face_right.position.data[0] = -1-2;
+			obj_3rd_face_right.position.data[1] = 0;
+			obj_3rd_face_right.setColor(1,0,0);
+			
+			var obj_2nd_face_left = controller.forms.Square2(GL,{ type : "face_right" });
+			obj_2nd_face_left.createVertex(controller.shaders.vs.default );
+			obj_2nd_face_left.createFragment( controller.shaders.fs.default);
+			obj_2nd_face_left.position.data[0] = 1;
+			obj_2nd_face_left.position.data[1] = 0;
+			obj_2nd_face_left.setColor(1,0,0);
+			
+			var obj_2nd_face_right = controller.forms.Square2(GL,{ type : "face_left" });
+			obj_2nd_face_right.createVertex(controller.shaders.vs.default );
+			obj_2nd_face_right.createFragment( controller.shaders.fs.default);
+			obj_2nd_face_right.position.data[0] = -1;
+			obj_2nd_face_right.position.data[1] = 0;
+			obj_2nd_face_right.setColor(1,0,0);
+		
+		
+		}
+		
+		
+		var obj2 = controller.forms.Square2(GL,{ type : "face_top" });
+		obj2.createVertex(controller.shaders.vs.default );
+		obj2.createFragment( controller.shaders.fs.default);
+		
+		obj2.position.data[1] = 0;
+		obj2.setColor(1,1,0);
+		
+		var obj3 = controller.forms.Square2(GL,{ type : "face_right" });
+		obj3.createVertex(controller.shaders.vs.default );
+		obj3.createFragment( controller.shaders.fs.default);
+		
+		obj3.position.data[1] = 0;
+		obj3.position.data[2] = -0.6;
+		obj3.setColor(0,78/255,94/255);
+		
+		var obj6 = controller.forms.Square2(GL,{ type : "face_left" });
+		obj6.createVertex(controller.shaders.vs.default );
+		obj6.createFragment( controller.shaders.fs.default);
+		obj6.position.data[1] = 0;
+		obj6.position.data[2] = -0.6;
+		obj6.setColor(0,78/255,94/255);
+		
+		var obj7 = controller.forms.Square2(GL,{ type : "face_left" });
+		obj7.createVertex(controller.shaders.vs.default );
+		obj7.createFragment( controller.shaders.fs.default);
+		obj7.position.data[1] = 0;
+		obj7.position.data[2] = -1.6;
+		obj7.setColor(1,0,0);
+		
+		
+		var obj8 = controller.forms.Square2(GL,{ type : "face_left" });
+		obj8.createVertex(controller.shaders.vs.default );
+		obj8.createFragment( controller.shaders.fs.default);
+		obj8.position.data[1] = 0;// 2->0.4
+		obj8.position.data[2] = 0.4;
+		obj8.setColor(0,0,1);
+		
+		
+		var obj9 = controller.forms.Square2(GL,{ type : "face_left" });
+		obj9.createVertex(controller.shaders.vs.default );
+		obj9.createFragment( controller.shaders.fs.default);
+		obj9.position.data[1] = 0;// 2->0.4
+		obj9.position.data[2] = -2.6;
+		obj9.setColor(0,0,1);
+		
+		
+		var obj10 = controller.forms.Square2(GL,{ type : "face_left" });
+		obj10.createVertex(controller.shaders.vs.default );
+		obj10.createFragment( controller.shaders.fs.default);
+		obj10.position.data[1] = 0;// 2->0.4
+		obj10.position.data[2] = -3.6;
+		obj10.setColor(0,1,0);
+		
+		var obj11 = controller.forms.Square2(GL,{ type : "face" });
+		obj11.createVertex(controller.shaders.vs.default );
+		obj11.createFragment( controller.shaders.fs.default);
+		obj11.position.data[1] = 0;// 2->0.4
+		obj11.position.data[2] = -702.6;
+		obj11.setColor(0,1,1);
+		
+		
+		
+		// the face_left is a square on the middle of vision, is a thin layer of 0 width, double faced
+		var face_left = controller.forms.Square2(GL,{ type : "face_left" });
+		face_left.createVertex(controller.shaders.vs.default );
+		face_left.createFragment( controller.shaders.fs.default);
+		face_left.position.data[0] = 1;
+		face_left.position.data[1] = 0;
+		face_left.setColor(1,0,0);
+		
+		var face_right = controller.forms.Square2(GL,{ type : "face_right" });
+		face_right.createVertex(controller.shaders.vs.default );
+		face_right.createFragment( controller.shaders.fs.default);
+		face_right.position.data[0] = -1;
+		face_right.position.data[1] = 0;
+		face_right.setColor(1,0,0);
+
+
+
+		
+		// sub unit world
+		
+		var obj4 = controller.forms.Square2(GL,{ type : "face", scale : 1/8 });
+		obj4.createVertex(controller.shaders.vs.default );
+		obj4.createFragment( controller.shaders.fs.default);
+		obj4.position.data[0] = 1/8;	
+		obj4.position.data[1] = 1/8;
+		obj4.position.data[2] = -1;
+		obj4.setColor(0,0,1);
+		
+		/*
+		var obj5 = controller.forms.Square2(GL,{ type : "face_left", scale : 1/2 });
+		obj5.createVertex(controller.shaders.vs.default );
+		obj5.createFragment( controller.shaders.fs.default);
+		obj5.position.data[0] = -2/4+0.5;	
+		obj5.position.data[1] = -1/2;
+		*/
+		var obj5 = controller.forms.Square2(GL,{ type : "face", scale : 1/4096 });
+		obj5.createVertex(controller.shaders.vs.default );
+		obj5.createFragment( controller.shaders.fs.default);
+		obj5.position.data[0] = 0;	
+		obj5.position.data[1] = 0;
+		
+		//obj5.position.data[2] = -0.25;
+		
+		/*
+		var obj6 = controller.forms.Square2(GL,{ type : "face", scale : 1/2 });
+		obj6.createVertex(controller.shaders.vs.default );
+		obj6.createFragment( controller.shaders.fs.default);
+		obj6.position.data[0] = -2/4+0.5;	
+		obj6.position.data[1] = -1/2;
+		//obj5.position.data[2] = -0.25;
+		obj6.setColor(0,0,1);
+		*/
+		var s = controller.scene();
+		if(x_calibration) {
+			
+			s.push( obj_11th_face_left );
+			s.push( obj_11th_face_right );
+			
+			s.push( obj_10th_face_left );
+			s.push( obj_10th_face_right );
+			
+			s.push( obj_9th_face_left );
+			s.push( obj_9th_face_right );
+			
+			s.push( obj_8th_face_left );
+			s.push( obj_8th_face_right );
+			
+			s.push( obj_7th_face_left );
+			s.push( obj_7th_face_right );
+			
+			s.push( obj_6th_face_left );
+			s.push( obj_6th_face_right );
+			
+			s.push( obj_5th_face_left );
+			s.push( obj_5th_face_right );
+			
+			s.push( obj_4th_face_left );
+			s.push( obj_4th_face_right );
+			
+			s.push( obj_3rd_face_left );
+			s.push( obj_3rd_face_right );
+			
+			s.push( obj_2nd_face_left );
+			s.push( obj_2nd_face_right );
+			
+		
+		}
+		s.push( obj2 );
+		s.push( obj3 );
+		s.push( obj4 );
+		s.push( face_left );
+		s.push( face_right );
+		
+		
+		s.push( obj4 );
+		s.push( obj5 );
+		s.push( obj6 );
+		s.push( obj7 );
+		s.push( obj8 );
+		s.push( obj9 );
+		s.push( obj10 );
+		s.push( obj11 );
+		
+		
+		
+		controller.selected_scene = s;
+		
+		
+		
+		GL.clearColor(0.0, 0.0, 0.0, 0.5);
+		GL.enable(GL.DEPTH_TEST);
+		console.log("LOADED");
+	});
+	
+	//GL.depthFunc(GL.LEQUAL);
+	//GL.clearDepth(1.0);
+	
+}
+
+
+</script>
+	<body>
+		
+		<canvas id="gl"></canvas>
+		
+	</body>
+</html>

@@ -1,0 +1,43 @@
+[
+	"public\\js\\KeyCode.js",
+	"public\\js\\Import.js",
+	"public\\js\\StringTools.js",
+	"public\\js\\Type.js",
+	"public\\js\\Class.js",
+	"public\\js\\Browser.js",
+	"public\\js\\BrowserTools.js",
+	"public\\js\\Import.js",
+	"public\\js\\Download.js",
+	"public\\js\\Zip.js",
+	"public\\js\\WithEvents.js",
+	"public\\js\\WithArray.js",
+	"public\\js\\WithAlias.js",
+	"public\\js\\XMath.js",
+	"public\\js\\XMath.UnitCounter.js",
+	"public\\js\\CPU.js",
+	"public\\js\\Kernel.js",
+	"public\\js\\Packer.js",
+	"public\\js\\UI.js",
+	"public\\js\\UI.Page.js",
+	"public\\js\\WithDOMNode.js",
+	"public\\js\\WithDOMElements.js",
+	"public\\js\\UI.Style.js",
+	"public\\js\\UI.Document.js",
+	"public\\js\\UI.Window.js",
+	"public\\js\\UI.Body.js",
+	"public\\js\\History.js",
+	"public\\js\\Router.js",
+	"public\\js\\CustomControl.js",
+	
+	
+	"public\\js\\Template.base.js",
+	"public\\js\\Page.Login.js",
+	"public\\js\\Page.Home.js",
+	
+	
+	"public\\CodeMirror\\lib\\codemirror.js",
+	"public\\CodeMirror\\mode\\javascript\\javascript.js",
+	
+	
+	"public\\js\\Main.js"
+]

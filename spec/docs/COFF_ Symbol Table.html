@@ -1,0 +1,587 @@
+
+<!-- saved from url=(0049)http://www.delorie.com/djgpp/doc/coff/symtab.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><title>COFF: Symbol Table</title>
+<!--<base href="http://www.delorie.com/djgpp/doc/coff/symtab.html">--><base href=".">
+</head><body><center><iframe src="./COFF_ Symbol Table_files/cm.html" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+<table width="100%" border="0" cellspacing="0" cellpadding="3"><tbody><tr><td align="left" valign="top" bgcolor="#ffcc99"><small><font face="itc avant garde gothic,helvetica,arial"><b> &nbsp;
+<a href="http://www.delorie.com/" target="_top">www.delorie.com</a>/<a href="http://www.delorie.com/djgpp/" target="_top">djgpp</a>/<a href="http://www.delorie.com/djgpp/doc/" target="_top">doc</a>/<a href="http://www.delorie.com/djgpp/doc/coff/" target="_top">coff</a>/symtab.html</b></font></small></td>
+<td align="right" valign="top" bgcolor="#ffcc99"><small><font face="itc avant garde gothic,helvetica,arial"><b> &nbsp;
+<a href="http://www.delorie.com/search/">search</a> &nbsp;
+</b></font></small></td>
+</tr></tbody></table><a href="http://www.delorie.com/djgpp/doc/coff/bulktrap.html"></a><big><big><b>COFF: Symbol Table</b></big></big><p></p></center>
+
+
+<pre>typedef struct {
+  union {
+    char <b>e_name</b>[E_SYMNMLEN];
+    struct {
+      unsigned long <b>e_zeroes</b>;
+      unsigned long <b>e_offset</b>;
+    } e;
+  } e;
+  unsigned long <b>e_value</b>;
+  short <b>e_scnum</b>;
+  unsigned short <b>e_type</b>;
+  unsigned char <b>e_sclass</b>;
+  unsigned char <b>e_numaux</b>;
+} <b>SYMENT</b>;
+</pre>
+
+<p>The symbol table is probably one of the most complex parts of the
+COFF object, mostly because there are so many symbol types.  The
+symbol table has entries for all symbols and meta-symbols, including
+public, static, external, section, and debugging symbols.</p>
+
+<dl>
+
+<dt> <tt>e.e_name</tt> - inlined symbol name
+
+</dt><dd> If the symbol's name is eight characters or less, it is stored in
+this field.  Note that the first character overlaps the
+<tt>e_zeroes</tt> field - by doing so, the <tt>e_zeroes</tt> field can
+be used to determine if the symbol name has been inlined.  Beware that
+the name is null terminated only if it is less than eight characters
+long, else it is not null terminated.<p></p>
+
+</dd><dt> <tt>e.e.e_zeroes</tt> - flag to tell if name is inlined
+
+</dt><dd> If this field is zero, then the symbol name is found by using
+<tt>e_offset</tt> as an offset into <a href="http://www.delorie.com/djgpp/doc/coff/strtab.html">the string
+table</a>.  If it is nonzero, then the name is in the <tt>e_name</tt>
+field. <p></p>
+
+</dd><dt> <tt>e.e.e_offset</tt> - offset of name in string table
+
+</dt><dd> If <tt>e_zeroes</tt> is zero, this field contains the offset of
+the symbol name in <a href="http://www.delorie.com/djgpp/doc/coff/strtab.html">the string table</a>.<p></p>
+
+</dd><dt> <tt>e_value</tt> - the value of the symbol
+
+</dt><dd> The value of the symbol.  For example, if the symbol represents a
+function, this contains the address of the function.  The meaning of
+the value depends on the type of symbol (<a href="http://www.delorie.com/djgpp/doc/coff/symtab.html#values">below</a>).<p></p>
+
+</dd><dt> <tt>e_scnum</tt> - section number
+
+</dt><dd> The number of the section that this symbol belongs to.  The first
+section in <a href="http://www.delorie.com/djgpp/doc/coff/scnhdr.html">the section table</a> is section one.
+In addition, <tt>e_scnum</tt> may be one of the following values:<p></p>
+
+<p><table>
+<tbody><tr>
+<th>Symbol<hr noshade="" size="1"></th>
+<th>Value<hr noshade="" size="1"></th>
+<th>Meaning<hr noshade="" size="1"></th>
+</tr>
+
+<tr valign="top">
+<td><tt>N_UNDEF</tt></td>
+<td align="center">0</td>
+<td>An undefined (extern) symbol</td>
+</tr>
+
+<tr valign="top">
+<td><tt>N_ABS</tt></td>
+<td align="center">-1</td>
+<td>An absolute symbol (<tt>e_value</tt> is a constant, not an address)</td>
+</tr>
+
+<tr valign="top">
+<td><tt>N_DEBUG</tt></td>
+<td align="center">-2</td>
+<td>A debugging symbol</td>
+</tr>
+
+</tbody></table></p>
+
+</dd><dt> <tt>e_type</tt> - symbol type
+
+</dt><dd> The type of the symbol.  This is made up of a base type and a
+derived type.  For example, "pointer to int" is "pointer to T" and
+"int".  <p></p>
+
+<p><table>
+<tbody><tr>
+<th>Type<hr noshade="" size="1"></th>
+<th>Bits<hr noshade="" size="1"></th>
+<th>Meaning<hr noshade="" size="1"></th>
+</tr>
+
+<tr valign="top">
+<td><tt>T_NULL</tt></td>
+<td><tt>---- 0000</tt></td>
+<td>No symbol</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_VOID</tt></td>
+<td><tt>---- 0001</tt></td>
+<td>void function argument (not used)</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_CHAR</tt></td>
+<td><tt>---- 0010</tt></td>
+<td>character</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_SHORT</tt></td>
+<td><tt>---- 0011</tt></td>
+<td>short integer</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_INT</tt></td>
+<td><tt>---- 0100</tt></td>
+<td>integer</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_LONG</tt></td>
+<td><tt>---- 0101</tt></td>
+<td>long integer</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_FLOAT</tt></td>
+<td><tt>---- 0110</tt></td>
+<td>floating point</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_DOUBLE</tt></td>
+<td><tt>---- 0111</tt></td>
+<td>double precision float</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_STRUCT</tt></td>
+<td><tt>---- 1000</tt></td>
+<td>structure</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_UNION</tt></td>
+<td><tt>---- 1001</tt></td>
+<td>union</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_ENUM</tt></td>
+<td><tt>---- 1010</tt></td>
+<td>enumeration</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_MOE</tt></td>
+<td><tt>---- 1011</tt></td>
+<td>member of enumeration</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_UCHAR</tt></td>
+<td><tt>---- 1100</tt></td>
+<td>unsigned character</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_USHORT</tt></td>
+<td><tt>---- 1101</tt></td>
+<td>unsigned short</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_UINT</tt></td>
+<td><tt>---- 1110</tt></td>
+<td>unsigned integer</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_ULONG</tt></td>
+<td><tt>---- 1111</tt></td>
+<td>unsigned long</td>
+</tr>
+
+<tr valign="top">
+<td><tt>T_LNGDBL</tt></td>
+<td><tt>---1 0000</tt></td>
+<td>long double (special case bit pattern)</td>
+</tr>
+
+<tr valign="top">
+<td><tt>DT_NON</tt></td>
+<td><tt>--00 ----</tt></td>
+<td>No derived type</td>
+</tr>
+
+<tr valign="top">
+<td><tt>DT_PTR</tt></td>
+<td><tt>--01 ----</tt></td>
+<td>pointer to T</td>
+</tr>
+
+<tr valign="top">
+<td><tt>DT_FCN</tt></td>
+<td><tt>--10 ----</tt></td>
+<td>function returning T</td>
+</tr>
+
+<tr valign="top">
+<td><tt>DT_ARY</tt></td>
+<td><tt>--11 ----</tt></td>
+<td>array of T</td>
+</tr>
+
+</tbody></table></p>
+
+<p>The <tt>BTYPE(x)</tt> macro extracts the base type from <tt>e_type</tt>.
+Note that all <tt>DT_*</tt> must be shifted by <tt>N_BTSHIFT</tt> to
+get actual values, as in:
+
+</p><pre>e_type = <i>base</i> + <i>derived</i> &lt;&lt; N_BTSHIFT;
+</pre>
+
+There are also macros <tt>ISPTR</tt>, <tt>ISFCN</tt>, and <tt>ISARY</tt>
+that test the upper bits for the derived type.<p></p>
+
+</dd><dt> <tt>e_sclass</tt> - storage class
+
+</dt><dd> This tells where and what the symbol represents.
+
+<table>
+<tbody><tr>
+<th>Class<hr noshade="" size="1"></th>
+<th>Value<hr noshade="" size="1"></th>
+<th>Meaning<hr noshade="" size="1"></th>
+</tr>
+
+<tr valign="top">
+<td><tt>C_NULL</tt></td>
+<td align="center"><tt>0</tt></td>
+<td>No entry</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_AUTO</tt></td>
+<td align="center"><tt>1</tt></td>
+<td>Automatic variable</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_EXT</tt></td>
+<td align="center"><tt>2</tt></td>
+<td>External (public) symbol - this covers globals and externs</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_STAT</tt></td>
+<td align="center"><tt>3</tt></td>
+<td>static (private) symbol</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_REG</tt></td>
+<td align="center"><tt>4</tt></td>
+<td>register variable</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_EXTDEF</tt></td>
+<td align="center"><tt>5</tt></td>
+<td>External definition</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_LABEL</tt></td>
+<td align="center"><tt>6</tt></td>
+<td>label</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_ULABEL</tt></td>
+<td align="center"><tt>7</tt></td>
+<td>undefined label</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_MOS</tt></td>
+<td align="center"><tt>8</tt></td>
+<td>member of structure</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_ARG</tt></td>
+<td align="center"><tt>9</tt></td>
+<td>function argument</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_STRTAG</tt></td>
+<td align="center"><tt>10</tt></td>
+<td>structure tag</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_MOU</tt></td>
+<td align="center"><tt>11</tt></td>
+<td>member of union</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_UNTAG</tt></td>
+<td align="center"><tt>12</tt></td>
+<td>union tag</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_TPDEF</tt></td>
+<td align="center"><tt>13</tt></td>
+<td>type definition</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_USTATIC</tt></td>
+<td align="center"><tt>14</tt></td>
+<td>undefined static</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_ENTAG</tt></td>
+<td align="center"><tt>15</tt></td>
+<td>enumaration tag</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_MOE</tt></td>
+<td align="center"><tt>16</tt></td>
+<td>member of enumeration</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_REGPARM</tt></td>
+<td align="center"><tt>17</tt></td>
+<td>register parameter</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_FIELD</tt></td>
+<td align="center"><tt>18</tt></td>
+<td>bit field</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_AUTOARG</tt></td>
+<td align="center"><tt>19</tt></td>
+<td>auto argument</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_LASTENT</tt></td>
+<td align="center"><tt>20</tt></td>
+<td>dummy entry (end of block)</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_BLOCK</tt></td>
+<td align="center"><tt>100</tt></td>
+<td>".bb" or ".eb" - beginning or end of block</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_FCN</tt></td>
+<td align="center"><tt>101</tt></td>
+<td>".bf" or ".ef" - beginning or end of function</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_EOS</tt></td>
+<td align="center"><tt>102</tt></td>
+<td>end of structure</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_FILE</tt></td>
+<td align="center"><tt>103</tt></td>
+<td>file name</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_LINE</tt></td>
+<td align="center"><tt>104</tt></td>
+<td>line number, reformatted as symbol</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_ALIAS</tt></td>
+<td align="center"><tt>105</tt></td>
+<td>duplicate tag</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_HIDDEN</tt></td>
+<td align="center"><tt>106</tt></td>
+<td>ext symbol in dmert public lib</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_EFCN</tt></td>
+<td align="center"><tt>255</tt></td>
+<td>physical end of function</td>
+</tr>
+
+</tbody></table>
+
+</dd><dt> <tt>e_numaux</tt> - number of auxiliary entries
+
+</dt><dd> Each symbol is allowed to have additional data that follows it in
+the symbol table.  This field tells how many equivalent SYMENTs are
+used for aux entries.  For most symbols, this is zero.  A value of one
+allows up to SYMESZ bytes of auxiliary information for that symbol.  A
+non-exhaustive list of auxiliary entries follows, based on the storage
+class (<tt>e_sclass</tt>) or type (<tt>e_type</tt>) of the symbol.
+
+</dd></dl>
+
+<h2>Auxiliary Entries</h2>
+
+<dl>
+
+<dt> <tt><b>DT_ARY</b></tt>
+
+</dt><dt> <tt>.x_sym.x_misc.x_lnsz.x_size</tt> </dt><dd> size in bytes (size*count)
+<p></p>
+
+</dd><dt> <tt><b>T_STRUCT</b></tt>
+</dt><dt> <tt><b>T_UNION</b></tt>
+</dt><dt> <tt><b>T_ENUM</b></tt>
+
+</dt><dt> <tt>.x_sym.x_tagndx</tt> </dt><dd> syment index for list of tags (will
+     point to <tt>C_STRTAG</tt>, <tt>C_UNTAG</tt>, or <tt>C_ENTAG</tt>)
+</dd><dt> <tt>.x_sym.x_misc.x_lnsz.x_size</tt> </dt><dd> size in bytes (size*count)
+<p></p>
+
+</dd><dt> <b><tt>T_NULL | C_STAT</tt></b> - section symbols (like <tt>.text</tt>)
+
+</dt><dt> <tt>.x_scn.x_scnlen</tt> </dt><dd> section length (bytes)
+</dd><dt> <tt>.x_scn.x_nreloc</tt> </dt><dd> number of relocation entries (ushort)
+</dd><dt> <tt>.x_scn.x_nlinno</tt> </dt><dd> number of line numbers (ushort)
+<p></p>
+
+</dd><dt> <tt><b>C_STRTAG</b></tt> - will be followed by <tt>C_MOS</tt>'s
+     and <tt>C_EOS</tt>
+</dt><dt> <tt><b>C_UNTAG</b></tt> - will be followed by <tt>C_MOU</tt>'s
+     and <tt>C_EOS</tt>
+</dt><dt> <tt><b>C_ENTAG</b></tt> - will be followed by <tt>C_MOE</tt>'s
+     and <tt>C_EOS</tt>
+
+</dt><dt> <tt>.x_sym.x_x_misc.x_lnsz.x_size</tt> </dt><dd> The size of the struct/union/enum
+</dd><dt> <tt>.x_sym.x_fcnary.x_fcn.x_endndx</tt> </dt><dd> The symbol index after our list.
+<p></p>
+
+</dd><dt> <tt><b>C_EOS</b></tt>
+
+</dt><dt> <tt>.x_sym.x_misc.x_lnsz.x_size</tt> </dt><dd> the size of the struct/union/enum
+</dd><dt> <tt>.x_sym.x_tagndx</tt> </dt><dd> The symbol index of the start of our list.
+<p></p>
+
+</dd><dt> <tt><b>C_FIELD</b></tt>
+
+</dt><dt> <tt>.x_sym.x_x_misc.x_lnsz.x_size</tt> </dt><dd> the number of bits
+<p></p>
+
+</dd><dt> <b><tt>C_BLOCK</tt></b>
+
+</dt><dt> <tt>.x_sym.x_misc.x_lnsz.x_lnno</tt> </dt><dd> starting line number
+</dd><dt> <tt>.x_sym.x_fcnary.x_fcn.x_endndx</tt> </dt><dd> The symbol index after our block (if
+     <tt>.bb</tt>)
+<p></p>
+
+</dd><dt> <b><tt>C_FCN</tt></b>
+
+</dt><dt> <tt>.x_sym.x_misc.x_lnsz.x_lnno</tt> </dt><dd> starting line number
+</dd><dt> <tt>.x_sym.x_misc.x_lnsz.x_size</tt> </dt><dd> size in bytes
+<p></p>
+
+</dd><dt> <b><tt>C_FILE</tt></b>
+
+</dt><dt> <tt>.x_file.x_fname</tt>
+</dt><dt> <tt>.x_file.x_n.x_zeroes</tt>
+</dt><dt> <tt>.x_file.x_n.x_offset</tt> </dt><dd> These three specify the file name, just
+     like the three fields used to specify the symbol name.
+<p></p>
+
+</dd></dl>
+
+<h2><a name="values">Meanings of the Values</a></h2>
+
+<table>
+<tbody><tr>
+<th>SClass<hr noshade="" size="1"></th>
+<th>Meaning of the Value<hr noshade="" size="1"></th>
+</tr>
+
+<tr valign="top">
+<td><tt>C_AUTO<br>C_ARG</tt></td>
+<td>Address of the variable, relative to <tt>%ebp</tt></td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_EXT<br>C_STAT<br>others</tt></td>
+<td>The address of the symbol</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_REG</tt></td>
+<td>The register number assigned to this variable</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_MOS</tt></td>
+<td>Offset of the member from the beginning of the structure
+</td></tr>
+
+<tr valign="top">
+<td><tt>C_MOE</tt></td>
+<td>The value of this enum member</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_FIELD</tt></td>
+<td>The mask for this field</td>
+</tr>
+
+<tr valign="top">
+<td><tt>C_EOS</tt></td>
+<td>size of struct/union/enum</td>
+</tr>
+
+</tbody></table>
+
+
+
+
+<br clear="all"><p></p>
+<a href="http://www.delorie.com/djgpp/doc/coff/bulktrap.html"></a><table width="100%" border="0" cellspacing="0" cellpadding="3"><tbody><tr>
+<td align="left" valign="top" bgcolor="#ffcc99"><small><font face="itc avant garde gothic,helvetica,arial"><b> &nbsp;
+<a href="http://www.delorie.com/users/dj/" target="_top">webmaster</a> &nbsp;
+<a href="http://www.delorie.com/donations.html" target="_top">donations</a> &nbsp;
+<a href="http://www.delorie.com/store/books/" target="_top">bookstore</a> &nbsp;
+</b></font></small></td>
+<td align="right" valign="top" bgcolor="#ffcc99"><small><font face="itc avant garde gothic,helvetica,arial"><b> &nbsp;
+<a href="http://www.delorie.com/" target="_top">delorie software</a> &nbsp;
+<a href="http://www.delorie.com/privacy.html" target="_top">privacy</a> &nbsp;
+</b></font></small></td>
+</tr><tr><td align="left" valign="top" bgcolor="#ffcc99"><small><font face="itc avant garde gothic,helvetica,arial"><b> &nbsp;
+<a href="http://www.delorie.com/copyright.html" target="_top">Copyright © 1996</a> &nbsp;
+<a href="http://www.delorie.com/users/dj/" target="_top">by DJ Delorie</a> &nbsp;
+</b></font></small></td>
+<td align="right" valign="top" bgcolor="#ffcc99"><small><font face="itc avant garde gothic,helvetica,arial"><b> &nbsp;
+Updated Oct 1996 &nbsp;
+</b></font></small></td>
+</tr></tbody></table>
+<center><iframe src="./COFF_ Symbol Table_files/cm(1).html" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+</center>
+
+
+</body></html>

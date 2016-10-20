@@ -1,0 +1,48 @@
+
+
+
+
+
+
+language keyframe level:
+
+	design:
+			[                                                                                                               ]
+			[                                                                                                               ]
+			[	const actor = x;                                                                                            ]
+			[		actor.do("animation|meaning",function(geometry_context,meaning_context) {                               ]
+			[			                                                                                                    ]
+			[			meaning_context = {                                                                                 ]
+			[				ask_self : { keywords : ["raw_entities"], focus : ["coded_string"] },                           ]
+			[				ask_any : {},                                                                                   ]
+			[				ask_target : [target,{}]                                                                        ]
+			[				why : function(){},                                                                             ]
+			[				where : function(){},                                                                           ]
+			[				when : function(){},                                                                            ]
+			[				how : function(){},                                                                             ]
+			[				likes : {}                                                                                      ]
+			[			}                                                                                                   ]
+			[				                                                                                                ]
+			[			an actor try to increase scoped likes in order to forget what is good to solve what is bad on work, ]
+			[			and to remember what is bad to choose positive contexts that keeps that word away from the path.    ]
+			[			good and bad are points over small_hierarquical_name_trees                                          ]
+			[                                                                                                               ]
+			[           var object1_actions = geometric_context.list_actions();                                             ]
+			[           var object2_actions = geometric_context.list_actions();                                             ]
+			[           var object3_actions = geometric_context.list_actions();                                             ]
+			[                                                                                                               ]
+			[           warn_about_display_input( /*display*/ [                                                             ]
+			[               object1_actions, object2_actions, object3_actions                                               ]
+			[			]);                                                                                                 ]
+			[                                                                                                               ]
+			[                                                                                                               ]
+			[                                                                                                               ]
+			[                                                                                                               ]				
+
+most scenes show how an actor acquired information to use in another scene. the use of information is tagged [+] or [-]
+to keep the scene rotating as a product even with interaction.
+
+
+		
+			
+			

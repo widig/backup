@@ -1,0 +1,60 @@
+10^30 10^10*10
+
+(1kg,1ton,1[T,G,M]kg, 1[T,G,M]ton,)
+
+
+
+calcular a area dos estados, comparar com a area da terra, verificar a porcentagem de areas geradas nao exploradas.
+
+a Terra com letra maiuscula e' a real, as outras sao tutoriais pedagogicos, com avisos.
+
+areas digitais nao podem se tornar reais e a informacao do lado veridico e' o resultado natural a ser pesquisado.
+
+equacionar essas informacoes de modo a adaptar a transferencia da mensagem para a construcao de "live page views"
+
+e vectorization.
+
+
+english layout.
+english language.
+
+
+film notations is a good way to training writing actions.
+
+
+
+model:
+	0: annimals[ human | dog | cat | mouse | insects | birds | bear | aligator | snakes | horses | cows | pigs | and many others?? ]
+	1: indoor objects [ door | table | balcony | clocks | small | tables | old telephones | tvs | coachs | light spots | bars | pools | windows | sanitary | stairs | bowling | snooker | ]
+	2: outdoor object [ cars | buildings | parking lot | drive through store | bike lanes | semaphore | crosswalk | wall | walking floor | gardens ] -> probably scenes from person view and objects from editor view
+scene: 
+	0: space [view]
+	1: fog, small trees and ice ambient. [view]
+	2: dense forest [view]
+	3: humid swamp [view]
+	4: river, vertical rock mountain. [view]
+	5: small slope, down hill [view]
+	6: close in cave, close inside huge cave, mine trailing, old trailing, skulpted. [view]
+	7: cemetery [view]
+	8: church and garden cemetery [view]
+	9: small school [view]
+	10: big school [view]
+	11: hospital [view]
+	12: police station [view]
+	13: business building [view]
+	14: vending machine [view]
+	15: vending cart [view]
+	16: vending truck [view]
+	17: restaurant [view]
+	16: old market [view]
+	17: super market [view]
+	18: gas station [view]
+	19: graduating event [view]
+	20: show event [view]
+	21: bank box [view]
+
+keyframe :
+
+stage:
+
+	

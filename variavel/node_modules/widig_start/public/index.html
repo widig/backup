@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<style>
+pre{
+	border:solid 1px #000;
+	padding:10px;
+}
+</style>
+</head>
+<body>
+	<div style="width:640px;">
+	<blockquote>
+		<h1>Servidor WidigStart</h1>
+		<blockquote>
+			<h2>Introdu&ccedil;&atilde;o</h2>
+			<blockquote>
+				O servidor WidigStart utiliza o servidor ExpressJs como base de funcionamento, sua principal utilidade &eacute; agilizar o processo de cria&ccedil;&atilde;o de um novo servidor de aplica&ccedil;&atilde;o web, atrav&eacute;s da pr&eacute-estrutura&ccedil;&atilde;o.
+				<h3>Come&ccedil;ando</h3>
+				
+No terminal, crie uma pasta com o nome do seu servidor por exemplo: pasta server.
+<div class="code">
+<pre>
+mkdir server
+cd server
+</pre>
+</div>
+Depois instale o servidor widig_start atrav&eacute;s do npm.<br/>
+<pre>
+npm install widig_start
+</pre>
+Ap&oacute;s instalar o servidor, &eacute; necess&aacute;rio criar um arquivo javascript com o seguinte c&oacute;digo.
+<pre>
+var app = require("widig_start");
+app.run();
+</pre>
+Salve o arquivo com o nome index.js por exemplo. Depois &eacute; s&oacute; liga-lo:
+<pre>
+node index.js
+</pre>
+Pronto! o servidor est&aacute; rodando e possui esta p&aacute;gina configurada como caminho inicial '/'. Acesse pelo navegador atrav&eacute;s do endere&ccedil;o http://localhost .<br/>
+Para encerrar o servidor volte ao terminal e aperte CTRL+C.
+
+			</blockquote>
+			<h2>Arquitetura</h2>
+			<blockquote>
+				<h3>Caminhos</h3>
+				Para adicionar um caminho ao servidor web basta ir ao arquivo index.json e acrescentar uma chave &agrave; chave 'get' ou &agrave; chave 'post' ou &agrave; chave 'put' ou &agrave; chave 'delete',
+				a chave &eacute; um caminho valido qualquer ou um padr&atilde;o de parametros ao estilo ExpressJs.
+				<h3>Filtros</h3>
+				Um filtro &eacute; uma fun&ccedil;&atilde;o que recebe como argumento uma fun&ccedil;&atilde;o de renderiza&ccedil;&atilde;o configurada no como caminho no arquivo index.json. O filtro tamb&eacute;m &eacute; configurado pelo arquivo index.json.
+			</blockquote>
+		</blockquote>
+	</blockquote>
+	</div>
+</body>
+</html>

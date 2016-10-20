@@ -1,0 +1,634 @@
+{
+	"nodes" : {
+		"assets" : {
+			"nodes" : {
+				"packet" : {
+					"ext" : "txt"
+					, "nodes" : {
+						"Calculator" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+										,"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type" : "folder"
+								}
+							}
+							, "type" : "file,folder"
+						}
+						,"DivList" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" :"file,folder"
+						}
+						,"EntityFill" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" :"file,folder"
+						}
+						,"EntityList" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" :"file,folder"
+						}
+						,"EntityManager" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						,"EntitySearch" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						,"ProjectManager" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						,"createPacket" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						,"index" : {
+							"ext" : "txt"
+							, "nodes" : {
+								"js" : {
+									"ext" : "txt"
+									, "type" : "file"
+								}
+								,"phtml"  : {
+									"ext" : "txt"
+									, "type" : "file"
+								}
+							}
+							,"type" : "file"
+						}
+						,"index2" : {
+							"nodes" : {
+								"js" : {
+									"ext" : "txt"
+									, "type" : "file"
+								}
+							}
+							,"type" : "folder"
+						}
+						,"internal" : {
+							"nodes" : {
+								"fn" : {
+									"nodes" : {
+										"CreatePacket" : {
+											"ext" : "packet"
+											, "nodes" : {
+												"struct" : {
+													"nodes" : {
+														"js" : {
+															"ext" : "js"
+															, "type" : "file"
+														},
+														"ghtml" : {
+															"ext" : "js"
+															, "type" : "file"
+														}
+													}
+													,"type":"folder"
+												}
+											}
+											, "type" : "file,folder"
+										}
+										,"ShowList" : {
+											"ext" : "packet"
+											,"nodes" : {
+												"struct" : {
+													"nodes" : {
+														"js" : {
+															"ext" : "js"
+															,"type" : "file"
+														},
+														"ghtml" : {
+															"ext" : "js"
+															, "type" : "file"
+														}
+													}
+													,"type" : "folder"
+												}
+											}
+											,"type" : "file,folder"
+										}
+									}
+									,"type" : "folder"
+								}
+							}
+							,"type" : "folder"
+						}
+						,"list" : {
+							"ext" : "json"
+							, "type" : "file"
+						}
+						,"scroll" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"meta" : {
+											"ext" : "json"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						,"scroll2" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"meta" : {
+											"ext" : "json"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						,"scroll3" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"meta" : {
+											"ext" : "json"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						,"scroll4" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"meta" : {
+											"ext" : "json"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						, "scroll5" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"meta" : {
+											"ext" : "json"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						, "scroll6" : {
+							"ext" : "packet"
+							, "nodes" : {
+								"struct" : {
+									"nodes" : {
+										"ghtml" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"js" : {
+											"ext" : "js"
+											, "type" : "file"
+										},
+										"meta" : {
+											"ext" : "json"
+											, "type" : "file"
+										}
+									}
+									,"type":"folder"
+								}
+							}
+							,"type" : "file"
+						}
+						, "svg" : {
+							"nodes" : {
+								"drawer" : {
+									"nodes" : {
+										"js" : {
+											"type" : "txt"
+											,"folder" : "file"
+										}
+									}
+									,"type" : "folder"
+								},
+								"ghtml" : {
+									"ext" : "txt"
+									, "type" : "file"
+								},
+								"js" : {
+									"ext" : "txt"
+									, "type" : "file"
+								},
+								"notes" : {
+									"ext" : "txt"
+									, "type" : "file"
+								},
+								"test" : {
+									"ext" : "txt"
+									, "type" : "file"
+								}
+							}
+							,"type" : "folder"
+						}
+						, "table" : {
+							"nodes" : {
+								"ghtml" : {
+									"ext" : "txt",
+									"type" : "file" 
+								},
+								"js" : {
+									"ext" : "txt",
+									"type" : "file"
+								}
+							},
+							"type" : "folder"
+						}
+					}
+					,"type" : "folder,file"
+				},
+				"entities" : {
+					"nodes" : {
+						"data" : {
+							"nodes" : {
+								"users" : {
+									"ext" : "json"
+									, "type" : "file"
+								}
+							}
+							, "type" : "folder"
+						},
+						"list" : {
+							"ext" : "json"
+							, "type" : "file"
+						}
+					}
+					,"type" : "folder"
+				},
+				"svg" : {
+					"nodes" : {
+						"arc" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"arrows" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"arrows_backup" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"arrows_mouseout" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"arrows_mouseover" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"circle" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"custompie" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"index" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"index2" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"index3" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"index4" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"index5" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"joystick" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"lesson1" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"menus" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"menus_mouseout" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"rect" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"stage1" : {
+							"ext" : "svg"
+							, "type" : "file"
+						},
+						"stage2" : {
+							"ext" : "svg"
+							, "type" : "file"
+						}
+					}
+					,"type" : "folder,file"
+				},
+				"svg_js" : {
+					"nodes" : {
+						"index" : {
+							"ext" : "txt"
+							, "type" : "file"
+						}
+					}
+					, "type" : "folder"
+				}
+			}
+			,"type" : "folder"
+		}
+		,"bind" : {
+			"nodes" : {
+				"document" : {
+					"ext" : "txt"
+					,"type" : "file"
+				},
+				"textarea" : {
+					"ext" : "txt"
+					, "type" : "file"
+				}
+			}
+			,"type":"folder"
+		}
+		,"editor" : {
+			"nodes" : {
+				"font" : {
+					"nodes" : {
+						"color" : {
+							"ext" : "txt"
+							,"type" : "file"
+						},
+						"size" : {
+							"ext" : "txt"
+							,"type":"file"
+						}
+					}
+					,"type" : "folder"
+				}
+			}
+			,"type":"folder"
+		}
+		,"last" : {
+			"ext" : "txt"
+			,"type":"file"
+		}
+		,"charset" : {
+			"ext" : "txt"
+			, "type" : "file"
+		}
+		,"notes" : {
+			"ext" : "txt"
+			,"nodes" : {
+				"games" : {
+					"ext" : "txt"
+					, "type" : "file"
+				},
+				"last" : {
+					"ext" : "txt"
+					, "type" : "file"
+				}
+			}
+			,"type" : "file,folder"
+		}
+		,"notes-keyframe" : {
+			"ext" : "txt"
+			,"type" : "file"
+		}
+		,"notes2" : {
+			"ext" : "txt"
+			,"type" : "file"
+		}
+		,"page" : {
+			"nodes" : {
+				"#frame" : {
+					"ext" : "txt"
+					, "type" : "file"
+				}
+			}
+			,"type" : "folder"
+		}
+		,"shaders" : {
+			"nodes" : {
+				"fragment" : {
+					"nodes" : {
+						"blue" : {
+							"ext" : "txt"
+							, "type": "file"
+						},
+						"red" : {
+							"ext" : "txt"
+							, "type": "file"
+						},
+						"green" : {
+							"ext" : "txt"
+							, "type": "file"
+						}
+					}
+					,"type":"folder"
+				},
+				"vertex" : {
+					"nodes" : {
+						"flat" : {
+							"ext" : "txt"
+							, "type" : "file"
+						}
+					}
+				}
+			}
+			,"type" : "folder"
+		}
+	}
+	,"signature" : "NumberCooler FileSystem"
+	,"type" : "folder"
+	,"version" : [1 ,0 ]
+ }

@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0019)http://atratus.org/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./atratus.org_files/styles.css" type="text/css">
+
+<meta name="description" content="Atratus project homepage">
+<meta name="keywords" content="windows linux binary compatibility user mode linux UML cygwin line">
+<title>atratus.org</title>
+</head>
+<body>
+<h1>Atratus Project</h1>
+<p>Atratus is a Windows program that can run <i>unmodified</i> Linux binaries,
+   eliminating the need to port Linux software to Windows.</p>
+<h2>What is it?</h2>
+
+<p>Atratus is Windows software, that provides similar functionality to
+<a href="http://www.cygwin.com/">Cygwin</a> using Linux binaries.
+Atratus can load ELF format executables created with
+gcc under Linux and run them on a Windows system without a CPU emulator or
+virtual machine.  Atratus emulates the Linux system call interface, and
+works in a similar way to
+<a href="http://en.wikipedia.org/wiki/User-mode_Linux">User Mode Linux</a>.</p>
+
+<h2>Who is it useful to?</h2>
+
+<p>Atratus maybe be useful to you if:</p>
+<ul>
+<li>you have software written for Linux and you want to
+   run it on Windows. Atratus can help you to avoid wasting
+   time on a Windows port, and concentrate on adding features
+   to your Linux software. </li>
+<li>you need to use Windows in your workplace, and want
+   to work with a Unix-like environment. Atratus is an
+   alternative to Cygwin.</li>
+</ul>
+
+<h2>What works?</h2>
+<p>Applications that work reasonably in v0.12 include:</p>
+<ul>
+<li>Most <a href="http://www.busybox.net/">busybox</a> utilities (vi, ash, etc)</li>
+<li><a href="http://www.victornils.net/tetris/">vitetris</a></li>
+<li><a href="http://gondor.apana.org.au/~herbert/dash/">dash</a></li>
+<li><a href="http://robotfindskitten.org/download/POSIX/">robotfindskitten</a></li>
+<li><a href="http://www.catb.org/esr/greed/">Greed</a></li>
+<li>The <a href="https://matt.ucc.asn.au/dropbear/dropbear.html">dropbear</a> ssh client (dbclient).</li>
+</ul>
+
+<p>To try it out, download the
+   <a href="http://atratus.org/atratus-v0.12-install.exe">Atratus v0.12 Windows installer</a>,
+   extract to your desktop and run one of the batch files (e.g. vitetris.bat)
+   under the <b>atratus-v0.12</b> folder.  64-bit Windows is now supported.</p>
+
+<img src="./atratus.org_files/vitetris-20121229-cropped.png" alt="vitetris running in windows cmd shell" title="Vitetris running in atratus" width="480" height="500">
+
+<img src="./atratus.org_files/ash-20130516-cropped.png" alt="ash running in windows cmd shell" title="Ash running in atratus" width="480" height="500">
+
+<!--
+    <img src="robotfindskitten-20121227-1.png"
+         alt="robotfindskitten in windows cmd shell"
+         title="robotfindskitten running in atratus"
+         width="480" height="500"/>
+-->
+
+<h2>Where's the code?</h2>
+
+<p>Releases are made monthly around the middle of the month, and are announced on the
+   <a href="http://atratus.org/mailman/listinfo/atratus-devel">mailing list</a> and
+   <a href="https://freecode.com/projects/atratus">Freecode</a>.</p>
+
+<table class="version">
+ <tbody><tr> <th>Date</th>
+      <th>Version</th>
+      <th>Source</th>
+      <th>Windows Binary</th>
+</tr>
+ <tr> <td><a href="http://atratus.org/pipermail/atratus-devel/2013-August/000012.html">22 Aug 2013</a></td>
+      <td>0.12</td>
+      <td><a href="http://atratus.org/atratus-0.12.tar.gz">atratus-0.12.tar.gz</a></td>
+      <td><a href="http://atratus.org/atratus-v0.12-install.exe">atratus-v0.12-install.exe</a></td>
+</tr>
+ <tr> <td><a href="http://atratus.org/pipermail/atratus-devel/2013-July/000009.html">19 July 2013</a></td>
+      <td>0.11</td>
+      <td><a href="http://atratus.org/atratus-0.11.tar.gz">atratus-0.11.tar.gz</a></td>
+      <td><a href="http://atratus.org/atratus-v0.11-install.exe">atratus-v0.11-install.exe</a></td>
+</tr>
+ <tr> <td><a href="http://atratus.org/pipermail/atratus-devel/2013-June/000008.html">16 Jun 2013</a></td>
+      <td>0.10</td>
+      <td><a href="http://atratus.org/atratus-0.10.tar.gz">atratus-0.10.tar.gz</a></td>
+      <td><a href="http://atratus.org/atratus-v0.10-install.exe">atratus-v0.10-install.exe</a></td>
+</tr>
+ <tr> <td><a href="http://atratus.org/pipermail/atratus-devel/2013-May/000007.html">16 May 2013</a></td>
+      <td>0.9</td>
+      <td><a href="http://atratus.org/atratus-0.9.tar.gz">atratus-0.9.tar.gz</a></td>
+      <td><a href="http://atratus.org/atratus-v0.9-install.exe">atratus-v0.9-install.exe</a></td>
+</tr>
+ <tr> <td><a href="http://atratus.org/pipermail/atratus-devel/2013-April/000006.html">18 Apr 2013</a></td>
+      <td>0.8</td>
+      <td><a href="http://atratus.org/atratus-0.8.tar.gz">atratus-0.8.tar.gz</a></td>
+      <td><a href="http://atratus.org/atratus-v0.8-install.exe">atratus-v0.8-install.exe</a></td>
+</tr>
+ <tr> <td><a href="http://atratus.org/pipermail/atratus-devel/2013-March/000003.html">14 Mar 2013</a></td>
+      <td>0.7</td>
+      <td><a href="http://atratus.org/atratus-0.7.tar.gz">atratus-0.7.tar.gz</a></td>
+      <td><a href="http://atratus.org/atratus-0.7-bin.zip">atratus-0.7-bin.zip</a></td>
+</tr>
+ <tr> <td><a href="http://atratus.org/pipermail/atratus-devel/2013-February/000001.html">12 Feb 2013</a></td>
+      <td>0.6</td>
+      <td><a href="http://atratus.org/atratus-0.6.tar.gz">atratus-0.6.tar.gz</a></td>
+      <td><a href="http://atratus.org/atratus-0.6-bin.zip">atratus-0.6-bin.zip</a></td>
+</tr>
+ <tr> <td>18 Jan 2013</td>
+      <td>0.5</td>
+      <td><a href="http://atratus.org/atratus-0.5.tar.gz">atratus-0.5.tar.gz</a></td>
+</tr>
+ <tr> <td>14 Dec 2012</td>
+      <td>0.4</td>
+      <td><a href="http://atratus.org/atratus-0.4.tar.gz">atratus-0.4.tar.gz</a></td>
+</tr>
+ <tr> <td>18 Nov 2012</td>
+      <td>0.3</td>
+      <td><a href="http://atratus.org/atratus-0.3.tar.gz">atratus-0.3.tar.gz</a></td>
+</tr>
+ <tr> <td>16 Oct 2012</td>
+      <td>0.2</td>
+      <td><a href="http://atratus.org/atratus-0.2.tar.gz">atratus-0.2.tar.gz</a></td>
+</tr>
+ <tr> <td>15 Aug 2012</td>
+      <td>0.1</td>
+      <td><a href="http://atratus.org/atratus-0.1.tar.gz">atratus-0.1.tar.gz</a></td>
+</tr>
+</tbody></table>
+
+<p>Source code is also available via git at <a href="git://atratus.org/git/atratus">git://atratus.org/git/atratus</a>
+   and browsable via <a href="http://atratus.org/git">gitweb</a>.</p>
+
+<p>Source code for the binary package (busybox, vitetris and robotfindskitten)
+   is available <a href="http://atratus.org/source">here</a>.  The build script is available
+   as a separate
+   <a href="http://atratus.org/git/?p=atratus-dist.git;a=summary">git</a>
+   repository.</p>
+
+<p>Atratus source code is licenced under the <a href="http://www.gnu.org/licenses/lgpl-2.1.html">LGPL v2</a></p>
+
+<p>If you don't wish to compile atratus yourself, use the self-extracting installer.</p>
+
+<h2>Features</h2>
+
+<ul>
+<li> Correct fork() and exec(), which have been a stubling block of previous
+     Linux-binary-on-Windows work.</li>
+
+<li> Supports interprocess pipes.</li>
+
+<li> VT100 terminal emulation in the Windows console.</li>
+
+<li> Supports both dynamically and staticly linked executables.</li>
+
+<li> Supports <a href="http://www.gnu.org/software/libc/">glibc</a> 2.15</li>
+
+<li> "userspace" is isolated in a separate address space, and cannot corrupt "kernel" state.</li>
+
+<li> The filesystem supports Cygwin style symbolic links on top of NTFS</li>
+
+<li> TCP and UDP sockets</li>
+
+<li> Compatibility: <br>
+     <table>
+      <tbody><tr><th>OS Version     </th><th>32-bit         </th><th>64-bit         </th>  </tr>
+      <tr><td>Windows 2000   </td><td class="no">  no</td><td>n/a            </td>  </tr>
+      <tr><td>Windows XP     </td><td class="yes">yes</td><td class="yes">?  </td>  </tr>
+      <tr><td>Windows Vista  </td><td class="yes">?  </td><td class="yes">?  </td>  </tr>
+      <tr><td>Windows 7      </td><td class="yes">yes</td><td class="yes">yes</td>  </tr>
+      <tr><td>Windows 8      </td><td>            ?  </td><td>            ?  </td>  </tr>
+     </tbody></table>
+     <p>Vista and Windows 8 may work, but are untested.</p>
+    </li>
+
+</ul>
+
+<h2>Hasn't this been done before? What's different?</h2>
+
+<p>There are a number of projects that run Posix source or Linux binaries
+on Windows with various features and limitations:</p>
+
+<ul>
+ <li><a href="http://lbw.sourceforge.net/">lbw</a> depends on Microsoft's
+       <a href="http://en.wikipedia.org/wiki/Interix">Interix</a>.</li>
+
+ <li><a href="http://www.ugcs.caltech.edu/~steven/lxrun/">lxrun</a> for SCO</li>
+
+ <li><a href="http://www.cygwin.com/">Cygwin</a>, provides POSIX
+     source code compatibility only.</li>
+
+ <li><a href="http://sourceforge.net/projects/line">LINE</a>
+     is no longer actively developed</li>
+
+ <li><a href="http://umlwin32.sourceforge.net/">UMLWIN32</a>
+     was a usermode port of the Linux kernel.</li>
+
+ <li><a href="http://sourceforge.net/projects/keow/">KEOW</a>
+      Kernel emulator on Windows, appears to be no longer developed</li>
+
+ <li><a href="http://www.colinux.org/">Cooperative Linux</a>
+     is Linux running a driver/service in the Windows kernel.
+     Requires Admin privilege to install.</li>
+
+ <li><a href="http://www.andlinux.org/">andLinux</a> is Ubuntu + colinux</li>
+
+</ul>
+
+<h2>What's the name mean?</h2>
+<p><i>atratus</i> is the 
+   <a href="http://www.latin-dictionary.net/search/latin/atratus">Latin word for darkened or black</a>.</p>
+<p><i>cygnus atratus</i> is the scientific name for the
+   <a href="http://en.wikipedia.org/wiki/Black_Swan">Black Swan</a>,
+   an Australian bird.  
+   <a href="http://en.wikipedia.org/wiki/The_Black_Swan_(Taleb_book)">The Black Swan</a>
+   is a book written by
+   <a href="http://en.wikipedia.org/wiki/Nassim_Nicholas_Taleb">Nassim Taleb</a>
+   about improbably events.</p>
+<img src="./atratus.org_files/cygnus-atratus.png" alt="Photo of a black swan" title="Cygnus Atratus, the black swan" width="271" height="132">
+
+<h2>Mailing list</h2>
+
+<p><a href="http://atratus.org/mailman/listinfo/atratus-devel">atratus-devel</a> - patches, feedback and other discussion about the atratus project</p>
+
+<p>For issues with the website/mailing list, please <a href="mailto:mike@atratus.org">mail me</a> directly.</p>
+
+
+
+</body></html>
