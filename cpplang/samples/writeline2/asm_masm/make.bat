@@ -1,0 +1,1 @@
+ml64 index.asm /link /subsystem:console /defaultlib:kernel32.lib /entry:main
