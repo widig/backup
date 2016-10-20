@@ -1,0 +1,1113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/1998/REC-html40-19980424/loose.dtd">
+<!-- saved from url=(0042)http://geosoft.no/development/android.html -->
+<html><!--
+*******************************************************************************
+  Google Analytics
+*******************************************************************************
+--><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"><script src="./Building Android programs on the command line_files/ca-pub-1737499834905788.js.download"></script><script type="text/javascript" async="" src="./Building Android programs on the command line_files/ga.js.download"></script><script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23819188-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+   <title>Building Android programs on the command line</title>
+   <meta name="Author" content="Geotechnical Software Services">
+   <meta name="Keywords" content="android, apps, app, java, programming, software, development, code, howto, command line, geosoft, stavanger, norway">
+   <meta name="Description" content="Building Android programs on the command line">
+   
+   <link rel="stylesheet" href="./Building Android programs on the command line_files/style.css" type="text/css">
+<script src="./Building Android programs on the command line_files/secureAnonymousFramework"></script><script type="text/javascript" charset="utf-8" async="" src="./Building Android programs on the command line_files/button.4e56ff84e57afaf5af2506ef73ab8a88.js.download"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><style type="text/css">* html #li_ui_li_gen_1476884918025_0 a#li_ui_li_gen_1476884918025_0-link{height:1% !important;}#li_ui_li_gen_1476884918025_0{position:relative !important;overflow:visible !important;display:block !important;}#li_ui_li_gen_1476884918025_0 span{-webkit-box-sizing:content-box !important;-moz-box-sizing:content-box !important;box-sizing:content-box !important;}#li_ui_li_gen_1476884918025_0 a#li_ui_li_gen_1476884918025_0-link{border:0 !important;height:20px !important;text-decoration:none !important;padding:0 !important;margin:0 !important;display:inline-block !important;}#li_ui_li_gen_1476884918025_0 a#li_ui_li_gen_1476884918025_0-link:link, #li_ui_li_gen_1476884918025_0 a#li_ui_li_gen_1476884918025_0-link:visited, #li_ui_li_gen_1476884918025_0 a#li_ui_li_gen_1476884918025_0-link:hover, #li_ui_li_gen_1476884918025_0 a#li_ui_li_gen_1476884918025_0-link:active{border:0 !important;text-decoration:none !important;}#li_ui_li_gen_1476884918025_0 a#li_ui_li_gen_1476884918025_0-link:after{content:"." !important;display:block !important;clear:both !important;visibility:hidden !important;line-height:0 !important;height:0 !important;}#li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-logo{background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-position:0px -593px !important;background-repeat:no-repeat !important;background-color:#0077b5 !important;background-size:initial !important;cursor:pointer !important;border:0 !important;border-right:1px solid #066094 !important;text-indent:-9999em !important;overflow:hidden !important;padding:0 !important;margin:0 !important;position:absolute !important;left:0px !important;top:0px !important;display:block !important;width:20px !important;height:20px !important;float:right !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;}#li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title{color:#fff !important;cursor:pointer !important;display:block !important;white-space:nowrap !important;float:left !important;margin-left:1px !important;vertical-align:top !important;overflow:hidden !important;text-align:center !important;height:18px !important;padding:0 4px 0 23px !important;border:1px solid #000 !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;text-shadow:0 -1px #005887 !important;line-height:20px !important;border-radius:2px !important;-webkit-border-radius:2px !important;border-top-right-radius:2px !important;border-bottom-right-radius:2px !important;-webkit-border-top-right-radius:2px !important;-webkit-border-bottom-right-radius:2px !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}#li_ui_li_gen_1476884918025_0.hovered #li_ui_li_gen_1476884918025_0-title{border:1px solid #000 !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}#li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title, #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title{color:#fff !important;border:1px solid #000 !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.IN-shadowed #li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title{}.IN-shadowed #li_ui_li_gen_1476884918025_0.hovered #li_ui_li_gen_1476884918025_0-title{}.IN-shadowed #li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title, .IN-shadowed #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title{}#li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title-text, #li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title-text *{color:#fff !important;font-size:11px !important;font-family:Arial, sans-serif !important;font-weight:bold !important;font-style:normal !important;-webkit-font-smoothing:antialiased !important;display:inline-block !important;background:transparent none !important;vertical-align:top !important;height:18px !important;line-height:20px !important;float:none !important;}#li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title-text strong{font-weight:bold !important;}#li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title-text em{font-style:italic !important;}#li_ui_li_gen_1476884918025_0.hovered #li_ui_li_gen_1476884918025_0-title-text, #li_ui_li_gen_1476884918025_0.hovered #li_ui_li_gen_1476884918025_0-title-text *{color:#fff !important;}#li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title-text, #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title-text, #li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title-text *, #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title-text *{color:#fff !important;}#li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title #li_ui_li_gen_1476884918025_0-mark{display:inline-block !important;width:0px !important;overflow:hidden !important;}.success #li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title{color:#fff !important;border-top-color:#0077b5 !important;border-right-color:#0077b5 !important;border-bottom-color:#0077b5 !important;border-left-color:#0077b5 !important;background-color:#0077b5 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0077b5), color-stop(100%,#0077b5)) !important; background-image: -webkit-linear-gradient(top, #0077b5 0%, #0077b5 100%) !important;}.success #li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title-text, .success #li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1476884918025_0 #li_ui_li_gen_1476884918025_0-title{}.success #li_ui_li_gen_1476884918025_0.hovered #li_ui_li_gen_1476884918025_0-title{color:#fff !important;border-top-color:#0369a0 !important;border-right-color:#0369a0 !important;border-bottom-color:#0369a0 !important;border-left-color:#0369a0 !important;background-color:#0369a0 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#0369a0), color-stop(100%,#0369a0)) !important; background-image: -webkit-linear-gradient(top, #0369a0 0%, #0369a0 100%) !important;}.success #li_ui_li_gen_1476884918025_0.hovered #li_ui_li_gen_1476884918025_0-title-text, .success #li_ui_li_gen_1476884918025_0.hovered #li_ui_li_gen_1476884918025_0-title-text *{color:#fff !important;}.success #li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title, .success #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title{color:#fff !important;border-top-color:#066094 !important;border-right-color:#066094 !important;border-bottom-color:#066094 !important;border-left-color:#066094 !important;background-color:#066094 !important;background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0%,#066094), color-stop(100%,#066094)) !important; background-image: -webkit-linear-gradient(top, #066094 0%, #066094 100%) !important;}.success #li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title-text, .success #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title-text, .success #li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title-text *, .success #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title-text *{color:#fff !important;}.IN-shadowed .success #li_ui_li_gen_1476884918025_0.clicked #li_ui_li_gen_1476884918025_0-title, .IN-shadowed .success #li_ui_li_gen_1476884918025_0.down #li_ui_li_gen_1476884918025_0-title{}#li_ui_li_gen_1476884918042_1-container.IN-right {display:inline-block !important;float:left !important;overflow:visible !important;position:relative !important;height:20px !important;padding-left:2px !important;line-height:1px !important;cursor:pointer !important;}#li_ui_li_gen_1476884918042_1.IN-right {display:block !important;float:left !important;height:20px !important;margin-right:4px !important;padding-right:4px !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:right -447px !important;}#li_ui_li_gen_1476884918042_1-inner.IN-right {display:block !important;float:left !important;padding-left:8px !important;text-align:center !important;background-image:url(https://static.licdn.com/scds/common/u/images/apps/connect/sprites/sprite_connect_v14.png) !important;background-color:transparent !important;background-repeat:no-repeat !important;background-position:0px -426px !important;}#li_ui_li_gen_1476884918042_1-content.IN-right {display:inline !important;font-size:11px !important;color:#4e4e4e !important;font-weight:bold !important;font-family:Arial, sans-serif !important;line-height:20px !important;padding:0 5px 0 5px !important;}#li_ui_li_gen_1476884918042_1-container.IN-empty {display:none !important;}#li_ui_li_gen_1476884918042_1-container.IN-hidden #li_ui_li_gen_1476884918042_1 {display:none !important;}</style></head>
+
+<body bgcolor="white" link="7a88a1" vlink="7a88a1" marginwidth="20" marginheight="20">
+
+<!--
+*******************************************************************************
+   Heading
+*******************************************************************************
+-->
+
+<center>
+  <h1 class="title">Building Android programs on the command line</h1>
+
+  <img src="./Building Android programs on the command line_files/android.png" align="right" alt="android">
+
+  <em>Version 1.0, June 2011</em><br>
+  <em>Geotechnical Software Services</em><br>
+  <em>Copyright © 2011</em><br>
+
+  <br><br>
+<!--
+  <p>
+  This document is available at
+  <a href="http://geosoft.no/development/android.html">http://geosoft.no/development/android.html</a>
+  </p>
+-->
+</center>
+
+<table>
+<tbody><tr>
+
+<td valign="bottom" width="65">
+  <script type="text/javascript" src="./Building Android programs on the command line_files/in.js.download"></script>
+  <span class="IN-widget" style="line-height: 1; vertical-align: baseline; display: inline-block; text-align: center;"><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1476884918025_0"><a id="li_ui_li_gen_1476884918025_0-link" href="javascript:void(0);"><span id="li_ui_li_gen_1476884918025_0-logo">in</span><span id="li_ui_li_gen_1476884918025_0-title"><span id="li_ui_li_gen_1476884918025_0-mark"></span><span id="li_ui_li_gen_1476884918025_0-title-text">Share</span></span></a></span></span><span style="padding: 0px !important; margin: 0px !important; text-indent: 0px !important; display: inline-block !important; vertical-align: baseline !important; font-size: 1px !important;"><span id="li_ui_li_gen_1476884918042_1-container" class="IN-right IN-hidden"><span id="li_ui_li_gen_1476884918042_1" class="IN-right"><span id="li_ui_li_gen_1476884918042_1-inner" class="IN-right"><span id="li_ui_li_gen_1476884918042_1-content" class="IN-right">0</span></span></span></span></span></span><script type="in/share+init" data-counter="right"></script>
+</td>
+
+<td valign="bottom" width="100">
+  <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./Building Android programs on the command line_files/tweet_button.39f7ee9fffbd122b7a37a520dbdaebc6.en.html" style="position: static; visibility: visible; width: 61px; height: 20px;"></iframe>
+  <script type="text/javascript" src="./Building Android programs on the command line_files/widgets.js.download"></script>
+</td>
+
+<td valign="bottom">
+  <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Building Android programs on the command line_files/fTmIQU3LxvB.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Building Android programs on the command line_files/fTmIQU3LxvB(1).html" style="border: none;"></iframe></div></div></div>
+  <script src="./Building Android programs on the command line_files/all.js.download"></script>
+  <fb:like href="http://geosoft.no/development/android.html" layout="button_count" send="true" width="450" show_faces="false" action="recommend" font="" class=" fb_iframe_widget" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=recommend&amp;app_id=&amp;container_width=0&amp;href=http%3A%2F%2Fgeosoft.no%2Fdevelopment%2Fandroid.html&amp;layout=button_count&amp;locale=en_US&amp;sdk=joey&amp;send=true&amp;show_faces=false&amp;width=450"><span style="vertical-align: bottom; width: 160px; height: 20px;"><iframe name="fd956e6da79dd" width="450px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:like Facebook Social Plugin" src="./Building Android programs on the command line_files/like.html" style="border: none; visibility: visible; width: 160px; height: 20px;" class=""></iframe></span></fb:like>
+</td>
+
+</tr>
+</tbody></table>
+
+<hr class="android-hr">
+
+<p>
+This guideline shows how to build Android programs (<em>apps</em>) using a
+command line environment only.
+</p>
+
+<p>
+Even though the
+<a href="http://en.wikipedia.org/wiki/Eclipse_%28software%29">Eclipse IDE</a>
+(among others) can be a powerful development
+environment for Android programmers, there are several reasons why you
+could benefit from utilizing simple command line utilities and build
+scripts instead.
+Actually <em>understanding</em> what's going on is one of them.
+</p>
+
+<script type="text/javascript"><!--
+  google_ad_client = "ca-pub-1737499834905788";
+  /* UnitTesting */
+  google_ad_slot = "0364656851";
+  google_ad_width = 728;
+  google_ad_height = 90;
+  //-->
+</script>
+<script type="text/javascript" src="./Building Android programs on the command line_files/show_ads.js.download">
+</script><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;" src="./Building Android programs on the command line_files/saved_resource.html"></iframe></ins></ins>
+
+<p>
+Using the stepwise approach outlined below might seem overwhelming, but
+there is a great educational value in performing these steps, and
+the information present is essential if you are setting up a build system
+based on
+<a href="http://en.wikipedia.org/wiki/Make_%28software%29">make</a>,
+<a href="http://en.wikipedia.org/wiki/SCons">SCons</a>,
+<a href="http://en.wikipedia.org/wiki/Apache_Ant">Ant</a>,
+or similar tools.
+</p>
+
+<p>
+The setup below depends on a few
+<em><a href="http://en.wikipedia.org/wiki/Environment_variables">environment variables</a></em>
+identifying directory paths on the local system.
+The exact procedure for setting and accessing environment variables
+differs between operating systems and command shells.
+In the present guideline the simplest possible notation is being used.
+In practice these variables needs to be accessed
+using special notation like
+<tt>%JAVA_HOME%</tt>,
+<tt>${JAVA_HOME}</tt>
+or even
+<tt>"${JAVA_HOME}"</tt> if the path contains spaces.
+In addition, commands are listed over multiple lines to improve
+readability. In practice commands must be written on a single
+line or separated by proper line delimiters.
+Note also that the forward slash character ("/")
+is consistently used as directory delimiter even though
+the backslash ("\") is still used on some systems.
+</p>
+
+<p>
+Color coding is used in the commands in order to easily
+indicate where local replacements needs to take place.
+</p>
+
+<p>
+All commands are self-contained meaning that they can be executed from
+any directory.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>1. Download Java</h1>
+
+<p>
+The <em>Java Standard Edition</em> (Java SE)
+is available from Oracle at
+<a href="http://www.oracle.com/technetwork/java/javase/downloads">
+  http://www.oracle.com/technetwork/java/javase/downloads</a>.
+</p>
+
+<p>
+Default installation location will vary between Java versions and OS platforms,
+so create a pointer to its location:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+JAVA_HOME = <span class="color1">C:/Program Files/Java/jdk1.6.0_26</span>
+</td>
+</tr>
+</tbody></table>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>2. Download Android</h1>
+
+<p>
+The <em>Android Software Development Kit</em> (Android SDK)
+is available from Google at
+<a href="http://developer.android.com/sdk">
+  http://developer.android.com/sdk</a>.
+</p>
+
+<p>
+Default installation location will vary between Android versions and
+OS platforms, so create a pointer to its location:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+ANDROID_HOME = <span class="color1">C:/Program Files/Android/android-sdk</span>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The download includes the core parts of Android. In addition you need SDK(s)
+for the specific Android platforms you will develop for and test on.
+Launch the SDK manager GUI, select <em>Available packages</em> and open the
+<em>Android Repository</em>:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+ANDROID_HOME/tools/android
+</td>
+</tr>
+</tbody></table>
+
+<p>
+Select the required platform/tool packages (all is fine) and hit the
+<em>Install Selected</em> button.
+After installation, the <tt>platform/</tt> and <tt>platform-tools/</tt>
+directories of <tt>ANDROID_HOME</tt> should have been populated.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>3. Choose project name</h1>
+
+<p>
+At some disk location create a project directory that will hold the
+code, libraries and other files that constitutes the Android project.
+Create a pointer to this location:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+DEV_HOME = <span class="color1">C:/Users/johnd/dev/</span><span class="color2">AndroidTest</span>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The <em>project name</em> in this context is simply a convenience in
+order to consistently name directories and files related to the
+application being created.
+</p>
+
+<p>
+In the example <tt class="color2">AndroidTest</tt> is used as the project name.
+The term has been emphasized below so that it can be easily replaced.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>4. Create development area</h1>
+
+<p>
+Beneath the project directory create sub directories as follows:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>DEV_HOME/src/<span class="color1">com/mycompany/package1/...</span>
+         res/drawable/
+             layout/
+             values/
+         obj/
+         lib/
+         bin/
+         docs/
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The <tt>src/</tt> directory will hold java code and other source files in
+a package structure common for java projects.
+Using the
+<em><a href="http://en.wikipedia.org/wiki/Reverse-DNS">reverse domain name system</a></em>
+(Reverse DNS) for package names is optional but recommended.
+<br>
+The <tt>res/</tt> directory will hold user provided resources like
+<em>text strings</em>,
+<em>images</em>,
+<em>menues</em>,
+<em>layouts</em>
+etc.
+The <tt>res/</tt> sub directories have predefined names
+according to the
+<a href="http://android.docs.uu3g.com/guide/topics/resources/providing-resources.html">Android resource documentation</a>.
+<br>
+The <tt>obj/</tt> directory will contain <tt>.class</tt> files and
+other secondary files produced by the Java tools as explained below.
+<br>
+The <tt>lib/</tt> directory should hold 3rd-party
+<tt>.jar</tt> files the project depends on.
+<br>
+The <tt>bin/</tt> directory will hold intermediate and final
+executables produced by the Android tools.
+<br>
+The <tt>docs/</tt> directory will hold javadoc HTML documents
+for the project. If generated, the <tt>docs/index.html</tt> file
+will be the entry point.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>5. Create manifest</h1>
+
+<p>
+The
+<a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">Android manifest file</a>
+is used to specify application settings like name and version, as well as what
+permissions the application requires to run and what components it is
+comprised of. The file contains a single <tt>application</tt> tag inside
+the root <tt>manifest</tt> tag.
+</p>
+
+<p>
+Put the manifest file in the project root directory: <tt>DEV_HOME/AndroidManifest.xml</tt>. Note that
+the file <em>must</em> be called <tt>AndroidManifest.xml</tt> and nothing else.
+</p>
+
+<p>
+A typical manifest file is shown below:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="<span class="color1">com.mycompany.package1</span>"
+      android:versionCode="<span class="color1">1</span>"
+      android:versionName="<span class="color1">1.0</span>"&gt;
+
+    &lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/&gt;
+    &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/&gt;
+
+    &lt;uses-sdk android:minSdkVersion="2"/&gt;
+
+    &lt;application android:icon="<span class="color1">@drawable/mylogo</span>"
+                 android:label="<span class="color1">@string/myApplicationName</span>"&gt;
+        &lt;activity android:name="<span class="color1">com.mycompany.package1.HelloAndroid</span>"
+                  android:label="<span class="color1">@string/myApplicationName</span>"&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name="android.intent.action.MAIN" /&gt;
+                &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+    &lt;/application&gt;
+
+&lt;/manifest&gt;</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The <tt>package</tt> attribute identifies the application and is also the destination
+location of the generated <tt>R.java</tt> file (see below).
+<tt>versionCode</tt> is a numeric version value for managing application updates.
+<tt>versionName</tt> is the application version in a human readable form.
+</p>
+
+<p>
+The <tt>application</tt> tag contains the activities of the program, one
+of which should contain the main launcher activity as shown.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>6. Select target platform</h1>
+
+<p>
+The different Android OS versions are known through target names
+like <tt>android-3</tt>, <tt>android-4</tt>, <tt>android-5</tt> etc.
+All available platforms can be listed by the following command:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+ANDROID_HOME/tools/android list target
+</td>
+</tr>
+</tbody></table>
+
+<p>
+For the examples below we use <tt class="color3">android-7</tt>
+(Android OS 2.1) consistently.
+Replace this with a different target as required.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>7. Define virtual device</h1>
+
+<p>
+An <a href="http://developer.android.com/guide/developing/devices/index.html">
+<em>Android Virtual Device</em></a> (AVD) defines the main
+characteristics of the target Android device.
+AVDs are used only when testing an Android program in the
+<a href="http://developer.android.com/guide/developing/devices/emulator.html">Android emulator</a>.
+The typical approach is to define several AVDs in order to verify that
+a program behave correct across hardware platforms and OS versions.
+</p>
+
+<p>
+Use the
+<a href="http://developer.android.com/guide/developing/tools/android.html">android</a>
+tool to create AVDs:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/tools/android
+                     --verbose
+                     create avd
+                     --name <span class="color1">MySonyEricsson</span>
+                     --target <span class="color3">android-7</span>
+                     --sdcard 1024M
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+This will create an AVD with the specified name and with a
+1 GB memory card <a href="http://en.wikipedia.org/wiki/Disk_image">disk image</a>.
+When the command is executed you are asked
+if you want to specify a custom hardware profile. By this the AVD
+can be tailored to a specific hardware device by identifying properties
+for features like
+<em>screen</em>,
+<em>camera</em>,
+<em>memory</em>,
+<em>battery</em>,
+<em>audio</em>,
+<em>accelerometer</em>,
+<em>wi-fi</em>,
+<em>bluetooth</em>,
+<em>GPS,</em>
+<em>keyboard</em> and so on.
+</p>
+
+<p>
+If no longer needed, an AVD can be deleted as follows:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/tools/android
+                     --verbose
+                     delete avd
+                     --name <span class="color1">MySonyEricsson</span>
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The actual AVD profiles are stored within the <tt>HOME/.android/avd/</tt>
+directory.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>8. Create keystore</h1>
+
+<p>
+A keystore is a database of private keys and their associated
+<a href="http://en.wikipedia.org/wiki/X.509">X.509</a>
+certificate chains authenticating the corresponding public keys.
+An Android  program must be <em>signed</em> in order to execute on a device,
+and the program is signed by using a key from a keystore.
+</p>
+
+<p>
+Use the
+<a href="http://download.oracle.com/javase/1,5.0/docs/tooldocs/windows/keytool.html">keytool</a>
+program to create a keystore:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>JAVA_HOME/bin/keytool
+                -genkeypair
+                -validity 10000
+                -dname "CN=<span class="color1">company name</span>,
+                        OU=<span class="color1">organisational unit</span>,
+                        O=<span class="color1">organisation</span>,
+                        L=<span class="color1">location</span>,
+                        S=<span class="color1">state</span>,
+                        C=<span class="color1">country code</span>"
+                -keystore DEV_HOME/<span class="color2">AndroidTest</span>.keystore
+                -storepass <span class="color1">password</span>
+                -keypass <span class="color1">password</span>
+                -alias <span class="color1">AndroidTestKey</span>
+                -keyalg RSA
+                -v</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+Replace the
+<em><a href="http://msdn.microsoft.com/en-us/library/aa366101%28v=vs.85%29.aspx">distinguished name</a></em> (dname)
+information with your own.
+Make sure to specify passwords as indicated.
+The key is accessed through the specified <em>alias</em>
+which can be any string.
+</p>
+
+<p>
+The output of the command will be the
+<tt>DEV_HOME/<span class="color2">AndroidTest</span>.keystore</tt>
+file which contains one key identified by the supplied alias.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>9. Write code</h1>
+
+<p>
+Define a suitable package structure and put the Java code
+within the <tt>src/</tt> tree of the project area.
+</p>
+
+<p>
+The following minimal class can serve as an example.
+It should be located in <tt>DEV_HOME/src/<span class="color1">com/mycompany/package1/HelloAndroid</span>.java</tt>:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>package <span class="color1">com.mycompany.package1</span>;
+
+import android.app.Activity;
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.widget.TextView;
+
+public class <span class="color1">HelloAndroid</span> extends Activity {
+
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+
+    TextView textView = new TextView(this);
+
+    String text = getResources().getString(R.string.<span class="color1">helloText</span>);
+    textView.setText(text);
+
+    setContentView(textView);
+  }
+}
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The
+<a href="http://developer.android.com/reference/packages.html">Android API</a>
+documentation contains a complete reference to the Android packages and classes,
+including the ones provided by the Java SE.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>10. Provide resources</h1>
+
+<p>
+Android programmers are advised to keep all non-logic data (<em>text strings</em>,
+<em>images</em>,
+<em>animations</em>,
+<em>colors</em>,
+<em>layouts</em> etc.) within the designated <tt>res/</tt>
+directory of the project area. The <tt>res/</tt> directory consists of a
+predefined set of sub directories with a
+<a href="http://developer.android.com/guide/topics/resources/providing-resources.html">naming structure</a>
+that will
+simplify application localization and adoption to different hardware types.
+</p>
+
+<p>
+The following minimal text resource can serve as an example.
+It should be located in <tt>DEV_HOME/res/values/strings.xml</tt>:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;resources&gt;
+    &lt;string name="<span class="color1">myApplicationName</span>"&gt;<span class="color1">Android Test Program</span>&lt;/string&gt;
+    &lt;string name="<span class="color1">helloText</span>"&gt;<span class="color1">Hello, world!</span>&lt;/string&gt;
+&lt;/resources&gt;
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The manifest file refers to the <tt class="color1">myApplicationName</tt> entry,
+while the java class above refers to the <tt class="color1">helloText</tt> entry.
+The example manifest file above also refers to the drawable resource
+<tt class="color1">mylogo</tt> which is the icon image for the program.
+Put an image file in the <tt>res/</tt> directory to serve this purpose:
+<tt>DEV_HOME/res/drawable/<span class="color1">mylogo</span>.png</tt>.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>11. Create R.java</h1>
+
+<p>
+In order for the application source code to be able to access the
+resources within the <tt>res/</tt> directory, a class called <tt>R.java</tt>
+(for <em>Resources</em>) is created.
+
+</p><p>
+Use the
+<em><a href="http://elinux.org/Android_aapt">Android Asset Packaging Tool</a></em>
+(<tt>aapt</tt>) to create the <tt>R.java</tt> file:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/platform-tools/aapt
+                        package
+                        -v
+                        -f
+                        -m
+                        -S DEV_HOME/res
+                        -J DEV_HOME/src
+                        -M DEV_HOME/AndroidManifest.xml
+                        -I ANDROID_HOME/platforms/<span class="color3">android-7</span>/android.jar
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The destination location of <tt>R.java</tt> within the <tt>src/</tt> tree is
+determined by the <em>package</em> attribute of the manifest file.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>12. Compile code</h1>
+
+<p>
+Use the
+<a href="http://download.oracle.com/javase/6/docs/technotes/tools/windows/javac.html">javac</a>
+tool to compile java source code in a package:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>JAVA_HOME/bin/javac
+                -verbose
+                -d DEV_HOME/obj
+                -classpath ANDROID_HOME/platforms/<span class="color3">android-7</span>/android.jar;DEV_HOME/obj
+                -sourcepath DEV_HOME/src
+                DEV_HOME/src/<span class="color1">com/mycompany/package1</span>/*.java</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The command must be applied for each existing package.
+3rd-party <tt>.jar</tt> files from the <tt>lib/</tt> directory
+must be listed in the <tt>-classpath</tt> entry.
+Note that on UNIX-like operating systems
+the classpath entry delimiter should be a colon (":").
+</p>
+
+<p>
+The output of the command is <tt>.class</tt> files in the
+<tt>obj/</tt> tree.
+</p>
+
+<p>
+Non-java files within the <tt>src/</tt> tree must be copied to the
+associated location in the <tt>obj/</tt> tree.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>13. Create DEX file</h1>
+
+<p>
+DEX ("Dalvik Executable") is the specific bytecode format understood by the
+<a href="http://en.wikipedia.org/wiki/Dalvik_%28software%29">Dalvik virtual machine</a>
+(VM) present in all Android devices.
+</p>
+
+<p>
+Use the <tt>dx</tt> tool to bundle the content of the <tt>obj/</tt> directory
+as well as 3rd-party <tt>.jar</tt> files from the <tt>lib/</tt> directory
+into a single <tt>.dex</tt> file:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/platform-tools/dx
+                --dex
+                --verbose
+                --output=DEV_HOME/bin/classes.dex
+                DEV_HOME/obj
+                DEV_HOME/lib
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+This will create the <tt>classes.dex</tt>
+file in the <tt>bin/</tt>
+directory. The content of a <tt>.dex</tt> file can be inspected
+using the <tt>ANDROID_HOME/platform-tools/dexdump</tt> tool.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>14. Create APK file</h1>
+
+<p>
+The
+<a href="http://en.wikipedia.org/wiki/APK_%28file_format%29">Android package format</a> (APK)
+is the <tt>.jar</tt> equivalent for Android.
+The package contains the manifest file, the resources and the <tt>classes.dex</tt> file.
+</p>
+
+<p>
+Use the
+<tt>aapt</tt>
+tool to create the
+<tt>.apk</tt> file:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/platform-tools/aapt
+                         package
+                         -v
+                         -f
+                         -M DEV_HOME/AndroidManifest.xml
+                         -S DEV_HOME/res
+                         -I ANDROID_HOME/platforms/<span class="color3">android-7</span>/android.jar
+                         -F DEV_HOME/bin/<span class="color2">AndroidTest</span>.unsigned.apk
+                         DEV_HOME/bin
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+This will create the <tt><span class="color2">AndroidTest</span>.unsigned.apk</tt> file
+in the <tt>bin/</tt> directory. Note that APK is an ordinary archive format that can be
+inspected by tools like <a href="http://en.wikipedia.org/wiki/Winzip">WinZip</a> or
+<tt>unzip -l</tt>.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>15. Sign APK file</h1>
+
+<p>
+In order to execute on an Android device, the Android package
+needs to be <em>signed</em>.
+</p><p>
+
+</p>
+Use the
+<a href="http://download.oracle.com/javase/6/docs/technotes/tools/windows/jarsigner.html">jarsigner</a>
+tool and the key from the keystore created above to create
+a signed version of the package:
+<p></p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>JAVA_HOME/bin/jarsigner
+                -verbose
+                -keystore DEV_HOME/<span class="color2">AndroidTest</span>.keystore
+                -storepass <span class="color1">password</span>
+ 	        -keypass <span class="color1">password</span>
+	        -signedjar DEV_HOME/bin/<span class="color2">AndroidTest</span>.signed.apk
+                DEV_HOME/bin/<span class="color2">AndroidTest</span>.unsigned.apk
+	        <span class="color1">AndroidTestKey</span>
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The signing process adds the <tt>META-INF/</tt> directory to the APK archive
+including the signature (<tt>.SF</tt>) file and the
+associated <a href="http://en.wikipedia.org/wiki/PKCS">PKSC</a> file (<tt>.RSA</tt>).
+</p>
+
+<p>
+The signed APK is stored as <tt><span class="color2">AndroidTest</span>.signed.apk</tt>
+file in the <tt>bin/</tt> directory.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>16. Zip-align APK file</h1>
+
+<p>
+<a href="http://developer.android.com/guide/developing/tools/zipalign.html">zipalign</a>
+is an archive alignment tool that provides
+<a href="http://developer.android.com/resources/articles/zipalign.html">important optimization</a>
+to Android packages.
+This step is optional, but recommended:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/tools/zipalign
+                -v
+                -f
+                4
+                DEV_HOME/bin/<span class="color2">AndroidTest</span>.signed.apk
+                DEV_HOME/bin/<span class="color2">AndroidTest</span>.apk
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+This will create the <tt><span class="color2">AndroidTest</span>.apk</tt>
+which is the final product delivered in one self-contained unit.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>17. Start emulator</h1>
+
+<p>
+In order to test the application, start the Android emulator
+and specify the virtual device (AVD) to use:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/tools/emulator
+                -wipe-data
+                -avd <span class="color1">MySonyEricsson</span>
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+This will launch the emulator GUI. The <tt>wipe-data</tt> option ensures
+the emulator starts up clean. The initialization process may take
+some time, so don't proceed until the emulator is ready.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>18. Install in emulator</h1>
+
+<p>
+When the emulator is ready, use the
+<em><a href="http://developer.android.com/guide/developing/tools/adb.html">Android Debug Bridge</a></em> (adb)
+tool to install the Android package in the running emulator:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/platform-tools/adb
+                -e
+                install DEV_HOME/bin/<span class="color2">AndroidTest</span>.apk
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The program should eventually show up in the emulator and can
+be executed by selecting it.
+</p>
+
+<p>
+The application can be uninstalled as follows:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/platform-tools/adb
+                shell
+                rm /data/app/<span class="color1">com.mycompany.package1</span>.apk
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+Note that inside the emulator or device the APK is stored using its
+main package name (from the <em>package</em> attribute of the manifest file)
+with an <tt>.apk</tt> extension.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>19. Install on device</h1>
+
+<p>
+Attach the Android device to the computer and
+install the program using the <tt>adb</tt> command:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>ANDROID_HOME/platform-tools/adb
+                -d
+                install DEV_HOME/bin/<span class="color2">AndroidTest</span>.apk
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+The program should be ready for execution on the target device.
+</p>
+
+
+
+<!--
+****************************************************************************
+   Step
+****************************************************************************
+-->
+
+<h1>20. Create documentation</h1>
+
+<p>
+7Every well managed project should have up-to-date documentation available
+at any time. This step is of course optional, but strongly recommended.
+</p>
+
+<p>
+Use the
+<a href="http://www.oracle.com/technetwork/java/javase/documentation/index-jsp-135444.html">javadoc</a>
+tool to create HTML documentation as follows:
+</p>
+
+<table class="android-table" width="100%">
+<tbody><tr>
+<td class="android-command">
+<pre>JAVA_HOME/bin/javadoc
+                -verbose
+                -d DEV_HOME/docs
+                -sourcepath DEV_HOME/src
+                -classpath ANDROID_HOME/platforms/<span class="color3">android-7</span>/android.jar;DEV_HOME/obj
+                -author
+                -package
+                -use
+                -splitIndex
+                -version
+                -windowtitle '<span class="color2">AndroidTest</span>'
+                -doctitle '<span class="color2">AndroidTest</span>'
+                DEV_HOME/src/<span class="color1">com/mycompany/package1/</span>*.java
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>
+Source from additional packages should be added to the last argument
+using ":" or ";" as delimiter (depending on platform).
+</p>
+
+<p>
+The documentation entry point will be <tt>DEV_HOME/docs/index.html</tt>.
+</p>
+
+
+
+
+
+
+
+</body></html>

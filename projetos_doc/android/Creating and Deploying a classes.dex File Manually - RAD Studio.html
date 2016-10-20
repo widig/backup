@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<!-- saved from url=(0102)http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually -->
+<html lang="en" dir="ltr" class="client-js"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script async="" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/load.php"></script>
+
+<title>Creating and Deploying a classes.dex File Manually - RAD Studio</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta name="generator" content="MediaWiki 1.23.13">
+<link rel="shortcut icon" href="http://docwiki.embarcadero.com/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/opensearch_desc.php" title="RAD Studio (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="RAD Studio Atom feed" href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/load(1).php">
+<!--[if IE]><link rel="stylesheet" href="/RADStudio/Seattle/e/skins/DuoBook2/ie.css?303" media="screen" /><![endif]--><style>
+.dtree{font-family:Arial,Helvetica,sans-serif;font-size:11px;color:#666;white-space:nowrap}.dtree img{border:0px;vertical-align:middle}.dTreeNode{height:18px }.dtree a{color:black;text-decoration:none}.dtree a.node,.dtree a.nodeSel{white-space:nowrap;padding:1px 2px 1px 2px}.dtree a:hover,.dtree a.node:hover,.dtree a.nodeSel:hover{color:black;text-decoration:underline}.dtree a.nodeSel{background-color:#c0d2ec}.dtree .clip{overflow:hidden;padding-bottom:1px} .dmenu{width:180px}.dmenu,.dmenu ul{padding:0;margin:0;list-style:none}.dmenu .selflink{font-weight:normal}.dmenu li{position:relative;float:left;width:172px;padding:4px;z-index:100}.dmenu li,.dmenu li.even a,.dmenu li.odd a,.dmenu li li,.dmenu li li a,.dmenu li li li,.dmenu li li li a{color :black}.dmenu li li{margin:0}.dmenu li ul{position:absolute;left:-999em;z-index:101;border:1px solid #ccc}.dmenu li ul ul{position:absolute;left:-999em;margin:0 0 0 0;z-index:102}.dmenu li.odd .submenu{width:12px;height:15px;float:right;background:url(http://docwiki.embarcadero.com/wiki/skins/common/images/Arr_r.png) 0 3px no-repeat}.dmenu li.even .submenu{width:12px;height:15px;float:right;background:url(http://docwiki.embarcadero.com/wiki/skins/common/images/Arr_r.png) 0 3px no-repeat}.dmenu li.odd{background:#E9EDF4;border:2px solid #E9EDF4}.dmenu li.even{background:#D0D8E8;border:2px solid #D0D8E8}.dmenu li:hover,.dmenu li.sfhover{border:2px solid #385D8A}.dmenu li:hover ul ul,.dmenu li:hover ul ul ul,.dmenu li.sfhover ul ul,.dmenu li.sfhover ul ul ul{left:-999em}.dmenu li:hover ul,.dmenu li li:hover ul,.dmenu li li li:hover ul,.dmenu li.sfhover ul,.dmenu li li.sfhover ul,.dmenu li li li.sfhover ul{left:182px;top:-3px}
+/* cache key: wikidb-rad_seattle_en_:resourceloader:filter:minify-css:7:980a59e303a6e6f1c0261760c9252b5f */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wikidb-rad_seattle_en_:resourceloader:filter:minify-css:7:6c1d24e90626cec584f0869483f983e7 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wikidb-rad_seattle_en_:resourceloader:filter:minify-css:7:9f9511aa4ef920d34591113e825e6a1e */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;-webkit-box-shadow:0 2px 5px 0 #ccc;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(http://docwiki.embarcadero.com/RADStudio/Seattle/e/resources/src/mediawiki.action/images/green-checkmark.png?2015-08-10T20:30:00Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wikidb-rad_seattle_en_:resourceloader:filter:minify-css:7:3f9be1c23870f7ee9fb4646cc047bceb */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wikidb-rad_seattle_en_:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wikidb-rad_seattle_en_:resourceloader:filter:minify-css:7:07342fc1d29a02cbecc974eb19f3acea */</style>
+<script src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/load(2).php"></script><script src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/load(3).php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Creating_and_Deploying_a_classes.dex_File_Manually","wgTitle":"Creating and Deploying a classes.dex File Manually","wgCurRevisionId":250149,"wgRevisionId":250149,"wgArticleId":33574,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["XE6","Android","AMMigrate"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Creating_and_Deploying_a_classes.dex_File_Manually","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"previewDialog":false,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"duobook2","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,
+"useeditwarning":1,"prefershttps":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"wikieditor-preview":1,"language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs101":false,"variant":"en"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});},{},{});
+/* cache key: wikidb-rad_seattle_en_:resourceloader:filter:minify-js:7:ad44260fdcfb550f02ee7049b5682bb8 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax"]);
+}</script><script src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/load(4).php"></script>
+<script type="text/javascript">window.tamBaseUrl='/RADStudio/Seattle/e/extensions/TreeAndMenu'</script>
+<script type="text/javascript" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/dtree.js.download"></script>
+<style type="text/css">/*<![CDATA[*/
+.source-winbatch {line-height: normal;}
+.source-winbatch li, .source-winbatch pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for winbatch
+ * CSS class: source-winbatch, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.winbatch.source-winbatch .de1, .winbatch.source-winbatch .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.winbatch.source-winbatch  {font-family:monospace;}
+.winbatch.source-winbatch .imp {font-weight: bold; color: red;}
+.winbatch.source-winbatch li, .winbatch.source-winbatch .li1 {font-weight: normal; vertical-align:top;}
+.winbatch.source-winbatch .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.winbatch.source-winbatch .li2 {font-weight: bold; vertical-align:top;}
+.winbatch.source-winbatch .kw1 {color: #800080;}
+.winbatch.source-winbatch .kw2 {color: #0080FF; font-weight: bold;}
+.winbatch.source-winbatch .kw3 {color: #0000FF;}
+.winbatch.source-winbatch .kw4 {color: #FF00FF;}
+.winbatch.source-winbatch .kw5 {color: #008000;}
+.winbatch.source-winbatch .co1 {color: #008000; font-style: italic;}
+.winbatch.source-winbatch .co2 {color: #FF1010; font-weight: bold;}
+.winbatch.source-winbatch .coMULTI {color: #808080; font-style: italic;}
+.winbatch.source-winbatch .es0 {color: #000099; font-weight: bold;}
+.winbatch.source-winbatch .br0 {color: #66cc66;}
+.winbatch.source-winbatch .sy0 {color: #66cc66;}
+.winbatch.source-winbatch .st0 {color: #ff0000;}
+.winbatch.source-winbatch .nu0 {color: #cc66cc;}
+.winbatch.source-winbatch .me0 {color: #006600;}
+.winbatch.source-winbatch .re0 {color: #0000ff;}
+.winbatch.source-winbatch .ln-xtra, .winbatch.source-winbatch li.ln-xtra, .winbatch.source-winbatch div.ln-xtra {background-color: #ffc;}
+.winbatch.source-winbatch span.xtra { display:block; }
+
+/*]]>*/
+</style></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Creating_and_Deploying_a_classes_dex_File_Manually skin-duobook2 action-view">
+<div id="globalWrapper">
+<div id="column-content"><div id="content">
+	<a id="top"></a>
+		<div id="toggles"><div id="displayPrefs">Show:<input type="checkbox" checked="checked" id="dtoggle"> Delphi<input type="checkbox" checked="checked" id="ctoggle"> C++
+</div><div id="displayPrefTab">Display Preferences</div></div>		<h1 id="firstHeading" class="firstHeading"><span dir="ltr">Creating and Deploying a classes.dex File Manually</span></h1>
+	<div id="bodyContent" class="mw-body">
+		<div id="siteSub">From RAD Studio</div>
+		<div id="contentSub"></div>
+		<div id="jump-to-nav" class="mw-jump">Jump to: <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#column-one">navigation</a>, <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#searchInput">search</a></div>
+		<!-- start content -->
+<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><i>Go Up to <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Using_a_Custom_Set_of_Java_Libraries_In_Your_RAD_Studio_Android_Apps" title="Using a Custom Set of Java Libraries In Your RAD Studio Android Apps">Using a Custom Set of Java Libraries In Your RAD Studio Android Apps</a></i>
+</p><p><br>
+Creating and deploying a <code>classes.dex</code> file manually allows you not only to add libraries to your application, but also to modify the <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Using_the_Built-in_RAD_Studio_Java_Libraries_for_Android" title="Using the Built-in RAD Studio Java Libraries for Android">built-in RAD Studio Java libraries for Android</a>, or remove those that you do not need. If you just need to add a custom Java library to your application for Android, see <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Adding_A_Java_Library_to_Your_Application_Using_the_Project_Manager" title="Adding A Java Library to Your Application Using the Project Manager">Adding A Java Library to Your Application Using the Project Manager</a>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2><span class="toctoggle">&nbsp;[<a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#" class="internal" id="togglelink">hide</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#Creating_a_classes.dex_File"><span class="tocnumber">1</span> <span class="toctext">Creating a classes.dex File</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#Determining_Which_JAR_Files_to_Include_in_Your_classes.dex_File"><span class="tocnumber">1.1</span> <span class="toctext">Determining Which JAR Files to Include in Your classes.dex File</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#Generating_a_classes.dex_File_from_JAR_Files"><span class="tocnumber">1.2</span> <span class="toctext">Generating a classes.dex File from JAR Files</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#Deploying_the_classes.dex_File"><span class="tocnumber">2</span> <span class="toctext">Deploying the classes.dex File</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#Troubleshooting"><span class="tocnumber">3</span> <span class="toctext">Troubleshooting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#Invalid_or_Missing_classes.dex_File"><span class="tocnumber">3.1</span> <span class="toctext">Invalid or Missing classes.dex File</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#See_Also"><span class="tocnumber">4</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Creating_a_classes.dex_File">Creating a <code>classes.dex</code> File</span></h2>
+<p>The <code>classes.dex</code> file is a <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Dalvik_%28software%29">Dalvik Executable file</a> that all Android applications must have. This file contains the Java libraries that the application uses.
+</p><p>When you deploy an application for Android, <b>RAD Studio</b> includes a <code>classes.dex</code> file that contains the RAD Studio built-in Java libraries. To use your own Java libraries in your RAD Studio applications, you must create a new <code>classes.dex</code> file that includes both those RAD Studio built-in Java libraries that your application needs and your own Java libraries.
+</p>
+<h3><span class="mw-headline" id="Determining_Which_JAR_Files_to_Include_in_Your_classes.dex_File">Determining Which JAR Files to Include in Your <code>classes.dex</code> File</span></h3>
+<p>To create your new <code>classes.dex</code> file, you need the JAR files of every Java library that your applications use, as well as the JAR files of the libraries on which those libraries depend.
+</p><p>This affects the RAD Studio built-in Java libraries as well. For example, if your applications need the Google Play Services Java library, your <code>classes.dex</code> file must also contain the JAR file of the Google Play Application Licensing Java library, because Google Play Application Licensing is a dependency of Google Play Services. If Google Play Application Licensing had its own dependencies, you would have to include those as well.
+</p><p>The following table lists the dependencies of the RAD Studio built-in Java libraries:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th> Library
+</th>
+<th> JAR File
+</th>
+<th> Dependencies
+</th>
+<th> Required by RAD Studio
+</th></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="http://developer.android.com/tools/support-library/index.html">Android Support</a>
+</p>
+</td>
+<td>
+<p><code>android-support-v4.jar</code>
+</p>
+</td>
+<td>
+</td>
+<td>
+<p>Yes
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/FireMonkey" title="FireMonkey">FireMonkey</a>
+</p>
+</td>
+<td>
+<p><code>fmx.jar</code>
+</p>
+</td>
+<td>
+<ul>
+<li> Android Support
+</li>
+</ul>
+</td>
+<td>
+<p>Yes
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="https://developers.google.com/admob/android/quick-start">Google Mobile Ads</a>
+</p>
+</td>
+<td>
+<p><code>GoogleAdMobAdsSdk-6.4.1.jar</code>
+</p>
+</td>
+<td>
+</td>
+<td>
+<p>No
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="https://developers.google.com/analytics/devguides/collection/android/">Google Analytics</a>
+</p>
+</td>
+<td>
+<p><code>google-analytics-v2.jar</code>
+</p>
+</td>
+<td>
+</td>
+<td>
+<p>No
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="http://developer.android.com/google/play/licensing/index.html">Google Play Application Licensing</a>
+</p>
+</td>
+<td>
+<p><code>google-play-licensing.jar</code>
+</p>
+</td>
+<td>
+</td>
+<td>
+<p>No
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="https://developer.android.com/google/play/billing/index.html">Google Play In-app Billing</a>
+</p>
+</td>
+<td>
+<p><code>google-play-billing.jar</code>
+</p>
+</td>
+<td>
+<ul>
+<li> Google Play Application Licensing
+</li>
+</ul>
+</td>
+<td>
+<p>No
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="http://developer.android.com/google/play-services/index.html">Google Play Services</a>
+</p>
+</td>
+<td>
+<p><code>google-play-services.jar</code>
+</p>
+</td>
+<td>
+<ul>
+<li> Google Play Application Licensing
+</li>
+</ul>
+</td>
+<td>
+<p>No
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="http://developer.android.com/google/play/expansion-files.html#Overview">APK Expansion</a>
+</p>
+</td>
+<td>
+<p><code>apk-expansion.jar</code>
+</p>
+</td>
+<td>
+<ul>
+<li> FireMonkey
+</li>
+<li> Google Play Application Licensing
+</li>
+</ul>
+</td>
+<td>
+<p>No
+</p>
+</td></tr>
+<tr valign="top">
+<td>
+<p><a rel="nofollow" class="external text" href="http://developer.android.com/google/gcm/index.html">Cloud Messaging</a>
+</p>
+</td>
+<td>
+<p><code>cloud-messaging.jar</code>
+</p>
+</td>
+<td>
+<ul>
+<li> FireMonkey
+</li>
+<li> Google Play Application Licensing
+</li>
+</ul>
+</td>
+<td>
+<p>No
+</p>
+</td></tr></tbody></table>
+<p>You can find these JAR files in the following folders within the RAD Studio installation folder (<code>C:\Program Files (x86)\Embarcadero\Studio\17.0</code>):
+</p>
+<ul>
+<li> <code>lib\android\debug</code>
+</li>
+<li> <code>lib\android\release</code>
+</li>
+</ul>
+<p>You can either include all the RAD Studio built-in Java libraries in your <code>classes.dex</code> file or determine, based on the information in the table above, which RAD Studio built-in Java libraries your applications need.
+</p>
+<dl>
+<dd> <b>Warning:</b> You must always include the Java libraries that are <b>Required by RAD Studio</b> in your custom <code>classes.dex</code> file.
+</dd>
+</dl>
+<h3><span class="mw-headline" id="Generating_a_classes.dex_File_from_JAR_Files">Generating a <code>classes.dex</code> File from JAR Files</span></h3>
+<p>Once you have determined which JAR files your Android applications need, you can create a <code>classes.dex</code> file from them.
+</p><p>To create a <code>classes.dex</code> file, you need to use the command-line tool <code>dx</code>. You can find this command-line tool at <code>C:\Users\Public\Documents\Embarcadero\Studio\17.0\PlatformSDKs\android-sdk-windows</code>.
+</p><p>Run <code>dx</code> with the <code>--dex</code> parameter, the <code>--output</code> parameter with the output path of the <code>classes.dex</code> file as its argument, and a space-separated list of paths to the JAR files that you want to include in the generated <code>classes.dex</code> file. For example:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="winbatch source-winbatch"><pre class="de1">dx <span class="sy0">--</span>dex <span class="sy0">--</span>output=<span class="st0">"classes.dex"</span> <span class="st0">"C:\Path\To\Library1.jar"</span> <span class="st0">"C:\Path\To\Library2.jar"</span></pre></div></div>
+<dl>
+<dd> <b>Note:</b> You should create both a debug and a release version of your <code>classes.dex</code> file. The RAD Studio debugging features are only available if the deployed <code>classes.dex</code> file contains the debug versions of the included RAD Studio built-in Java libraries.
+</dd>
+</dl>
+<h2><span class="mw-headline" id="Deploying_the_classes.dex_File">Deploying the <code>classes.dex</code> File</span></h2>
+<dl>
+<dd> <b>Warning:</b> Follow these steps carefully. Android applications must always include a valid <code>classes.dex</code> file. For more information, see <b><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually#Invalid_or_Missing_classes.dex_File">Invalid or Missing <code>classes.dex</code> File</a></b> below.
+</dd>
+</dl>
+<p>To configure your Android application to be deployed with your custom <code>classes.dex</code> file:
+</p>
+<ol>
+<li> Select <font color="#598527"><b>Project &gt; Deployment</b></font> to open the <b><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Deployment_Manager" title="Deployment Manager">Deployment Manager</a></b>.
+</li>
+<li> Uncheck the checkbox of the default <code>classes.dex</code> file.
+</li>
+<li> Click the <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/File:DMgrAddFiles.png" class="image" title="Add Files"><img alt="Add Files" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/DMgrAddFiles.png" width="16" height="16"></a> button and add your custom <code>classes.dex</code> file to the list of deployment files.
+</li>
+<li> Change the <b>Remote Path</b> of your new entry to <code>classes\</code>.
+</li>
+<li> Change the <b>Platforms</b> of your new entry to Android only.
+</li>
+</ol>
+<p><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/File:DeploymentCustomClassesDex.png" class="image"><img alt="DeploymentCustomClassesDex.png" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/DeploymentCustomClassesDex.png" width="806" height="244"></a>
+</p>
+<h2><span class="mw-headline" id="Troubleshooting">Troubleshooting</span></h2>
+<h3><span class="mw-headline" id="Invalid_or_Missing_classes.dex_File">Invalid or Missing <code>classes.dex</code> File</span></h3>
+<p>This is the error message that you see when you run an application on an Android device using RAD Studio and your application does not have a valid <code>classes.dex</code> file:
+</p>
+<pre>Unable to create process: Unable to install '&lt;APK file&gt;'. Failure [INSTALL_FAILED_DEXOPT]
+</pre>
+<p>An Android application package (APK file) must always contain a valid <code>classes.dex</code> file. That is:
+</p>
+<ul>
+<li> There must be a <code>classes.dex</code> file in the APK file.
+</li>
+<li> The <code>classes.dex</code> file must be located at <code>classes/classes.dex</code> within the APK file.
+</li>
+<li> The <code>classes.dex</code> must be a valid <a rel="nofollow" class="external text" href="http://source.android.com/devices/tech/dalvik/dex-format.html">Dalvik executable</a>.
+</li>
+</ul>
+<p>When you use a custom <code>classes.dex</code> file, you must be careful. After you unckeck the default <code>classes.dex</code> file on the <b><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Deployment_Manager" title="Deployment Manager">Deployment Manager</a></b> and you add an entry for your custom <code>classes.dex</code> file:
+</p>
+<ul>
+<li> Make sure that the entry of your custom file is checked.
+</li>
+<li> Make sure that the <b>Remote Path</b> of your new entry is <code>classes\</code>.
+</li>
+<li> Make sure that your new entry is your <code>classes.dex</code> file, and not a different file that may not be a valid <a rel="nofollow" class="external text" href="http://source.android.com/devices/tech/dalvik/dex-format.html">Dalvik executable</a>.
+</li>
+</ul>
+<p>If your Android application is not configured to be deployed with a valid <code>classes.dex</code> file, and you run your application on an Android device from RAD Studio or install on your device an APK file of your application generated with RAD Studio, the installation will fail, but it will leave data in your Android device preventing you from installing applications with the same package name as your application (see <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Version_Info#Android_Version_Info" title="Version Info">Android Version Info</a>).
+</p><p>After you attempt to install an APK file without a valid <code>classes.dex</code> file, the only know solution is to perform a <a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Factory_reset#Android">factory reset</a> of your Android device.
+</p>
+<dl>
+<dd> <b>Warning:</b> A factory reset removed all date from your device (personal data, custom settings, and more). Carefully consider whether fixing the issue is worth losing your data. If you decide to go forward, remember to back up your data before you perform the factory reset.
+</dd>
+</dl>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+<ul>
+<li> <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Using_a_Custom_Set_of_Java_Libraries_In_Your_RAD_Studio_Android_Apps#Creating_a_Native_Bridge_File_for_a_Java_Library" title="Using a Custom Set of Java Libraries In Your RAD Studio Android Apps">Creating a Native Bridge File for a Java Library</a>
+</li>
+</ul>
+<ul>
+<li> <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Adding_A_Java_Library_to_Your_Application_Using_the_Project_Manager" title="Adding A Java Library to Your Application Using the Project Manager">Adding A Java Library to Your Application Using the Project Manager</a>
+</li>
+</ul>
+<ul>
+<li> <a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Using_the_Built-in_RAD_Studio_Java_Libraries_for_Android" title="Using the Built-in RAD Studio Java Libraries for Android">Using the Built-in RAD Studio Java Libraries for Android</a>
+</li>
+</ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.327 seconds
+Real time usage: 1.652 seconds
+Preprocessor visited node count: 571/1000000
+Preprocessor generated node count: 2081/1000000
+Post‐expand include size: 2362/2097152 bytes
+Template argument size: 988/2097152 bytes
+Highest expansion depth: 15/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikidb-rad_seattle_en_:pcache:idhash:33574-0!*!0!!en!2!* and timestamp 20161019081604 and revision id 250149
+ -->
+</div><div class="printfooter">
+Retrieved from "<a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Creating_and_Deploying_a_classes.dex_File_Manually&amp;oldid=250149">http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Creating_and_Deploying_a_classes.dex_File_Manually&amp;oldid=250149</a>"</div>
+		<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Category:XE6" title="Category:XE6">XE6</a></li><li><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Category:Android" title="Category:Android">Android</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden category: <ul><li><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Category:AMMigrate" title="Category:AMMigrate">AMMigrate</a></li></ul></div></div>		<!-- end content -->
+				<div class="visualClear"></div>
+	</div>
+</div></div>
+<div id="column-one">
+	<div id="p-cactions" class="portlet">
+		<h5>Views</h5>
+		<div class="pBody">
+			<ul>
+				<li id="ca-nstab-main" class="selected"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Creating_and_Deploying_a_classes.dex_File_Manually" title="View the content page [alt-shift-c]" accesskey="c">Page</a></li>
+				<li id="ca-talk" class="new"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Talk:Creating_and_Deploying_a_classes.dex_File_Manually&amp;action=edit&amp;redlink=1" title="Discussion about the content page [alt-shift-t]" accesskey="t">Discussion</a></li>
+				<li id="ca-viewsource"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Creating_and_Deploying_a_classes.dex_File_Manually&amp;action=edit" title="This page is protected.
+You can view its source [alt-shift-e]" accesskey="e">View source</a></li>
+				<li id="ca-history"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Creating_and_Deploying_a_classes.dex_File_Manually&amp;action=history" rel="archives" title="Past revisions of this page [alt-shift-h]" accesskey="h">History</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-personal">
+		<h5>Personal tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="pt-createaccount"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Special:UserLogin&amp;returnto=Creating+and+Deploying+a+classes.dex+File+Manually&amp;type=signup">Create account</a></li>
+				<li id="pt-login"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Special:UserLogin&amp;returnto=Creating+and+Deploying+a+classes.dex+File+Manually" title="You are encouraged to log in; however, it is not mandatory [alt-shift-o]" accesskey="o">Log in</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-logo">
+<a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Main_Page" style="background-image: url(/RADStudio/Seattle/e/skins/common/images/embtlogo.png);" title="Visit the main page"></a>
+	</div>
+	<div id="p-search" class="portlet">
+		<h5><label for="searchInput">Search</label></h5>
+		<div id="searchBody" class="pBody">
+			<form action="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php" id="searchform">
+				<input type="hidden" name="title" value="Special:Search">
+				<input type="search" name="search" placeholder="Search" title="Search RAD Studio [alt-shift-f]" accesskey="f" id="searchInput" autocomplete="off">
+				<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton">&nbsp;
+				<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton">
+			</form>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-RAD_Studio_Seattle">
+		<h5>RAD Studio Seattle</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Seattle-Examples-and-Samples"><a href="http://docwiki.embarcadero.com/CodeExamples/Seattle/en/Main_Page">Seattle Examples and Samples</a></li>
+				<li id="n-Seattle-Libraries"><a href="http://docwiki.embarcadero.com/Libraries/Seattle/en/">Seattle Libraries</a></li>
+				<li id="n-Main-Page---Seattle-Topics-Wiki"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Main_Page">Main Page - Seattle Topics Wiki</a></li>
+				<li id="n-What.27s-New"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/What%27s_New">What's New</a></li>
+				<li id="n-Tutorials"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Tutorials">Tutorials</a></li>
+				<li id="n-FireMonkey-Application-Platform"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/FireMonkey_Application_Platform">FireMonkey Application Platform</a></li>
+				<li id="n-Multi-Device-Applications"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Multi-Device_Applications_Index">Multi-Device Applications</a></li>
+				<li id="n-Getting-Started"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Getting_Started_with_RAD_Studio">Getting Started</a></li>
+				<li id="n-Steps-in-Developing-a-Project"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Steps_in_Developing_a_Project">Steps in Developing a Project</a></li>
+				<li id="n-Key-Application-Types"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Key_Application_Types">Key Application Types</a></li>
+				<li id="n-FireDAC"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/FireDAC">FireDAC</a></li>
+				<li id="n-Windows-Developer.27s-Guide"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Windows_Developer%27s_Guide_Index">Windows Developer's Guide</a></li>
+				<li id="n-Modeling-Tools"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Using_the_Modeling_Tools">Modeling Tools</a></li>
+				<li id="n-IDE-Reference-and-Utilities"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/IDE_Reference_and_Utilities">IDE Reference and Utilities</a></li>
+				<li id="n-Delphi-Reference"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Delphi_Reference">Delphi Reference</a></li>
+				<li id="n-C.2B.2B-Reference"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/C%2B%2B_Reference">C++ Reference</a></li>
+				<li id="n-Subject-Index"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Index">Subject Index</a></li>
+				<li id="n-HTML5-Builder"><a href="http://docwiki.embarcadero.com/HTML5_Builder/en/" rel="nofollow">HTML5 Builder</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Newer_Versions">
+		<h5>Newer Versions</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Berlin-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/Berlin/en/Special:Search/Creating%20and%20Deploying%20a%20classes.dex%20File%20Manually" rel="nofollow">Berlin Topics</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Previous_Versions">
+		<h5>Previous Versions</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-XE8-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE8/en" rel="nofollow">XE8 Topics</a></li>
+				<li id="n-XE7-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE7/en" rel="nofollow">XE7 Topics</a></li>
+				<li id="n-XE6-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE6/en" rel="nofollow">XE6 Topics</a></li>
+				<li id="n-XE5-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE5/en" rel="nofollow">XE5 Topics</a></li>
+				<li id="n-XE4-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE4/en" rel="nofollow">XE4 Topics</a></li>
+				<li id="n-XE3-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE3/en" rel="nofollow">XE3 Topics</a></li>
+				<li id="n-XE2-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE2/en" rel="nofollow">XE2 Topics</a></li>
+				<li id="n-XE-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/XE/en" rel="nofollow">XE Topics</a></li>
+				<li id="n-2010-Topics"><a href="http://docwiki.embarcadero.com/RADStudio/2010/en" rel="nofollow">2010 Topics</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="p-lang" class="portlet">
+		<h5>In other languages</h5>
+		<div class="pBody">
+			<ul>
+				<li class="interlanguage-link interwiki-de"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/de/Manuelles_Erstellen_und_Bereitstellen_einer_classes.dex-Datei" title="Manuelles Erstellen und Bereitstellen einer classes.dex-Datei – Deutsch" lang="de" hreflang="de">Deutsch</a></li>
+				<li class="interlanguage-link interwiki-fr"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/fr/Cr%C3%A9ation_et_d%C3%A9ploiement_d%27un_fichier_classes.dex_manuellement" title="Création et déploiement d&#39;un fichier classes.dex manuellement – français" lang="fr" hreflang="fr">Français</a></li>
+				<li class="interlanguage-link interwiki-ja"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/ja/%E6%89%8B%E5%8B%95%E3%81%A7%E3%81%AE_classes.dex_%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB%E3%81%AE%E4%BD%9C%E6%88%90%E3%81%A8%E9%85%8D%E7%BD%AE" title="手動での classes.dex ファイルの作成と配置 – 日本語" lang="ja" hreflang="ja">日本語</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="generated-sidebar portlet" id="p-Assistance">
+		<h5>Assistance</h5>
+		<div class="pBody">
+			<ul>
+				<li id="n-Known-Problems-and-Recent-Fixes"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Known_Problems_in_the_Help">Known Problems and Recent Fixes</a></li>
+				<li id="n-Random-Page"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Special:Random">Random Page</a></li>
+				<li id="n-recentchanges"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Special:RecentChanges" title="A list of recent changes in the wiki [alt-shift-r]" accesskey="r">Recent changes</a></li>
+				<li id="n-help"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/Help:Contents" title="The place to find out">Help</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="portlet" id="p-tb">
+		<h5>Tools</h5>
+		<div class="pBody">
+			<ul>
+				<li id="t-whatlinkshere"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Special:WhatLinksHere/Creating_and_Deploying_a_classes.dex_File_Manually" title="A list of all wiki pages that link here [alt-shift-j]" accesskey="j">What links here</a></li>
+				<li id="t-recentchangeslinked"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Special:RecentChangesLinked/Creating_and_Deploying_a_classes.dex_File_Manually" title="Recent changes in pages linked from this page [alt-shift-k]" accesskey="k">Related changes</a></li>
+				<li id="t-specialpages"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/Special:SpecialPages" title="A list of all special pages [alt-shift-q]" accesskey="q">Special pages</a></li>
+				<li id="t-print"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Creating_and_Deploying_a_classes.dex_File_Manually&amp;printable=yes" rel="alternate" title="Printable version of this page [alt-shift-p]" accesskey="p">Printable version</a></li>
+				<li id="t-permalink"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Creating_and_Deploying_a_classes.dex_File_Manually&amp;oldid=250149" title="Permanent link to this revision of the page">Permanent link</a></li>
+				<li id="t-info"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/e/index.php?title=Creating_and_Deploying_a_classes.dex_File_Manually&amp;action=info">Page information</a></li>
+			</ul>
+		</div>
+	</div>
+</div><!-- end of the left (by default at least) column -->
+<div class="visualClear"></div>
+<div id="footer">
+	<ul id="f-list">
+		<li id="lastmod"> This page was last modified on 1 October 2015, at 08:25.</li>
+		<li id="privacy"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/RAD_Studio:Privacy_policy" title="RAD Studio:Privacy policy">Privacy policy</a></li>
+		<li id="about"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/RAD_Studio:About" title="RAD Studio:About">About RAD Studio</a></li>
+		<li id="disclaimer"><a href="http://docwiki.embarcadero.com/RADStudio/Seattle/en/RAD_Studio:General_disclaimer" title="RAD Studio:General disclaimer">Disclaimers</a></li>
+ 
+
+	<li id="contactus">Help Feedback (<a title="Create a Jira ticket with your EDN account" href="https://quality.embarcadero.com/secure/CreateIssueDetails!init.jspa?pid=10000&amp;summary=%5BRADStudio%2FSeattle%2Fen%5D+Feedback+about+%22Creating+and+Deploying+a+classes.dex+File+Manually%22&amp;issuetype=6&amp;versions=11100">QP</a>,
+	<a title="Send us an email" href="mailto:documentation@embarcadero.com?subject=%5BSeattle%5D%20Creating%20and%20Deploying%20a%20classes.dex%20File%20Manually">email</a>)</li>
+    </ul>	
+</div>
+</div>
+<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"ready","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.treeandmenu","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":585});
+}</script><script type="text/javascript" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/jquery.cookie.js.download"></script>
+<script type="text/javascript" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/jquery.fixedtableheader.js.download"></script>
+<script type="text/javascript" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/jquery.protected.js.download"></script>
+<script type="text/javascript" src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/jquery.switch.js.download"></script>
+<style type="text/css">.appmethod { display:none; }</style><script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./Creating and Deploying a classes.dex File Manually - RAD Studio_files/ga.js.download" type="text/javascript"></script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-7083814-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<div class="suggestions" style="display: none; font-size: 11.4617px;"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>
