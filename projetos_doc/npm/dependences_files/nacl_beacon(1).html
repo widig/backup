@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!-- saved from url=(0075)https://scontent.lrcdn.net/outbound-cdn-static/measurement/nacl_beacon.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <style>
+        html, body, div {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="listener"><embed name="nacl_module" id="nacl_module" width="100%" height="100%" type="application/x-pnacl" src="VisibilityMonitor.nmf"></div>
+<script>
+    var naclLoaded = false;
+    var parentWindow = null;
+    var moduleEl = document.createElement('embed');
+
+    var loadNacl = function() {
+        if (naclLoaded) {
+            return;
+        }
+        naclLoaded = true;
+        var moduleDidLoad = function() {
+            parentWindow.postMessage(JSON.stringify({
+                event: 'nacl_loaded'
+            }), '*');
+        };
+        var listener = document.getElementById('listener');
+        listener.addEventListener('load', moduleDidLoad, true);
+
+        var handleNaclMessage = function (e) {
+            var data = e.data.split('|');
+            parentWindow.postMessage(JSON.stringify({
+                event: 'nacl_data',
+                id: data[0],
+                isVisible: data[1],
+                x: data[2],
+                y: data[3],
+                width: data[4],
+                height: data[5]
+            }), '*');
+        }
+
+        var loadNaclModule = function(tool, path, attrs) {
+            moduleEl.setAttribute('name', 'nacl_module');
+            moduleEl.setAttribute('id', 'nacl_module');
+            moduleEl.setAttribute('width', '100%');
+            moduleEl.setAttribute('height', '100%');
+            moduleEl.setAttribute('type', 'application/x-pnacl');
+            moduleEl.setAttribute('src', 'VisibilityMonitor.nmf');
+            // Request the offsetTop property to force a relayout. As of Apr 11, 2014
+            // this is needed if the module is being loaded on a Chrome App's
+            // background page (see crbug.com/350445).
+            moduleEl.offsetTop;
+            moduleEl.addEventListener('message', handleNaclMessage, true);
+            listener.appendChild(moduleEl);
+        };
+        loadNaclModule();
+        moduleEl.focus();
+    };
+
+    window.addEventListener('message', function (e) {
+        switch (e.data) {
+            case 'handshake':
+                parentWindow = e.source;
+                loadNacl();
+                break;
+            default:
+                moduleEl.postMessage(e.data);
+                break;
+        }
+    });
+</script>
+
+
+</body></html>

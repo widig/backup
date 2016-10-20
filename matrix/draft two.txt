@@ -1,0 +1,60 @@
+add
+	charset
+	word
+	sentence
+	statement (match charset, word/alias, sentence)
+	alias
+	text (array of statements or sentences)
+	context (sandbox -> functions of language)
+	language
+	memory
+on time now, $___1
+add sentence alias time now, now
+-> add memory "a" time now
+add context "word"|"sentence"
+find context
+use context "word"|"sentence"
+{
+
+	set use of "word" adjective [of "word"]
+	set use of "word" noum [of "word"]
+	set use of "word" verb
+	set use of "word" pronoum
+	set use of "word" punctuation
+}
+drop context "word"|"sentencce"
+-> use context mathematics
+-> set use of "real" adjective of set
+-> add context mathematics, real set
+-> set use of "complex" adjective of set
+-> drop context mathematics
+
+-> ...
+
+find
+remove
+debug
+
+
+
+-------------------------------
+add language javascript
+use language javascript
+add word function
+add word prototype
+add word (
+add word )
+add word [
+add word ]
+add word .
+add word ;
+add word {
+add word }
+add word Date
+add word Object
+add word Array
+add word String
+add word Number
+
+add charset charsetNumbers 0 9
+add charset charsetHex 0 9 a f
