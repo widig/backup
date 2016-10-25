@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<script>
+window.addEventListener("load",function() {
+	var c = document.getElementById("canvas");
+	var ctx = c.getContext("2d");
+	var cache = {};
+	var sz = [800,640];
+	var cursor = [0,0];
+	var rowSize = 10;
+	var colSize = 10;
+	var ballPos = [0,0];
+	function circle(r,cx,cy) {
+		var img = ctx.getImageData(0,0,sz[0],sz[1]);
+		for(var x = -sz[0]/2; x < sz[0]/2;x++) {
+			for(var y = -sz[1]/2; y < sz[1]/2;y++) {
+				if( (x+sz[0]/2-cx)*(x+sz[0]/2-cx) + (y+sz[1]/2-cy)*(y+sz[1]/2-cy) < r*r ) {
+					var pos = ((y+sz[1]/2)*sz[0]+(x+sz[0]/2)) << 2;
+					img.data[pos + 0] = 0;
+					img.data[pos + 1] = 0;
+					img.data[pos + 2] = 0;
+					img.data[pos + 3] = 255;
+				}
+			}
+		}
+		ctx.putImageData(img,0,0);
+	}
+	function box(_x,_y,_w,_h,color) {
+		color = color || [0,0,0];
+		var img = ctx.getImageData(0,0,sz[0],sz[1]);
+		for(var x = -sz[0]/2; x < sz[0]/2;x++) {
+			for(var y = -sz[1]/2; y < sz[1]/2;y++) {
+				if( 
+					(x+sz[0]/2) >= _x &&
+					(x+sz[0]/2) < _x + _w &&
+					(y+sz[1]/2) >= _y &&
+					(y+sz[1]/2) < _y + _h
+				) {
+					var pos = ((y+sz[1]/2)*sz[0]+(x+sz[0]/2)) << 2;
+					img.data[pos + 0] = color[0];
+					img.data[pos + 1] = color[1];
+					img.data[pos + 2] = color[2];
+					img.data[pos + 3] = 255;
+				}
+			}
+		}
+		ctx.putImageData(img,0,0);
+	}
+	function bar() {
+		box(cursor[0],cursor[1],sz[0],rowSize);
+		box(cursor[0],cursor[1]+rowSize*63,sz[0],rowSize);
+	}
+	
+	box(cursor[0],cursor[1]+rowSize*52,colSize*5,1*colSize,[0,0,0]);
+	box(cursor[0],cursor[1]+rowSize*53,colSize*5,10*colSize,[220,220,220]);
+	circle(rowSize,ballPos[0]*rowSize*2+rowSize,ballPos[1]*rowSize*2+rowSize*62);
+	bar();
+	
+	var key = 0;
+	var keyboard = {};
+	window.addEventListener("keydown",function(e) {
+		key = e.keyCode;
+		keyboard[key] = true;
+	});
+	window.addEventListener("keyup",function(e) {
+		key = e.keyCode;
+		keyboard[key] = false;
+	});
+	function testKey(key) {
+		return (key in keyboard && keyboard[key]);
+	}
+	setInterval(function() {
+		if( testKey(37) ) {
+			console.log("left");
+		}
+		if( testKey(38) ) {
+			console.log("up");
+		}
+		if( testKey(39) ) {
+			console.log("right");
+		}
+		if( testKey(40) ) {
+			console.log("down");
+		}
+	},100);
+	
+});
+</script>
+</head>
+<body>
+<center>
+<canvas id="canvas" width="800" height="640"></canvas>
+</center>
+</body>
+</html>
